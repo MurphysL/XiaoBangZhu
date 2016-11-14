@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/publish_top_bar_height"
+    android:background="@color/base_white">
+
+    <TextView
+        android:id="@+id/publish_header_cancle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/base_color_text_gray"
+        android:textSize="@dimen/publish_top_text" />
+
+    <TextView
+        android:textColor="@color/color_base"
+        android:id="@+id/publish_header_publish"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="发布"
+        android:textSize="@dimen/publish_top_text" />
+</RelativeLayout>

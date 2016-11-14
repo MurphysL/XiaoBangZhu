@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="library-1.0.2">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.panxw.imageindicator/library/1.0.2/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.panxw.imageindicator/library/1.0.2/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.panxw.imageindicator/library/1.0.2/7684a2b95a212a47a2c0c3e25300e247e8090e1d/library-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

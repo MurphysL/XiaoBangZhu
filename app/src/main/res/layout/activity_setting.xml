@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/publish_bg_color">
+    <LinearLayout
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_action_bar_height">
+        <ImageView
+            android:id="@+id/setting_back_btn"
+            android:padding="7dp"
+            android:src="@mipmap/ic_arrow_back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="设置"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/setting_inform_btn"
+        android:layout_marginTop="25dp"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:text="我的资料"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"/>
+        <ImageView
+            android:padding="12dp"
+            android:src="@mipmap/right_arrows"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/setting_clean_btn"
+        android:layout_marginTop="25dp"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:text="清除缓存"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"/>
+        <TextView
+            android:id="@+id/setting_clean_text"
+            android:text="00.0MB"
+            android:padding="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="1dp"
+        android:id="@+id/setting_suggest_btn"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:text="意见反馈"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="1dp"
+        android:id="@+id/setting_about_btn"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:text="关于我们"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="1dp"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:text="版本号"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"/>
+        <TextView
+            android:text="0.0.1"
+            android:padding="12dp"
+            android:src="@mipmap/right_arrows"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/setting_logout_btn"
+        android:textColor="@color/base_white"
+        android:text="退出登录"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/login_btn_background"
+        android:layout_width="300dp"
+        android:layout_height="50dp" />
+
+
+
+</LinearLayout>

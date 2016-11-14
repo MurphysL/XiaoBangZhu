@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/publish_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <FrameLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="280dp">
+                <LinearLayout
+                    android:id="@+id/publish_normal"
+                    android:layout_marginRight="-25dp"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center_horizontal"
+                        android:padding="3dp"
+                        android:layout_margin="3dp"
+                        android:alpha="1"
+                        android:src="@mipmap/ic_publish_normal"
+                        android:background="@color/transparent"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp" />
+                    <TextView
+                        android:textColor="@color/base_white"
+                        android:layout_gravity="center_horizontal"
+                        android:text="普通任务"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/publish_team"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
+                    android:layout_marginRight="-25dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center_horizontal"
+                        android:padding="3dp"
+                        android:layout_margin="3dp"
+                        android:alpha="1"
+                        android:src="@mipmap/ic_publish_team"
+                        android:background="@color/transparent"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp" />
+                    <TextView
+                        android:textColor="@color/base_white"
+                        android:layout_gravity="center_horizontal"
+                        android:text="组队任务"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"></LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="280dp">
+                <LinearLayout
+                    android:clickable="true"
+                    android:id="@+id/publish_second"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_marginRight="-25dp"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:clickable="false"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="3dp"
+                        android:layout_margin="3dp"
+                        android:alpha="1"
+                        android:src="@mipmap/ic_publish_second"
+                        android:background="@color/transparent"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp" />
+                    <TextView
+                        android:clickable="false"
+                        android:textColor="@color/base_white"
+                        android:layout_gravity="center_horizontal"
+                        android:text="二手交易"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/publish_express"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_marginRight="-25dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center_horizontal"
+                        android:padding="3dp"
+                        android:layout_margin="3dp"
+                        android:alpha="1"
+                        android:src="@mipmap/ic_publish_express"
+                        android:background="@color/transparent"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp" />
+                    <TextView
+                        android:textColor="@color/base_white"
+                        android:layout_gravity="center_horizontal"
+                        android:text="快递任务"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginBottom="3dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="41dp"
+                    android:layout_height="41dp"></LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="280dp">
+                <LinearLayout
+                    android:id="@+id/publish_tangle"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center_horizontal"
+                        android:padding="3dp"
+                        android:layout_margin="3dp"
+                        android:alpha="1"
+                        android:src="@mipmap/ic_publish_tangle"
+                        android:background="@color/transparent"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp" />
+                    <TextView
+                        android:textColor="@color/base_white"
+                        android:layout_gravity="center_horizontal"
+                        android:text="纠结癌"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/publish_activity"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_height="0dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center_horizontal"
+                        android:padding="3dp"
+                        android:layout_margin="3dp"
+                        android:alpha="1"
+                        android:src="@mipmap/ic_publish_activity2"
+                        android:background="@color/transparent"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp" />
+                    <TextView
+                        android:textColor="@color/base_white"
+                        android:layout_gravity="center_horizontal"
+                        android:text="校园活动"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"></LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_marginBottom="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/publish_cancle"
+                android:layout_marginTop="234dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/bottom_bar_publish"
+                android:layout_width="42dp"
+                android:layout_height="42dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

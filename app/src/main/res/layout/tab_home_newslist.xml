@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tab_home_newslist_refresh"
+            android:textSize="16sp"
+            android:textColor="@color/color_base"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="下拉刷新"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/tab_home_newslist_pull_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
+                <ListView
+                    android:id="@+id/tab_home_newslist"
+                    android:elevation="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    tools:listitem="@layout/tab_home_newslist_item"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/linearLayout"></ListView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <LinearLayout
+            android:id="@+id/shleter1"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></LinearLayout>
+
+
+</RelativeLayout>

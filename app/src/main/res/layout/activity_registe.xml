@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background">
+
+    <com.ant.liao.GifView
+        android:background="@drawable/activity_luancher_bg"
+        android:foregroundGravity="center"
+        android:layout_centerInParent="true"
+        android:id="@+id/regist_gif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ScrollView
+        android:scrollIndicators="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/regist_account_line"
+                android:layout_marginTop="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:background="@drawable/activity_launcher_et_bg">
+                <ImageView
+                    android:padding="3dp"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_width="20dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="3"
+                    android:src="@mipmap/ic_launcher_phone"/>
+
+                <EditText
+                    android:phoneNumber="true"
+                    android:gravity="center_vertical"
+                    android:id="@+id/regist_tele"
+                    android:textColor="@color/base_white"
+                    android:background="@null"
+                    android:hint="请输入手机号"
+                    android:textColorHint="@color/login_text_color"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"/>
+
+                <Button
+                    android:layout_marginRight="-0dp"
+                    android:id="@+id/regist_get_verify_code"
+                    android:gravity="center"
+                    android:textSize="10sp"
+                    android:layout_gravity="right|top"
+                    android:textColor="@color/color_base"
+                    android:text="发送验证码"
+                    android:background="@drawable/send_verify_bg"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="45dp" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_below="@id/regist_account_line"
+                android:id="@+id/registe_verifycode_line"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:background="@drawable/activity_launcher_et_bg">
+                <ImageView
+                    android:padding="3dp"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_width="20dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="3"
+                    android:src="@mipmap/ic_registe_verify_code"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/regist_verifycode_til"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8">
+                    <EditText
+                        android:id="@+id/regist_verifycode"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/login_text_color"
+                        android:background="@null"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@id/registe_verifycode_line"
+                android:id="@+id/registe_password_line"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:background="@drawable/activity_launcher_et_bg">
+                <ImageView
+                    android:padding="3dp"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_width="20dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="3"
+                    android:src="@mipmap/ic_password"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/regist_password_til"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8">
+
+                    <EditText
+                        android:id="@+id/regist_password"
+                        android:password="true"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/login_text_color"
+                        android:background="@null"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+            </LinearLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/have_account_line"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/registe_password_line"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/regist_have_account_btn"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/base_color_text_gray"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/have_account"/>
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/ic_arrow_right"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <Button
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@color/base_white"
+                android:text="下一步"
+                android:background="@drawable/login_btn_background"
+                android:id="@+id/next_btn"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/have_account_line"
+                android:layout_width="250dp"
+                android:layout_height="50dp" />
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

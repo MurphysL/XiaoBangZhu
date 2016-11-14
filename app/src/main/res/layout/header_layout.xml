@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/base_action_bar_height">
+    android:orientation="vertical">
+    <com.xiaobangzhu.xiaobangzhu.View.HeaderLayout
+        android:id="@+id/main_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_action_bar_height"
+        android:elevation="10dp">
+    </com.xiaobangzhu.xiaobangzhu.View.HeaderLayout>
+
+</LinearLayout>

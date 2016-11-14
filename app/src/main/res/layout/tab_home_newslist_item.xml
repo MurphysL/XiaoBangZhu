@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:background="@drawable/home_item_selector"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/home_item_header"
+            android:src="@mipmap/ic_launcher_weibo"
+            android:background="@color/transparent"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:hint="昵称"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/home_item_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <TextView
+        android:lineSpacingExtra="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="@dimen/home_summary_text_size"
+        android:id="@+id/home_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+
+    <LinearLayout
+        android:id="@+id/home_item_show_images"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:layout_marginRight="5dp"
+            android:scaleType="centerCrop"
+            android:visibility="invisible"
+            android:id="@+id/home_item_show_image_first"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_marginRight="5dp"
+            android:scaleType="centerCrop"
+            android:visibility="invisible"
+            android:id="@+id/home_item_show_image_second"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:scaleType="centerCrop"
+            android:visibility="invisible"
+            android:id="@+id/home_item_show_image_thrid"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:visibility="invisible"
+            android:padding="2dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/home_item_sticky_view"
+            android:layout_alignParentLeft="true"
+            android:text="置顶"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:textColor="@color/color_base"
+            android:background="@drawable/sticky_background"
+            android:layout_width="25dp"
+            android:layout_height="16dp" />
+        
+       <ImageView
+           android:id="@+id/view_icon"
+           android:layout_marginLeft="10dp"
+           android:layout_centerVertical="true"
+           android:layout_toRightOf="@id/home_item_sticky_view"
+           android:layout_width="20dp"
+           android:layout_height="20dp"
+           android:src="@mipmap/ic_news_view"/>
+        
+        <TextView
+            android:layout_marginLeft="3dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/home_item_read_num"
+            android:layout_toRightOf="@id/view_icon"
+            android:textColor="@color/home_item_text_color"
+            android:textSize="11sp"
+            android:hint="number"
+            android:gravity="left|center_vertical"
+            android:layout_width="40dp"
+            android:layout_height="20dp" />
+
+        <ImageView
+            android:id="@+id/comment_icon"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/home_item_read_num"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/ic_comment"/>
+        <TextView
+            android:id="@+id/home_item_comment"
+            android:layout_marginLeft="3dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/comment_icon"
+            android:textColor="@color/home_item_text_color"
+            android:textSize="11sp"
+            android:hint="common"
+            android:gravity="left|center_vertical"
+            android:layout_width="50dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:textColor="@color/home_item_text_color"
+            android:layout_alignParentRight="true"
+            android:textSize="10sp"
+            android:text="刚刚"
+            android:id="@+id/home_item_time_stamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

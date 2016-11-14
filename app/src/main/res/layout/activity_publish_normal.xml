@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@color/publish_bg_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_publish_header" />
+
+    <RelativeLayout
+        android:layout_marginTop="1dp"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/normal_desc_text"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/base_white"
+            android:gravity="top"
+            android:textSize="15sp"
+            android:hint="描述您的悬赏要求"
+            android:padding="15dp"
+            android:textColorHint="@color/home_item_text_color" />
+        <cn.finalteam.galleryfinal.widget.GFImageView
+            android:id="@+id/publish_first_img"
+            android:src="@drawable/publish_add_picture"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/color_user_list_text"
+            android:id="@+id/normal_pay"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:text="支付酬劳"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RadioGroup
+            android:id="@+id/radio_pay"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="horizontal"
+            android:layout_below="@id/normal_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/radio_btn_one"
+                android:textColor="@color/color_user_list_text"
+                android:button="@drawable/publish_radio_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"/>
+            <ImageView
+                android:layout_marginLeft="-5dp"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="top"
+                android:src="@mipmap/publish_line"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:layout_marginLeft="-2dp"
+                android:id="@+id/radio_btn_five"
+                android:textColor="@color/color_user_list_text"
+                android:button="@drawable/publish_radio_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                />
+            <ImageView
+                android:layout_marginLeft="-3dp"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="top"
+                android:src="@mipmap/publish_line"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:layout_marginLeft="-5dp"
+                android:id="@+id/radio__btn_ten"
+                android:textColor="@color/color_user_list_text"
+                android:button="@drawable/publish_radio_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                />
+            <ImageView
+                android:layout_marginLeft="-5dp"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="top"
+                android:src="@mipmap/publish_line"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:layout_marginLeft="-13dp"
+                android:id="@+id/radio__btn_custom"
+                android:textColor="@color/color_user_list_text"
+                android:button="@drawable/publish_radio_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                />
+        </RadioGroup>
+        <TextView
+            android:layout_marginLeft="35dp"
+            android:layout_below="@id/radio_pay"
+            android:text="1元"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+
+            android:layout_marginLeft="130dp"
+            android:layout_below="@id/radio_pay"
+            android:text="5元"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+
+            android:layout_marginLeft="220dp"
+            android:layout_below="@id/radio_pay"
+            android:text="10元"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28dp"
+            android:layout_below="@id/radio_pay"
+            android:text="自定义"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_marginTop="2dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/publish_normal_address"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:hint="地址"
+            android:gravity="center_vertical"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical|end"
+            android:src="@mipmap/right_arrows"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="2dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:clickable="false"
+            android:id="@+id/publish_normal_death_line"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:text="截止时间"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:background="@color/base_white"
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textSize="10sp"
+            android:text="指定人群"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:id="@+id/radio_limt_person"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/radio_btn_no_limit"
+                android:textColor="@color/color_user_list_text"
+                android:button="@drawable/publish_radio_selector"
+                android:text="不限制"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"/>
+            <RadioButton
+                android:layout_marginRight="10dp"
+                android:id="@+id/radio_btn_only_girl"
+                android:textColor="@color/color_user_list_text"
+                android:button="@drawable/publish_radio_selector"
+                android:text="只限女生"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"/>
+            <RadioButton
+                android:id="@+id/radio_btn_only_boy"
+                android:textColor="@color/color_user_list_text"
+                android:button="@drawable/publish_radio_selector"
+                android:text="不限制"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"/>
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>
+
+</ScrollView>

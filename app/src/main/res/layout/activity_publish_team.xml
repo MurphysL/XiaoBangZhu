@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@color/publish_bg_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_publish_header" />
+
+    <RelativeLayout
+        android:layout_marginTop="2dp"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/team_desc_text"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/base_white"
+            android:gravity="top"
+            android:textSize="15sp"
+            android:hint="说说我的好提议吧！"
+            android:padding="15dp"
+            android:textColorHint="@color/home_item_text_color" />
+
+        <cn.finalteam.galleryfinal.widget.GFImageView
+            android:id="@+id/publish_first_img"
+            android:src="@drawable/publish_add_picture"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <EditText
+            android:inputType="number"
+            android:id="@+id/team_require_num"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:hint="需要人数，最少两人"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/team_address"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:hint="地址"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/team_endtime_btn"
+        android:layout_marginTop="2dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/team_endtime_show"
+            android:gravity="center_vertical"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:hint="截止时间"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical|end"
+            android:src="@mipmap/right_arrows"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:background="@color/base_white"
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textSize="13sp"
+            android:text="指定人群"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:id="@+id/team_special_radio"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radio_no_limit"
+                android:text="不限制"
+                android:textColor="@color/color_user_list_text"
+                android:button="@drawable/publish_radio_selector"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp" />
+
+            <RadioButton
+                android:layout_marginRight="10dp"
+                android:id="@+id/radio_only_girl"
+                android:text="只限女生"
+                android:textColor="@color/color_user_list_text"
+                android:button="@drawable/publish_radio_selector"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"  />
+
+            <RadioButton
+                android:id="@+id/radio_only_boy"
+                android:text="只限男生"
+                android:textColor="@color/color_user_list_text"
+                android:button="@drawable/publish_radio_selector"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"  />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

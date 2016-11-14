@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget id="A6914221828340" version="0.0.1">
+    <name>XiaoBangZhu</name>
+    <content src="index.html"/>
+    <access origin="*"/>
+</widget>

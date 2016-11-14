@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/light_gray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/activity_join_member_back_icon"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_arrow_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/activity_join_member_back_text"
+            android:textColor="@color/color_bottom_bg"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="开通会员"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:padding="20dp"
+        android:background="#e6b713"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/activity_join_member_header_img"
+            android:src="@mipmap/ic_publish_express"
+            android:layout_marginTop="20dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/activity_join_member_user_name"
+            android:textColor="@color/base_white"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/activity_join_member_header_img"
+            android:text="爱魔法的少女"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:id="@+id/activity_join_member_text_line"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/activity_join_member_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/activity_join_member_not_vip_text"
+                android:textColor="@color/base_white"
+                android:layout_marginTop="10dp"
+                android:text="您还不是会员"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/acivity_change_info_btn_bg"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/activity_join_member_user_name"
+                android:layout_toRightOf="@id/activity_join_member_not_vip_text"
+                android:text="立即开通"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_join_member_text_line">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_vip_1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#fff"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"
+                    android:text="普通用户"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_below="@id/activity_join_member_text_line"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_vip_2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#fff"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"
+                    android:text="普通会员(VIP1)"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_below="@id/activity_join_member_text_line"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_vip_3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#fff"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"
+                    android:text="普通用户"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_below="@id/activity_join_member_text_line"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_vip_4"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#fff"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"
+                    android:text="普通用户"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@mipmap/ic_vip_1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/circleImageView"
+            android:layout_above="@+id/activity_join_member_user_name"
+            android:layout_alignEnd="@+id/activity_join_member_header_img" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:text="会员特权"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_vip_badge"/>
+
+            <TextView
+                android:text="徽章特权"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_vip_safety"/>
+
+            <TextView
+                android:text="安全特权"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_vip_push"/>
+
+            <TextView
+                android:text="推送特权"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_vip_shopping"/>
+
+            <TextView
+                android:text="购物特权"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+     <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+         <LinearLayout
+             android:layout_weight="1"
+             android:layout_width="0dp"
+             android:orientation="vertical"
+             android:layout_height="match_parent">
+             <ImageView
+                 android:layout_gravity="center_horizontal"
+                 android:layout_width="wrap_content"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:src="@mipmap/ic_vip_travel"/>
+
+             <TextView
+                 android:text="出行特权"
+                 android:textSize="14sp"
+                 android:layout_marginTop="10dp"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content" />
+
+         </LinearLayout>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

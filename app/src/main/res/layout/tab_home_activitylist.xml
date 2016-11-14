@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tab_home_activitylist_refresh"
+            android:textSize="16sp"
+            android:textColor="@color/color_base"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="下拉刷新"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tab_home_activitylist_pull_refresh">
+                <android.support.v7.widget.RecyclerView
+                    android:layout_centerInParent="true"
+                    android:id="@+id/tab_home_activitylist"
+                    android:elevation="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    tools:listitem="@layout/tab_home_activitylist_item">
+                </android.support.v7.widget.RecyclerView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

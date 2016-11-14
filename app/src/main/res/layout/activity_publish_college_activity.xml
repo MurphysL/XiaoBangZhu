@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/publish_activity_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_publish_header" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/base_white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <EditText
+                android:id="@+id/publish_activity_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:background="@null"
+                android:hint="请输入活动标题"
+                android:textColor="@color/color_user_black_text"
+                android:textColorHint="@color/base_gray"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/base_white"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+            <EditText
+                android:id="@+id/publish_activity_address"
+                android:hint="请输入活动地址"
+                android:textColorHint="@color/base_gray"
+                android:textColor="@color/color_user_black_text"
+                android:textSize="15sp"
+                android:background="@null"
+                android:gravity="center_vertical|start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="false"
+            android:id="@+id/publish_activity_begintime"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/base_white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:gravity="center_vertical"
+                android:id="@+id/publish_activity_begintime_show"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:background="@null"
+                android:text="请选择开始时间"
+                android:textColor="@color/debit_text_color"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/publish_activity_endtime"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/base_white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:gravity="center_vertical"
+                android:id="@+id/publish_activity_endtime_show"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:background="@null"
+                android:text="请选择截止时间"
+                android:textColor="@color/debit_text_color"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/base_white"
+            android:orientation="vertical">
+
+            <cn.finalteam.galleryfinal.widget.GFImageView
+                android:id="@+id/publish_activity_picture"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="10dp"
+                android:src="@drawable/publish_add_picture" />
+
+            <EditText
+                android:id="@+id/publish_activity_content"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/base_white"
+                android:gravity="top"
+                android:hint="说说我的好提议吧！"
+                android:padding="15dp"
+                android:textColorHint="@color/home_item_text_color"
+                android:textSize="15sp"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/publish_activity_picture" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/publish_activity_more"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/base_white"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/more_options_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="更多选项"
+                android:textColorHint="@color/debit_text_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/more_options_tv"
+                android:src="@drawable/down_arraw" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/publish_activity_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:weightSum="1">
+            <EditText
+                android:layout_marginTop="20dp"
+                android:paddingStart="10dp"
+                android:background="@drawable/activity_college_et_frame"
+                android:id="@+id/publish_activity_tag"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:drawableStart="@mipmap/ic_publish_activity_flag"
+                android:drawablePadding="15dp"
+                android:hint="活动标签"
+                android:textColorHint="@color/base_gray"
+                android:textSize="12sp" />
+
+            <EditText
+                android:inputType="number"
+                android:drawableStart="@mipmap/ic_publish_activity_ticket"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/activity_college_et_frame"
+                android:id="@+id/publish_activity_ticket"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:drawablePadding="15dp"
+                android:hint="票数"
+                android:textColorHint="@color/base_gray"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="预览图"
+                android:textColor="@color/base_gray"
+                android:textSize="15sp" />
+            <cn.finalteam.galleryfinal.widget.GFImageView
+                android:visibility="visible"
+                android:src="@drawable/publish_add_picture"
+                android:layout_width="320dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/publish_activity_poster"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

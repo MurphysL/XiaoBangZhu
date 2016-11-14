@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xiaobangzhu.xiaobangzhu.UI.activity.SelectSexActivity">
+
+    <com.ant.liao.GifView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/activity_luancher_bg"/>
+    <Spinner
+
+        android:completionHint="请选择学校"
+        android:id="@+id/regist_college_spinner"
+        android:layout_marginTop="200dp"
+        android:completionThreshold="1"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp" />
+    <TextView
+        android:layout_below="@id/regist_college_spinner"
+        android:id="@+id/registe_select_college_text"
+        android:textColor="@color/base_color_text_gray"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:text="请选择您的学校"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/registe_next_btn"
+        android:text="下一步"
+        android:textColor="@color/base_white"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/registe_select_college_text"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@drawable/login_btn_background"/>
+</RelativeLayout>

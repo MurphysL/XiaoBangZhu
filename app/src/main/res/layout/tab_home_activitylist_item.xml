@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+    <ImageView
+        android:layout_alignParentTop="true"
+        android:id="@+id/activity_item_bg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-25dp"
+        android:layout_below="@id/activity_item_bg"
+        android:id="@+id/activity_item_circle"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
+        android:textStyle="bold"
+        android:layout_below="@id/activity_item_circle"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/activity_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textColor="@color/base_color_text_black"
+        android:id="@+id/activity_item_desc"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center|left"
+        android:text=""
+        android:layout_below="@id/activity_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+   <LinearLayout
+       android:layout_marginLeft="20dp"
+       android:layout_marginTop="10dp"
+       android:orientation="horizontal"
+       android:layout_below="@id/activity_item_desc"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+       <TextView
+           android:id="@+id/activity_item_tag1"
+           android:text=""
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+       <TextView
+           android:layout_marginLeft="20dp"
+           android:id="@+id/activity_item_tag2"
+           android:text=""
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+   </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/activity_item_desc"
+        android:id="@+id/activity_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/activity_item_line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/activity_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <include layout="@layout/commen_horizontal_line" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/activity_item_line"
+        android:id="@+id/activity_item_join"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="-5dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="-5dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="-5dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="-5dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="-5dp"/>
+
+        <TextView
+            android:id="@+id/activity_item_numbers"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activity_enter_activity"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/activity_item_line"
+        android:textSize="10sp"
+        android:gravity="center"
+        android:textColor="@color/base_white"
+        android:text="加入活动"
+        android:background="@drawable/login_btn_background"
+        android:layout_width="75dp"
+        android:layout_height="30dp" />
+
+</RelativeLayout>

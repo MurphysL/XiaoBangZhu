@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+    <RelativeLayout
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_action_bar_height">
+        <ImageView
+            android:id="@+id/suggest_back"
+            android:padding="7dp"
+            android:src="@mipmap/ic_arrow_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="意见反馈"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="@color/base_white"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:padding="10dp"
+            android:background="@null"
+            app:hintTextAppearance="@style/ActionBarTitle"
+            android:id="@+id/suggest_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:background="@null"
+                android:id="@+id/suggest_content"
+                android:textSize="15sp"
+                android:gravity="start"
+                android:padding="20dp"
+                android:hint="告诉我们的您的意见和吐槽,我们会做的更好!"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/suggest_num"
+            android:textColor="@color/color_base"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="0/300"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    
+    <EditText
+        android:id="@+id/suggest_phone"
+        android:textSize="15sp"
+        android:layout_marginTop="25dp"
+        android:background="@color/base_white"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical|start"
+        android:hint="联系方式:手机号/QQ/邮箱"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:textColor="@color/base_white"
+        android:text="发送"
+        android:background="@drawable/login_btn_background"
+        android:id="@+id/send_btn"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/have_account_line"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="45dp" />
+
+
+</LinearLayout>

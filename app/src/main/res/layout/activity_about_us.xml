@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+    <RelativeLayout
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_action_bar_height">
+        <ImageView
+            android:id="@+id/about_us_back"
+            android:padding="7dp"
+            android:src="@mipmap/ic_arrow_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="关于我们"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:src="@drawable/activity_about_us_bg"/>
+
+    <LinearLayout
+        android:id="@+id/about_us_weixin"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:textColor="@color/base_gray"
+            android:paddingLeft="25dp"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:text="关注微信"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"/>
+        <TextView
+            android:paddingLeft="30dp"
+            android:textColor="@color/base_color_text_black"
+            android:gravity="center_vertical"
+            android:id="@+id/setting_clean_text"
+            android:text="CollegeWaiter"
+            android:layout_width="0dp"
+            android:padding="12dp"
+            android:layout_weight="9"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <include layout="@layout/commen_horizontal_line" />
+
+    <LinearLayout
+        android:id="@+id/about_us_weibo"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:textColor="@color/base_gray"
+            android:paddingLeft="25dp"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:text="关注微信"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"/>
+        <TextView
+            android:paddingLeft="30dp"
+            android:textColor="@color/base_color_text_black"
+            android:gravity="center_vertical"
+            android:text="\@黑白小生工作室"
+            android:layout_width="0dp"
+            android:padding="12dp"
+            android:layout_weight="9"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <include layout="@layout/commen_horizontal_line" />
+
+    <LinearLayout
+        android:id="@+id/about_us_cooperation"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:textColor="@color/base_gray"
+            android:paddingLeft="25dp"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:text="关注微信"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"/>
+        <TextView
+            android:paddingLeft="30dp"
+            android:textColor="@color/base_color_text_black"
+            android:gravity="center_vertical"
+            android:text="sxhbxs@163.com"
+            android:layout_width="0dp"
+            android:padding="12dp"
+            android:layout_weight="9"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <include layout="@layout/commen_horizontal_line" />
+
+    <TextView
+        android:padding="25dp"
+        android:lineSpacingExtra="5dp"
+        android:text="萧帮主是一个立足于校园的平台，用户可以在这个平台享受校园生活的方方面面。去了解如何学习，如何考试。"
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/publish_bg_color"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_publish_header" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/base_white"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/second_desc_text"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/base_white"
+                android:gravity="top"
+                android:hint="描述您的物品"
+                android:padding="15dp"
+                android:textColorHint="@color/home_item_text_color"
+                android:textSize="15sp" />
+
+            <cn.finalteam.galleryfinal.widget.GFImageView
+                android:id="@+id/publish_first_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="10dp"
+                android:src="@drawable/publish_add_picture" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/base_white"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/second_use_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="使用时间"
+                android:textColor="@color/color_user_list_text"
+                android:textSize="14sp" />
+
+            <RadioGroup
+                android:id="@+id/radio_use_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/second_use_time"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <RadioButton
+                    android:id="@+id/full_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:button="@drawable/publish_radio_selector"
+                    android:textColor="@color/color_user_list_text" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="-5dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@mipmap/publish_line" />
+
+                <RadioButton
+                    android:id="@+id/one_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="-2dp"
+                    android:button="@drawable/publish_radio_selector"
+                    android:textColor="@color/color_user_list_text" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="-3dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@mipmap/publish_line" />
+
+                <RadioButton
+                    android:id="@+id/one_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="-5dp"
+                    android:button="@drawable/publish_radio_selector"
+                    android:textColor="@color/color_user_list_text" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="-5dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@mipmap/publish_line" />
+
+                <RadioButton
+                    android:id="@+id/use_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="-13dp"
+                    android:button="@drawable/publish_radio_selector"
+                    android:textColor="@color/color_user_list_text" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radio_use_time"
+                android:layout_marginLeft="35dp"
+                android:text="全新" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radio_use_time"
+                android:layout_marginLeft="130dp"
+                android:text="一个月" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radio_use_time"
+                android:layout_marginLeft="220dp"
+                android:text="一年" />
+
+            <TextView
+                android:id="@+id/publish_second_custom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/radio_use_time"
+                android:layout_marginRight="28dp"
+                android:text="自定义" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/base_white"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="价格"
+                android:textColor="@color/color_user_list_text"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/second_price_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:background="@null"
+                android:hint="请输入价格"
+                android:inputType="number"
+                android:textColorHint="@color/debit_text_color"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/base_white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:text="分类"
+                android:textColor="@color/color_user_list_text"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/second_tag_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:background="@null"
+                android:hint="请选择分类"
+                android:textColorHint="@color/debit_text_color"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/base_white"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:text="地址"
+                android:textColor="@color/color_user_list_text"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/second_address_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:background="@null"
+                android:hint="请选择地址"
+                android:textColorHint="@color/debit_text_color"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</ScrollView>

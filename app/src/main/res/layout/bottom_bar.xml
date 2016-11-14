@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="14dp"
+    android:layout_weight="1"
+    android:orientation="horizontal"
+    android:background="@color/base_white"
+    android:paddingTop="7dp">
+
+    <!--首页-->
+    <LinearLayout
+        android:id="@+id/bottom_home"
+        android:clickable="true"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginRight="12dp">
+
+        <ImageView
+            android:id="@+id/bottom_home_image"
+            android:clickable="false"
+            android:src="@drawable/bottom_bar_home_selected"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+        <TextView
+            android:textSize="@dimen/bottom_bar_text_size"
+            android:id="@+id/bottom_home_text"
+            android:text="首页"
+            android:textColor="@color/color_base"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"/>
+
+    </LinearLayout>
+
+    <!--悬赏-->
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/bottom_reward"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginRight="12dp">
+
+        <ImageView
+            android:id="@+id/bottom_reward_image"
+            android:src="@drawable/reward_normal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:clickable="false"/>
+        <TextView
+            android:textSize="@dimen/bottom_bar_text_size"
+            android:id="@+id/bottom_reward_text"
+            android:text="悬赏"
+            android:textColor="@color/color_user_list_text"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"/>
+
+    </LinearLayout>
+
+    <!--publish_publish-->
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/bottom_publish"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/bottom_publish_image"
+            android:src="@drawable/bottom_bar_publish"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!--借贷-->
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/bottom_debit"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="12dp">
+
+        <ImageView
+            android:clickable="false"
+            android:id="@+id/bottom_debit_image"
+            android:src="@drawable/bottom_bar_debit_normal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+        <TextView
+            android:textSize="@dimen/bottom_bar_text_size"
+            android:id="@+id/bottom_debit_text"
+            android:text="花吧"
+            android:textColor="@color/color_user_list_text"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"/>
+
+    </LinearLayout>
+
+    <!--个人-->
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/bottom_person"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="12dp">
+
+        <ImageView
+            android:clickable="false"
+            android:id="@+id/bottom_person_image"
+            android:src="@drawable/person_normal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+        <TextView
+            android:textSize="@dimen/bottom_bar_text_size"
+            android:id="@+id/bottom_person_text"
+            android:text="个人"
+            android:textColor="@color/color_user_list_text"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"/>
+
+    </LinearLayout>
+</LinearLayout>

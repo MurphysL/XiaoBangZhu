@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@color/base_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_action_bar_height">
+        <ImageView
+            android:id="@+id/auth_back_btn"
+            android:padding="7dp"
+            android:src="@mipmap/ic_arrow_back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="实名认证"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"/>
+    </LinearLayout>
+
+    <TextView
+        android:background="@color/home_item_text_color"
+        android:paddingLeft="20dp"
+        android:text="填写基本资料"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <!--姓名-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="37dp">
+        <TextView
+            android:gravity="center"
+            android:text="姓名"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <include layout="@layout/common_vertical_line" />
+        <EditText
+            android:id="@+id/auth_name"
+            android:background="@null"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:hint="请输入真实姓名"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/commen_horizontal_line" />
+
+    <!--教育-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="37dp">
+        <TextView
+            android:gravity="center"
+            android:text="教育"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <include layout="@layout/common_vertical_line" />
+        <RadioGroup
+            android:id="@+id/auth_education_radio_group"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:hint="请输入真实姓名"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <RadioButton
+                android:checked="true"
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal"
+                android:button="@drawable/activity_auth_confi_selector"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:text="在读"
+                android:layout_weight="0.18"
+                android:id="@+id/auth_confi" />
+            <RadioButton
+                android:layout_gravity="center_horizontal"
+                android:button="@drawable/activity_auth_confi_selector"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:text="已毕业"
+                android:layout_weight="0.18"
+                android:id="@+id/auth_unconfi" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+    <include layout="@layout/commen_horizontal_line" />
+    <!--学校-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="37dp">
+        <TextView
+            android:gravity="center"
+            android:text="学校"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <include layout="@layout/common_vertical_line" />
+        <EditText
+            android:id="@+id/auth_college"
+            android:gravity="center_vertical"
+            android:background="@null"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:hint="请输入学校"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <include layout="@layout/commen_horizontal_line" />
+    <!--入学年份-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="37dp">
+        <TextView
+            android:gravity="center"
+            android:text="入学年份"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <include layout="@layout/common_vertical_line" />
+        <EditText
+
+            android:id="@+id/auth_college_start_time"
+            android:inputType="number"
+            android:background="@null"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:hint="请输入入学年份"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/commen_horizontal_line" />
+    <!--手机号码-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="37dp">
+        <TextView
+            android:gravity="center"
+            android:text="手机号码"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <include layout="@layout/common_vertical_line" />
+        <EditText
+            android:id="@+id/auth_phone"
+            android:inputType="phone"
+            android:background="@null"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:hint="请输入手机号码"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <include layout="@layout/commen_horizontal_line" />
+    <!--身份证号码-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="37dp">
+        <TextView
+            android:gravity="center"
+            android:text="身份证号码"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <include layout="@layout/common_vertical_line" />
+        <EditText
+            android:id="@+id/auth_identify"
+            android:inputType="number"
+            android:background="@null"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:hint="请输入身份号码"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/commen_horizontal_line" />
+
+    <!--证件照-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <TextView
+                android:gravity="center"
+                android:text="上传证件"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <cn.finalteam.galleryfinal.widget.GFImageView
+                android:id="@+id/auth_picture"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/publish_add_picture"
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:background="#d8d8d8"
+            android:layout_width="1dp"
+            android:layout_height="70dp"></LinearLayout>
+        <EditText
+            android:background="@null"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:hint="示例图片什么鬼"
+            android:layout_weight="7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <include layout="@layout/commen_horizontal_line" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="10sp"
+        android:text="注：我们会对您的资料进行隐私保护，绝不对外泄露"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/base_white"
+        android:text="提交"
+        android:gravity="center"
+        android:background="@drawable/login_btn_background"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:id="@+id/auth_submit_btn" />
+
+
+</LinearLayout>

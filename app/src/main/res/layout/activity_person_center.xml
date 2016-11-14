@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+        <ImageView
+            android:scaleType="centerCrop"
+            android:src="@color/light_gray"
+            android:id="@+id/person_center_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@mipmap/ic_account"
+            android:id="@+id/person_center_head_portrait"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@color/transparent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"/>
+        <TextView
+            android:textSize="12sp"
+            android:textColor="@color/base_white"
+            android:id="@+id/person_center_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="昵称"
+            android:gravity="center"
+            android:layout_below="@+id/person_center_head_portrait"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:textSize="12sp"
+            android:textColor="@color/base_white"
+            android:id="@+id/person_center_slogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="个性签名"
+            android:gravity="center"
+            android:layout_below="@id/person_center_nick_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:paddingLeft="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/base_white"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/home_summary_text_size"
+                    android:gravity="center"
+                    android:text="1498"
+                    android:id="@+id/person_center_good_nummber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@color/base_white"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="@dimen/home_summary_text_size"
+                    android:text="获赞"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:background="@color/base_color_text_gray"
+                android:layout_width="1dp"
+                android:layout_height="match_parent">
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/base_white"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/home_summary_text_size"
+                    android:gravity="center"
+                    android:text="0"
+                    android:id="@+id/person_center_view_nummber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@color/base_white"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="@dimen/home_summary_text_size"
+                    android:text="关注"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/base_color_text_gray"
+                android:layout_width="1dp"
+                android:layout_height="match_parent">
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/base_white"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/home_summary_text_size"
+                    android:gravity="center"
+                    android:text="0"
+                    android:id="@+id/person_center_fans_nummber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@color/base_white"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="@dimen/home_summary_text_size"
+                    android:text="粉丝"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <com.tencent.smtt.sdk.WebView
+        android:id="@+id/person_center_webview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+    </com.tencent.smtt.sdk.WebView>
+
+</LinearLayout>

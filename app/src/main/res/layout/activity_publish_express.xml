@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+    <include layout="@layout/layout_publish_header" />
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Spinner
+            android:completionHint="请选择快递"
+            android:layout_gravity="center"
+            android:background="@color/base_white"
+            android:id="@+id/express_type_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        </Spinner>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:clickable="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:id="@+id/publish_express_name"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:hint="收货人姓名"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:clickable="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:id="@+id/publish_express_address"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:hint="收货地址"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:clickable="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:inputType="number"
+            android:id="@+id/publish_express_phone_tail"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:hint="手机尾号"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:clickable="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:inputType="number"
+            android:id="@+id/publish_express_id"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:hint="快递编号"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/publish_express_deathtime"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/publish_express_deathtime_show"
+            android:clickable="false"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:hint="截止时间"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:clickable="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/base_white"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:inputType="number"
+            android:id="@+id/publish_express_tip"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:hint="赏金"
+            android:textColorHint="@color/debit_text_color"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

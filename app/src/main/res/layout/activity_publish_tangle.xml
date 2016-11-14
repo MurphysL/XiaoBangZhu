@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/publish_bg_color"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_publish_header" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/tangle_desc_text"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/base_white"
+            android:gravity="top"
+            android:hint="描述您纠结的内容"
+            android:padding="15dp"
+            android:textColorHint="@color/home_item_text_color" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/base_white"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/tangle_first_choose"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:background="@color/base_white"
+            android:hint="第一个选项"
+            android:paddingLeft="15dp"
+            android:gravity="center"
+            android:textColor="@color/publish_text" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_publish_tangle_or" />
+
+        <EditText
+            android:id="@+id/tangle_second_choose"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:background="@color/base_white"
+            android:gravity="center"
+            android:hint="第二个选项"
+            android:paddingRight="15dp"
+            android:textColor="@color/publish_text" />
+    </LinearLayout>
+</LinearLayout>

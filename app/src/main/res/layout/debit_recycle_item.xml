@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:layout_weight="1"
+    android:layout_height="130dp"
+    android:background="@color/base_white"
+    android:layout_margin="0.5dp">
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/debit_fast_cash"
+        android:id="@+id/debit_recycle_item_img"
+        android:layout_marginTop="25dp"
+        android:layout_width="30dp"
+        android:layout_height="45dp" />
+    <TextView
+        android:textColor="@color/debit_text_color"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:text="技术体现"
+        android:id="@+id/debit_recycle_item_text"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/debit_recycle_item_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

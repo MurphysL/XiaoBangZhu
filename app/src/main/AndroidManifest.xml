@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaobangzhu.xiaobangzhu"
+    android:versionCode="0"
+    android:versionName="1.0">
+    <!-- Required -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+
+    <!-- 访问网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 写外部存储 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 访问wifi网络信息,wifi信息可用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取wifi的获取权限,wifi信息可用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 唤醒CPU -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 控制振动器 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 使用摄像头 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 直接拨打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 直接发送短信 -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- 读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 读取手机通讯录 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- 写入手机通讯录 -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 闪光灯 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- 读取低级别的系统日志文件 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!-- 开机启动 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 手机必要要有照相机 且能自动对焦 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--首页开屏-->
+        <activity android:name=".UI.activity.AdActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--启动界面-->
+        <activity
+            android:name=".UI.activity.LaunchActivity"
+            android:noHistory="true"
+            android:clearTaskOnLaunch="true">
+
+        </activity>
+        <!--主界面-->
+        <activity
+            android:name=".UI.activity.MainActivity">
+        </activity>
+
+        <!--web界面-->
+        <activity android:name=".UI.activity.WebActivity"></activity>
+
+
+        <!--注册界面-->
+        <activity android:name=".UI.activity.RegisteActivity"></activity>
+        <!--选择学校界面-->
+        <activity android:name=".UI.activity.SelectCollegeActivity"></activity>
+        <!--选择性别界面-->
+        <activity android:name=".UI.activity.SelectSexActivity"></activity>
+
+        <!--个人中心界面-->
+        <activity android:name=".UI.activity.PersonCenterActivity"></activity>
+
+
+        <!--用户认证界面-->
+        <activity android:name=".UI.activity.AuthActivity"></activity>
+
+        <!--开通会员界面-->
+        <activity android:name=".UI.activity.JoinMembersActivity"></activity>
+        <!--设置界面-->
+        <activity android:name=".UI.activity.SettingActivity"></activity>
+        <!--修改个人信息界面-->
+        <activity android:name=".UI.activity.UpdateUserActivity"></activity>
+        <!--意见反馈界面-->
+        <activity android:name=".UI.activity.SuggestActivity"></activity>
+        <!--关于我们界面-->
+        <activity android:name=".UI.activity.AboutUsActivity"></activity>
+        <!--发布界面-->
+        <activity
+            android:name=".UI.activity.PublishActivity"
+            android:theme="@style/publishStyle">
+        </activity>
+        <!--普通发布界面-->
+        <activity android:name=".UI.activity.PublishNormalActivity"></activity>
+        <!--二手发布界面-->
+        <activity android:name=".UI.activity.PublishSecondActivity"></activity>
+        <!--纠结癌发布界面-->
+        <activity android:name=".UI.activity.PublishTangleActivity"></activity>
+        <!--组队发布界面-->
+        <activity android:name=".UI.activity.PublishTeamActivity"></activity>
+        <!--快递任务发布-->
+        <activity android:name=".UI.activity.PublishExpressActivity"></activity>
+        <!--发布校园活动界面-->
+        <activity android:name=".UI.activity.PublishCollegeActivity"></activity>
+
+        <!--支付宝-->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <activity android:name=".AliPay.PayDemoActivity"/>
+        <activity android:name=".AliPay.PayOrderActivity"/>
+
+
+        <!--腾讯X5引擎-->
+        <provider
+            android:name="com.uzmap.pkg.uzapp.UProvider"
+            android:authorities="com.uzmap.pkg.any.ups"
+            android:exported="false"
+            android:label="udmg" />
+        <service
+            android:name="com.uzmap.pkg.uzsocket.UPnsService"
+            android:enabled="true"
+            android:label="upns"
+            android:process=":remote" />
+        <!-- android:process=":upush" -->
+        <receiver
+            android:name="com.uzmap.pkg.uzapp.UPExtraBridge"
+            android:enabled="true"
+            android:label="upns"
+            android:process=":remote">
+            <!-- android:process=":upush" -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter>
+                <!-- 从Google play安装应用后将向该应用发本广播 -->
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.apicloud.notification" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.tencent.smtt.sdk.VideoActivity"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.tencent.smtt.tbs.video.PLAY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="android-volley-1.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.github.erd/android-volley/1.0.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.github.erd/android-volley/1.0.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.erd/android-volley/1.0.0/36193b41dc33999f81cc3cf2f571d4edc1dd1e71/android-volley-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

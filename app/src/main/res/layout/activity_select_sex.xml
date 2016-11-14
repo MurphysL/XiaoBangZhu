@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xiaobangzhu.xiaobangzhu.UI.activity.SelectSexActivity">
+
+    <com.ant.liao.GifView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/activity_luancher_bg"/>
+    
+    <LinearLayout
+        android:id="@+id/registe_sex_line"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+        <ImageView
+            android:id="@+id/registe_boy_iamge"
+            android:clickable="true"
+            android:src="@drawable/registe_boy_selected"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/registe_girl_iamge"
+            android:clickable="true"
+            android:src="@drawable/registe_girl_unselected"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/registe_select_sex_text"
+        android:textColor="@color/base_color_text_gray"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/registe_sex_line"
+        android:text="请选择您的性别"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/registe_registe_btn"
+        android:text="注册"
+        android:textColor="@color/base_white"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/registe_select_sex_text"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@drawable/login_btn_background"/>
+</RelativeLayout>
