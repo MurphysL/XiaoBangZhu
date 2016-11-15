@@ -15,6 +15,9 @@ import com.xiaobangzhu.xiaobangzhu.Bean.ActivityListResultCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.LoadMoreListener;
 import com.xiaobangzhu.xiaobangzhu.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -66,15 +69,38 @@ public class ActivityListRecycleAdapter extends RecyclerView.Adapter<RecyclerVie
             itemViewHolder.numTextView.setText(data.getPerson_num() + "");
             itemViewHolder.tag_1_TextView.setText(data.getTags());
             itemViewHolder.timeTextView.setText(data.getC_time());
-            if (onItemClickListener != null) {
-                itemViewHolder.joinBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Log.i(TAG, "onClick:is use full");
-                        onItemClickListener.onItemClick(itemViewHolder, data, position);
-                    }
-                });
+
+            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            long t = 0;
+            try {
+                t = sdf.parse(data.getC_time()).getTime();
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
+
+            /**
+             * Y
+             */
+            long now = System.currentTimeMillis();
+            Log.i(TAG, "onBindViewHolder: " +  data.getC_time() + " " + t + " " + now);
+
+            if(t < now){
+                itemViewHolder.joinBtn.setBackgroundResource(R.color.base_gray);
+                itemViewHolder.joinBtn.setClickable(false);
+                itemViewHolder.joinBtn.setText("活动结束");
+            }else{
+                if (onItemClickListener != null) {
+                    itemViewHolder.joinBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+
+                        public void onClick(View v) {
+                            Log.i(TAG, "onClick:is use full");
+                            onItemClickListener.onItemClick(itemViewHolder, data, position);
+                        }
+                    });
+                }
+            }
+
         }
     }
 

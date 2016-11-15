@@ -115,16 +115,29 @@ public class AuthActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         });
     }
 
+    /**
+     * Y
+     * 教育背景--》》性质
+     * @param group
+     * @param checkedId
+     */
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId) {
-            case R.id.auth_confi:
-                education = "在读";
+            case R.id.auth_stu:
+                education = "学生";
                 break;
-            case R.id.auth_unconfi:
-                education = "已毕业";
+            case R.id.auth_tea:
+                education = "教师";
+                break;
+            case R.id.auth_org:
+                education = "组织";
+                break;
+            case R.id.auth_bus:
+                education = "商家";
                 break;
         }
+        Log.i(TAG, "onCheckedChanged: " + education);
     }
 
     @Override

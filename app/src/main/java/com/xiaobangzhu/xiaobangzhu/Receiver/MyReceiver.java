@@ -25,6 +25,8 @@ import cn.jpush.android.api.JPushInterface;
  */
 public class MyReceiver extends BroadcastReceiver {
 	private static final String TAG = "JPush";
+	private String title;
+	private String content;
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
@@ -104,22 +106,24 @@ public class MyReceiver extends BroadcastReceiver {
 	//send msg to MainActivity
 	private void processCustomMessage(Context context, Bundle bundle) {
 		//if (MainActivity.isForeground) {
-			String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
-			String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
-			Intent msgIntent = new Intent(MyApplication.getInstance().MESSAGE_RECEIVED_ACTION);
-			msgIntent.putExtra(MyApplication.getInstance().KEY_MESSAGE, message);
-			if (!PushUtil.isEmpty(extras)) {
-				try {
-					JSONObject extraJson = new JSONObject(extras);
-					if (null != extraJson && extraJson.length() > 0) {
-						msgIntent.putExtra(MyApplication.getInstance().KEY_EXTRAS, extras);
-					}
-				} catch (JSONException e) {
-
+		String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
+		Log.i(TAG, "processCustomMessage: " + message);
+		String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
+		Log.i(TAG, "processCustomMessage: " + extras);
+		Intent msgIntent = new Intent(MyApplication.getInstance().MESSAGE_RECEIVED_ACTION);
+		msgIntent.putExtra(MyApplication.getInstance().KEY_MESSAGE, message);
+		if (!PushUtil.isEmpty(extras)) {
+			try {
+				JSONObject extraJson = new JSONObject(extras);
+				if (null != extraJson && extraJson.length() > 0) {
+					msgIntent.putExtra(MyApplication.getInstance().KEY_EXTRAS, extras);
 				}
+			} catch (JSONException e) {
 
 			}
-			context.sendBroadcast(msgIntent);
+
+		}
+		context.sendBroadcast(msgIntent);
 		//}
 	}
 }

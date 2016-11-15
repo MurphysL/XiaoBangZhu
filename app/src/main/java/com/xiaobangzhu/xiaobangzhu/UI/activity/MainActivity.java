@@ -2,6 +2,8 @@ package com.xiaobangzhu.xiaobangzhu.UI.activity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -19,11 +21,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.uzmap.pkg.uzsocket.api.Receiver;
+import com.uzmap.pkg.uzsocket.g.c;
 import com.wei.zxinglibrary.activity.CaptureActivity;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.NetRequestManager;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.UpdateService;
 import com.xiaobangzhu.xiaobangzhu.R;
+import com.xiaobangzhu.xiaobangzhu.Receiver.MyReceiver;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.DebitFragment;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.HomeFragment;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.HomeFragment2;
@@ -51,6 +56,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     PagerAdapter mAdapter;
     Bundle bundle;
     TextView titleTextView;
+
+    private class MainReceiver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle bundle = intent.getBundleExtra(MyApplication.getInstance().KEY_EXTRAS);
+            Log.i(TAG , "receiver" + bundle.getString(MyApplication.getInstance().KEY_MESSAGE));
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +75,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         Log.i(TAG, " initUserInform : " + MyApplication.getInstance().getUserToken());
         
         checkVersion();
+
     }
 
     /**

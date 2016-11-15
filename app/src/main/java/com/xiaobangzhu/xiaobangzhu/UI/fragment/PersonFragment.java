@@ -26,6 +26,7 @@ import com.xiaobangzhu.xiaobangzhu.R;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.AuthActivity;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.JoinMembersActivity;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.LaunchActivity;
+import com.xiaobangzhu.xiaobangzhu.UI.activity.MessageActivity;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.PersonCenterActivity;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.SettingActivity;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.UpdateUserActivity;
@@ -169,7 +170,7 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
                 bundle.putString("url",HtmlManager.getmInstance().getUrlForMyTicket(MyApplication.getInstance().getUserToken()));
                 break;
             case 3:
-                bundle.putString("title", "我的订单");
+                bundle.putString("title", "我的任务");
                 bundle.putString("url",HtmlManager.getmInstance().getUrlForMyOrder(MyApplication.getInstance().getUserToken()));
                 break;
             case 4:
@@ -205,7 +206,7 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
                 startActivity(intent);
                 break;
             case R.id.person_message_btn:
-                MyApplication.showToastShort("功能暂未开放");
+                startActivity(new Intent(getContext() , MessageActivity.class));
                 break;
             case R.id.person_attention_btn:
                 intent.setClass(getActivity(), WebActivity.class);

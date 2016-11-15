@@ -1,10 +1,12 @@
 package com.xiaobangzhu.xiaobangzhu;
 
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.app.Notification;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -20,8 +22,11 @@ import com.qiniu.android.storage.UploadManager;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
 import com.xiaobangzhu.xiaobangzhu.Bean.LoginResultCode;
+import com.xiaobangzhu.xiaobangzhu.UI.activity.MainActivity;
 import com.xiaobangzhu.xiaobangzhu.Utils.PushUtil;
 import com.xiaobangzhu.xiaobangzhu.View.PicassoImageLoader;
+
+import java.util.List;
 
 import cn.finalteam.galleryfinal.CoreConfig;
 import cn.finalteam.galleryfinal.FunctionConfig;
@@ -369,6 +374,24 @@ public class MyApplication extends Application {
         if (alertDialog != null && alertDialog.isShowing()) {
             alertDialog.dismiss();
         }
+    }
+
+    /**
+     * 判断主界面是否在前台
+     *
+     */
+    private boolean isForeground() {
+
+        ActivityManager am = (ActivityManager) getApplicationContext().getSystemService(getApplicationContext().ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(1);
+        if (list != null && list.size() > 0) {
+            ComponentName cpn = list.get(0).topActivity;
+            if (MainActivity.class.equals(cpn.getClassName())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 

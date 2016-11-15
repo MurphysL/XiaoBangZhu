@@ -79,7 +79,7 @@ public class NewsListAdapter extends BaseAdapter {
             viewHolder.itemShowImgSecond = (ImageView) convertView.findViewById(R.id.home_item_show_image_second);
             viewHolder.itemShowImgThrid = (ImageView) convertView.findViewById(R.id.home_item_show_image_thrid);
 
-            viewHolder.itemSticky = (TextView) convertView.findViewById(R.id.home_item_sticky_view);
+            //viewHolder.itemSticky = (TextView) convertView.findViewById(R.id.home_item_sticky_view);
             viewHolder.itemReadNum = (TextView) convertView.findViewById(R.id.home_item_read_num);
             viewHolder.itemComment = (TextView) convertView.findViewById(R.id.home_item_comment);
             viewHolder.itemTimeStamp = (TextView) convertView.findViewById(R.id.home_item_time_stamp);

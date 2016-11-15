@@ -227,8 +227,7 @@ public class UpdateDownloadRequest implements Runnable {
             } catch (IOException e) {
                 e.printStackTrace();
                 sendFailureMessage(FailureCode.IO);
-            }
-            finally {
+            } finally {
 
                 try {
                     if(is != null){

@@ -128,7 +128,7 @@ public class NewsListRecycleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         public final CircleImageView itemHeadPortraitImg;
         public final TextView itemNickName;
         public final TextView itemTitle;
-        public final TextView itemSticky;
+       // public final TextView itemSticky;
         public final TextView itemReadNum;
         public final TextView itemComment;
         public final TextView itemTimeStamp;
@@ -144,7 +144,7 @@ public class NewsListRecycleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             itemShowImgSecond = (ImageView) itemView.findViewById(R.id.home_item_show_image_second);
             itemShowImgThrid = (ImageView) itemView.findViewById(R.id.home_item_show_image_thrid);
 
-            itemSticky = (TextView) itemView.findViewById(R.id.home_item_sticky_view);
+            //itemSticky = (TextView) itemView.findViewById(R.id.home_item_sticky_view);
             itemReadNum = (TextView) itemView.findViewById(R.id.home_item_read_num);
             itemComment = (TextView) itemView.findViewById(R.id.home_item_comment);
             itemTimeStamp = (TextView) itemView.findViewById(R.id.home_item_time_stamp);

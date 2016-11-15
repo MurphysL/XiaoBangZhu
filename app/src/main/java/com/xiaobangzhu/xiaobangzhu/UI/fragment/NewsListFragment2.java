@@ -140,7 +140,9 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
             for (int i=0;i<adPictures.getData().size();i++) {
                 adImageUrlList.add(adPictures.getData().get(i).getPicture());
             }
-            mImageIndicatorView.loadData(adImageUrlList);
+            if(adImageUrlList.size() > 0){
+                mImageIndicatorView.loadData(adImageUrlList);
+            }
         }else{
             Log.i(TAG, "initAdPictures: adPictures is null");
         }

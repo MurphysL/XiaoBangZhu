@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:elevation="5dp"
+        android:layout_marginBottom="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/notification_img"
+                android:src="@mipmap/ic_launcher"
+                android:padding="15dp"
+                android:layout_width="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="match_parent" />
+
+            <RelativeLayout
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/notification_img"
+                android:layout_width="240dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/notification_title"
+                    android:text="萧帮主"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/base_color_text_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/notification_content"
+                    android:text="现在注册送大礼包一份"
+                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/notification_time"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="刚刚"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
