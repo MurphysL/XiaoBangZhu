@@ -1,10 +1,9 @@
-package com.xiaobangzhu.xiaobangzhu.Bean;
+package com.xiaobangzhu.xiaobangzhu.db;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
 
-import com.xiaobangzhu.xiaobangzhu.db.dao.DaoSession;
-import com.xiaobangzhu.xiaobangzhu.db.dao.Notification;
+import com.xiaobangzhu.xiaobangzhu.Bean.Notification;
 
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.Property;
@@ -28,6 +27,7 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Message = new Property(1, String.class, "message", false, "MESSAGE");
         public final static Property Extras = new Property(2, String.class, "extras", false, "EXTRAS");
+        public final static Property Time = new Property(3, long.class, "time", false, "TIME");
     }
 
 
@@ -45,7 +45,8 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"NOTIFICATION\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY ," + // 0: id
                 "\"MESSAGE\" TEXT NOT NULL ," + // 1: message
-                "\"EXTRAS\" TEXT);"); // 2: extras
+                "\"EXTRAS\" TEXT," + // 2: extras
+                "\"TIME\" INTEGER NOT NULL );"); // 3: time
     }
 
     /** Drops the underlying database table. */
@@ -68,6 +69,7 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
         if (extras != null) {
             stmt.bindString(3, extras);
         }
+        stmt.bindLong(4, entity.getTime());
     }
 
     @Override
@@ -84,6 +86,7 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
         if (extras != null) {
             stmt.bindString(3, extras);
         }
+        stmt.bindLong(4, entity.getTime());
     }
 
     @Override
@@ -96,7 +99,8 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
         Notification entity = new Notification( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // message
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // extras
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // extras
+            cursor.getLong(offset + 3) // time
         );
         return entity;
     }
@@ -106,6 +110,7 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setMessage(cursor.getString(offset + 1));
         entity.setExtras(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setTime(cursor.getLong(offset + 3));
      }
     
     @Override

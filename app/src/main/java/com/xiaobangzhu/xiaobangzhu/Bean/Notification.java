@@ -1,4 +1,4 @@
-package com.xiaobangzhu.xiaobangzhu.db.dao;
+package com.xiaobangzhu.xiaobangzhu.Bean;
 
 import org.greenrobot.greendao.annotation.*;
 
@@ -16,6 +16,7 @@ public class Notification {
     @NotNull
     private String message;
     private String extras;
+    private long time;
 
     @Generated
     public Notification() {
@@ -26,10 +27,11 @@ public class Notification {
     }
 
     @Generated
-    public Notification(Long id, String message, String extras) {
+    public Notification(Long id, String message, String extras, long time) {
         this.id = id;
         this.message = message;
         this.extras = extras;
+        this.time = time;
     }
 
     public Long getId() {
@@ -56,6 +58,14 @@ public class Notification {
 
     public void setExtras(String extras) {
         this.extras = extras;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
     }
 
 }

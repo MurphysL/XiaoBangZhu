@@ -6,8 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.xiaobangzhu.xiaobangzhu.Bean.Notification;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
-import com.xiaobangzhu.xiaobangzhu.Utils.PushUtil;
+import com.xiaobangzhu.xiaobangzhu.db.NotificationDao;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -110,7 +111,13 @@ public class MyReceiver extends BroadcastReceiver {
 		Log.i(TAG, "processCustomMessage: " + message);
 		String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
 		Log.i(TAG, "processCustomMessage: " + extras);
-		Intent msgIntent = new Intent(MyApplication.getInstance().MESSAGE_RECEIVED_ACTION);
+
+		NotificationDao notificationDao = MyApplication.getInstance().getDao();
+		Notification notification = new Notification(null , message , extras , System.currentTimeMillis());
+		notificationDao.insert(notification);
+
+
+		/*Intent msgIntent = new Intent(MyApplication.getInstance().MESSAGE_RECEIVED_ACTION);
 		msgIntent.putExtra(MyApplication.getInstance().KEY_MESSAGE, message);
 		if (!PushUtil.isEmpty(extras)) {
 			try {
@@ -123,7 +130,7 @@ public class MyReceiver extends BroadcastReceiver {
 			}
 
 		}
-		context.sendBroadcast(msgIntent);
+		context.sendBroadcast(msgIntent);*/
 		//}
 	}
 }

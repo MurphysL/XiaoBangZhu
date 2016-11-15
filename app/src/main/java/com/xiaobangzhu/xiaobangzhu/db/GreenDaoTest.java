@@ -21,10 +21,11 @@ public class GreenDaoTest {
         notification.addIdProperty();
         notification.addStringProperty("message").notNull();
         notification.addStringProperty("extras");
+        notification.addLongProperty("time").notNull();
 
         try {
             new DaoGenerator().generateAll(schema , "e:/XiaoBangZhu/XiaoBangZhu/app/src/main/java/com/xiaobangzhu/" +
-                    "xiaobangzhu/db/entity");
+                    "xiaobangzhu/db/dao");
         } catch (Exception e) {
             e.printStackTrace();
         }

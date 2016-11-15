@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -25,6 +26,9 @@ import com.xiaobangzhu.xiaobangzhu.Bean.LoginResultCode;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.MainActivity;
 import com.xiaobangzhu.xiaobangzhu.Utils.PushUtil;
 import com.xiaobangzhu.xiaobangzhu.View.PicassoImageLoader;
+import com.xiaobangzhu.xiaobangzhu.db.DaoMaster;
+import com.xiaobangzhu.xiaobangzhu.db.DaoSession;
+import com.xiaobangzhu.xiaobangzhu.db.NotificationDao;
 
 import java.util.List;
 
@@ -392,6 +396,15 @@ public class MyApplication extends Application {
         }
 
         return false;
+    }
+
+    public NotificationDao getDao(){
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "notes-db", null);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        DaoMaster daoMaster = new DaoMaster(db);
+        DaoSession daoSession = daoMaster.newSession();
+        NotificationDao notificationDao = daoSession.getNotificationDao();
+        return  notificationDao;
     }
 
 
