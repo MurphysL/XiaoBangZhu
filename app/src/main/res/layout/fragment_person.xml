@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
@@ -28,8 +29,8 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:hint="@string/login"
-            android:textColor="@color/color_user_black_text"
             android:textSize="@dimen/login_text" />
+        <!--android:textColor="@color/color_user_black_text"-->
 
         <TextView
             android:id="@+id/person_level"

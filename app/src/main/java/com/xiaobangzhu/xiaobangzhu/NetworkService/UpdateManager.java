@@ -1,9 +1,14 @@
 package com.xiaobangzhu.xiaobangzhu.NetworkService;
 
+import android.util.Log;
+
+import com.xiaobangzhu.xiaobangzhu.Bean.LoginResultCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.UpdateDownloadListener;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 
@@ -16,13 +21,14 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class UpdateManager {
+    private static final String TAG = "UpdateManager";
 
     private static UpdateManager updateManager;
     private ThreadPoolExecutor threadPoolExecutor;
     private UpdateDownloadRequest request;
 
     private UpdateManager(){
-
+        threadPoolExecutor = (ThreadPoolExecutor) Executors.newCachedThreadPool();
     }
 
     static {

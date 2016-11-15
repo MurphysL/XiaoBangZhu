@@ -11,6 +11,8 @@
         android:id="@+id/tab_layout"
         app:tabMode="fixed"
         app:tabGravity="fill"
+        android:background="@color/base_white"
+        android:elevation="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
 

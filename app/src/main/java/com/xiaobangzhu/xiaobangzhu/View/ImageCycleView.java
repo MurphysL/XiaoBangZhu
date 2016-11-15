@@ -324,7 +324,9 @@ public class ImageCycleView extends FrameLayout {
         @Override
         public void onPageSelected(int index) {
             Log.i("test", "onPageSelected: " + "index" + index + " " + preIndex);
-            index = index % mCount;
+            if(mCount != 0){
+                index = index % mCount;
+            }
             //更新文本信息
             //String text = data.get(index).text;
             //mText.setText(TextUtils.isEmpty(text) ? "" : text);

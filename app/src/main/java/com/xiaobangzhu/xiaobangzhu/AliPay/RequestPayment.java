@@ -42,8 +42,7 @@ public class RequestPayment {
 							// RequestUpdateOrderStatus.showOrderList(activity);
 							Message msg = new Message();
 							msg.what = 3;
-							msg.getData().putString("order_id",
-									orderInfo.getOrder_id());
+							msg.getData().putString("order_id", orderInfo.getOrder_id());
 							handler.sendMessage(msg);
 						} else {
 							// 判断resultStatus 为非“9000”则代表可能支付失败

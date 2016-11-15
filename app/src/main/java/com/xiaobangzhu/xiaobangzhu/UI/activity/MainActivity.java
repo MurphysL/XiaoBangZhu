@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
@@ -21,10 +22,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
 import com.uzmap.pkg.uzsocket.api.Receiver;
 import com.uzmap.pkg.uzsocket.g.c;
 import com.wei.zxinglibrary.activity.CaptureActivity;
+import com.xiaobangzhu.xiaobangzhu.Bean.LatestVersionCode;
+import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
+import com.xiaobangzhu.xiaobangzhu.NetworkService.HtmlManager;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.NetRequestManager;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.UpdateService;
 import com.xiaobangzhu.xiaobangzhu.R;
@@ -36,12 +41,16 @@ import com.xiaobangzhu.xiaobangzhu.UI.fragment.PersonFragment;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.RewardFragment;
 import com.xiaobangzhu.xiaobangzhu.View.HeaderLayout;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     public static final String TAG = "MainActivity";
     ViewPager mViewPager;
     List<Object> mFragmentList = new ArrayList<>();
@@ -57,14 +66,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     Bundle bundle;
     TextView titleTextView;
 
-    private class MainReceiver extends BroadcastReceiver{
+    String latestVersion;
+    String url;
 
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Bundle bundle = intent.getBundleExtra(MyApplication.getInstance().KEY_EXTRAS);
-            Log.i(TAG , "receiver" + bundle.getString(MyApplication.getInstance().KEY_MESSAGE));
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +76,37 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         initView();
         initEvent();
-        Log.i(TAG, " initUserInform : " + MyApplication.getInstance().getUserToken());
-        
-        checkVersion();
+
+        NetRequestManager.getInstance().getLatestVersion(MyApplication.getInstance().getUserToken());
+        NetRequestManager.getInstance().setLatestVersionCodeDataChangeListener(new DataChangeListener<LatestVersionCode>() {
+            @Override
+            public void onSuccessful(LatestVersionCode data) {
+                if(data == null){
+                    Log.i(TAG, "onSuccessful: " );
+                }
+
+                if(data != null && data.getStatus() == 0){
+                    latestVersion = data.getData().getVersion();
+                    url = data.getData().getUrl();
+                    Log.i(TAG, "onSuccessful: " + latestVersion + url);
+                    if(!latestVersion.equals("") && !url.equals("")){
+                        checkVersion();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(VolleyError volleyError) {
+                MyApplication.dismissProgress();
+                MyApplication.showToastShort("请检查网络状况");
+            }
+
+            @Override
+            public void onResponseNull() {
+                MyApplication.dismissProgress();
+                MyApplication.showToastShort("请检查网络状况");
+            }
+        });
 
     }
 
@@ -86,34 +118,37 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         try {
             PackageManager pm = getPackageManager();
             PackageInfo pi = pm.getPackageInfo("com.xiaobangzhu.xiaobangzhu", 0);
-            String name = pi.versionName;
-            int code = pi.versionCode;
-            Log.i(TAG, "checkVersion: " +name);
+            String nowVersion = pi.versionName;
+
+            Log.i(TAG, "checkVersion: " + latestVersion);
+            float lv = Float.valueOf(latestVersion);
+            float nv = Float.valueOf(nowVersion);
+            if(lv > nv){
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("更新应用");
+                builder.setMessage("已有新版本更新");
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(MainActivity.this , UpdateService.class);
+                        intent.putExtra("apkUrl" , url);
+                        startService(intent);
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.create().show();
+            }
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-
-        /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("更新应用");
-        builder.setMessage("已有新版本更新");
-        builder.setIcon(R.mipmap.ic_launcher);
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(MainActivity.this , UpdateService.class);
-                intent.putExtra(url , lastVersion);
-                startService(intent);
-                dialog.dismiss();
-            }
-        });
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-
-        builder.create().show();*/
 
     }
 
@@ -248,6 +283,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         bottom_reward_image.setImageResource(R.drawable.reward_selected);
         bottom_reward_text.setTextColor(getResources().getColor(R.color.color_base));
     }
+
     public void homeSelected(){
         showHeader();
         bottom_home_image.setImageResource(R.drawable.bottom_bar_home_selected);

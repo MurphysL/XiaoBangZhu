@@ -157,6 +157,7 @@
         <activity android:name=".UI.activity.PublishCollegeActivity"></activity>
         <!--消息界面-->
         <activity android:name=".UI.activity.MessageActivity"/>
+        <service android:name=".NetworkService.UpdateService"/>
 
         <!-- User defined.  For test only  用户自定义的广播接收器-->
         <receiver

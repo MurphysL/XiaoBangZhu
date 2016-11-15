@@ -166,4 +166,5 @@ public class BaseUrlManager {
     public static String getUrlForOrderInfo() {
         return urlForOrderInfo;
     }
+
 }

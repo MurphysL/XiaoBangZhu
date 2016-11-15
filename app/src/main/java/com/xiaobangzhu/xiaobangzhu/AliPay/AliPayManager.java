@@ -89,7 +89,7 @@ public class AliPayManager {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time =formatter.format(new Date());
 
-		/*// 签约合作者身份ID
+		// 签约合作者身份ID
 		String orderInfo = "app_id=" + "\"" + APPID + "\"";
 		// 该笔订单允许的最晚付款时间，逾期将关闭交易。
 		orderInfo += "&biz_content=" + "{" + "\"" + "timeout_express" + "\": " + "\"30m\"" + ",";
@@ -104,26 +104,26 @@ public class AliPayManager {
 		//对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body
 		orderInfo += "\"body\":" + "\"" + body + "\"" + ",";
 		//商户网站唯一订单号
-		*//*orderInfo += "\"out_trade_no\":"+ "\"" + getOutTradeNo() + "\"" + "}";*//*
+		orderInfo += "\"out_trade_no\":"+ "\"" + getOutTradeNo() + "\"" + "}";
 		// 参数编码， 固定值
 		orderInfo += "&charset=utf-8";
 		// 编码类型， 固定值
 		orderInfo += "&format=json";
-
-		//接口名称
-		orderInfo += "&method=alipay.trade.pay";
+		//接口名称 ?
+		orderInfo += "&method=alipay.trade.app.pay";
 		//支付宝服务器主动通知商户服务器里指定的页面http/https路径。建议商户使用https
-		orderInfo += "&notify_url=" + url;
+		orderInfo += "&notify_url= ";
+
 		//商户生成签名字符串所使用的签名算法类型，目前支持RSA
 		orderInfo += "&sign_type=" + "RSA";
 		//发送请求的时间，格式"yyyy-MM-dd HH:mm:ss"
 		orderInfo += "&timestamp=" + time;
 		//调用的接口版本，固定为：1.0
-		orderInfo += "&version=1.0";*/
+		orderInfo += "&version=1.0";
 
 
 		// 合作者身份ID
-		String orderInfo = "partner=" + "\"" + PARTNER + "\"";
+		//String orderInfo = "partner=" + "\"" + PARTNER + "\"";
 
 		// ����֧�����˺�
 		//orderInfo += "&seller_id=" + "\"" + SELLER + "\"";

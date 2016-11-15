@@ -1,10 +1,9 @@
 package com.xiaobangzhu.xiaobangzhu.NetworkService;
 
-import android.animation.ObjectAnimator;
-import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 
 import com.xiaobangzhu.xiaobangzhu.Interface.UpdateDownloadListener;
 
@@ -25,6 +24,7 @@ import java.text.DecimalFormat;
 
 
 public class UpdateDownloadRequest implements Runnable {
+    private static final String TAG = "UpdateDownloadRequest";
 
     private String downloadUrl;
     private String localFilePath;
@@ -47,6 +47,7 @@ public class UpdateDownloadRequest implements Runnable {
      * @throws InterruptedException
      */
     private void makeRequest() throws IOException , InterruptedException{
+        Log.i(TAG, "makeRequest: " + "建立连接");
         if(!Thread.currentThread().isInterrupted()){
             try {
                 URL url = new URL(downloadUrl);
@@ -76,16 +77,6 @@ public class UpdateDownloadRequest implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * 格式化数字
-     * @param value
-     * @return
-     */
-    private String getTwoPointFloatStr(float value){
-        DecimalFormat fnum = new DecimalFormat("0.00");
-        return fnum.format(value);
     }
 
     public enum FailureCode{
@@ -125,6 +116,7 @@ public class UpdateDownloadRequest implements Runnable {
         }
 
         private void sendProgressChangedMessage(int progress){
+            Log.i(TAG, "sendProgressChangedMessage: " +progress);
             sendMessage(obtainMessage(PROGRESS_CHANGED , new Object[]{progress}));
         }
 
@@ -177,7 +169,7 @@ public class UpdateDownloadRequest implements Runnable {
         }
 
         protected void handleProgressChangedMessage(int progress){
-
+            updateDownloadListener.onProgressChanged(progress , downloadUrl);
         }
 
         protected void handleFailureMessage(FailureCode failureCode){
@@ -191,6 +183,16 @@ public class UpdateDownloadRequest implements Runnable {
 
         public void onFailure(FailureCode failureCode){
             updateDownloadListener.onFailure();
+        }
+
+        /**
+         * 格式化数字
+         * @param value
+         * @return
+         */
+        private String getTwoPointFloatStr(float value){
+            DecimalFormat fnum = new DecimalFormat("0.00");
+            return fnum.format(value);
         }
 
         //文件 下载方法 发送事件
@@ -210,9 +212,10 @@ public class UpdateDownloadRequest implements Runnable {
                         randomAccessFile.write(buffer , 0 , length);
                         mCompleteSize += length;
                         if(mCompleteSize < currentLength){
-                            progress = (int) Float.parseFloat(getTwoPointFloatStr(mCompleteSize/currentLength));
-                            if(limit / 30 == 0 || progress <= 100){
+                            progress = (int) Float.parseFloat(getTwoPointFloatStr(mCompleteSize *100/currentLength));
+                            if(limit / 10 == 0 || progress <= 100){
                                 //限制notification更新频率
+                                Log.i(TAG, "sendResponseMessage: " + progress);
                                 sendProgressChangedMessage(progress);
                             }
 

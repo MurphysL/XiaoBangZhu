@@ -126,6 +126,11 @@ public class HtmlManager {
         return BaseHtmlUrlManager.getUrlForDebit() + "?token=" + token;
     }
 
+    //获取最新版本
+    public String getUrlForUpdate() {
+        return BaseHtmlUrlManager.getUrlForUpdate();
+    }
+
 
 
 }

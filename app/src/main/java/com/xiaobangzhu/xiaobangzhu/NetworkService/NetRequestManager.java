@@ -15,6 +15,7 @@ import com.xiaobangzhu.xiaobangzhu.Bean.BaseResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.CollegeListResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.GetExressCompanyResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.InitImageResultCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.LatestVersionCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.LoginResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.NewsListResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.PublishResultCode;
@@ -57,6 +58,7 @@ public class NetRequestManager {
     DataChangeListener<BaseResultCode> authResultCodeListener;
     DataChangeListener<BaseResultCode> updateUserCodeListener;
     DataChangeListener<InitImageResultCode> initImageCodeListener;
+    DataChangeListener<LatestVersionCode> latestVersionCodeDataChangeListener;
 
 
     private NetRequestManager() {
@@ -901,6 +903,36 @@ public class NetRequestManager {
         });
     }
 
+    /**
+     * 新版本
+     */
+    public void getLatestVersion(String token){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        String url = HtmlManager.getmInstance().getUrlForUpdate();
+
+        getRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "getLatestVersion: " + response);
+                    LatestVersionCode data = gson.fromJson(response , LatestVersionCode.class);
+                    if(latestVersionCodeDataChangeListener != null){
+                        latestVersionCodeDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(latestVersionCodeDataChangeListener != null){
+                    latestVersionCodeDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+    }
+
 
     public void setInitImageCodeListener(DataChangeListener<InitImageResultCode> initImageCodeListener) {
         this.initImageCodeListener = initImageCodeListener;
@@ -980,5 +1012,9 @@ public class NetRequestManager {
 
     public void setCollegeListResultCodeListener(DataChangeListener<CollegeListResultCode> collegeListResultCodeListener) {
         this.collegeListResultCodeListener = collegeListResultCodeListener;
+    }
+
+    public void setLatestVersionCodeDataChangeListener(DataChangeListener<LatestVersionCode> latestVersionCodeDataChangeListener){
+        this.latestVersionCodeDataChangeListener = latestVersionCodeDataChangeListener;
     }
 }

@@ -1,6 +1,8 @@
 package com.xiaobangzhu.xiaobangzhu.UI.activity;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -29,6 +31,7 @@ public class SettingActivity  extends BaseActivity implements View.OnClickListen
     private Button logoutBtn;
     private TextView cleanText;
     private String cacheSize;
+    private TextView version;
 
 
 
@@ -49,10 +52,20 @@ public class SettingActivity  extends BaseActivity implements View.OnClickListen
         aboutBtn = (LinearLayout) findViewById(R.id.setting_about_btn);
         logoutBtn = (Button) findViewById(R.id.setting_logout_btn);
         cleanText = (TextView) findViewById(R.id.setting_clean_text);
+        version = (TextView) findViewById(R.id.version);
         Log.i(TAG,cacheSize+"");
 
         if (cacheSize != null) {
             cleanText.setText(cacheSize);
+        }
+
+        try {
+            PackageManager pm = getPackageManager();
+            PackageInfo pi = pm.getPackageInfo("com.xiaobangzhu.xiaobangzhu", 0);
+            String name = pi.versionName;
+            version.setText(name);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
         }
 
     }

@@ -113,7 +113,7 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
 
         if (MyApplication.getInstance().isUserLogin()) {
             mViewsNumTv.setText(MyApplication.getInstance().getUserId()+"");
-            mLevelTv.setText(MyApplication.getInstance().getUserLevel()+"");
+            mLevelTv.setText("积分:" + MyApplication.getInstance().getUserLevel()+"");
             mFansNumTv.setText(MyApplication.getInstance().getUserFansNum()+"");
             mViewsNumTv.setText(MyApplication.getInstance().getAttentionNum()+"");
 
@@ -126,7 +126,7 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
                         .fit()
                         .into(mCircleImageView);
             }*/
-            mTouchLoginTv.setVisibility(View.GONE);
+            //mTouchLoginTv.setVisibility(View.GONE);
         }else{
 
         }
@@ -236,6 +236,10 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
             Picasso.with(getContext())
                     .load(imageDir)
                     .into(mCircleImageView);
+        }
+        if(!info.getData().getNick_name().equals("")){
+            Log.i(TAG, "onSuccessful: " + info.getData().getNick_name());
+            mTouchLoginTv.setText(info.getData().getNick_name());
         }
 
     }

@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.xiaobangzhu.xiaobangzhu.R;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.NotificationFragment;
@@ -29,6 +30,7 @@ public class MessageActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private List<Fragment> list = new ArrayList<>();
+    private TextView title;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,5 +79,7 @@ public class MessageActivity extends AppCompatActivity {
     private void initView() {
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         viewPager = (ViewPager) findViewById(R.id.msg_viewpager);
+        title = (TextView) findViewById(R.id.web_title);
+        title.setText("我的消息");
     }
 }

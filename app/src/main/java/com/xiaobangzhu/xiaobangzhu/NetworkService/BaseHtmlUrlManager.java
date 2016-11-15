@@ -79,7 +79,6 @@ public class BaseHtmlUrlManager {
 
     //快递列表
     private static String urlForExpressTask = htmlAddress + "tabtest/快递列表一.html#/";
-
     public static String getUrlForExpressTask() {
         return urlForExpressTask;
     }
@@ -145,5 +144,9 @@ public class BaseHtmlUrlManager {
         return urlForDebit;
     }
 
-
+    //更新
+    private static String urlForUpdate = htmlAddress + "moblieInterface/getLatestVersion.jhtml";
+    public static String getUrlForUpdate(){
+        return urlForUpdate;
+    }
 }
