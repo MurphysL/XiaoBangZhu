@@ -213,7 +213,7 @@ public class UpdateDownloadRequest implements Runnable {
                         mCompleteSize += length;
                         if(mCompleteSize < currentLength){
                             progress = (int) Float.parseFloat(getTwoPointFloatStr(mCompleteSize *100/currentLength));
-                            if(limit / 10 == 0 || progress <= 100){
+                            if(limit / 1000 == 0 || progress <= 100){
                                 //限制notification更新频率
                                 Log.i(TAG, "sendResponseMessage: " + progress);
                                 sendProgressChangedMessage(progress);

@@ -184,7 +184,7 @@ public class PublishActivity extends Activity implements View.OnClickListener{
         animator1.start();
 
         ObjectAnimator animator2 = ObjectAnimator.ofFloat(linearLayout3 , "translationY" , 0f , 900f);
-        animator2.setDuration(100);
+        animator2.setDuration(150);
         animator2.setInterpolator(new LinearInterpolator());
         animator2.start();
 

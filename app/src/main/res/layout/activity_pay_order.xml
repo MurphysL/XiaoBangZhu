@@ -334,14 +334,14 @@
             android:layout_height="25dp"
             android:background="@drawable/welcome_email"/>
         
-        <TextView 
+        <!--<TextView
             android:id="@+id/tv_show_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="35dp"
-            android:text=" 支 付 宝"/>
+            android:text=" 支 付 宝"/>-->
         
         <ImageView 
             android:id="@+id/iv_zhifubao_pay"

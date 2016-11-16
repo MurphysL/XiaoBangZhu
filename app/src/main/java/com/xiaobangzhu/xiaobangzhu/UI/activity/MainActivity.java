@@ -48,6 +48,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.jpush.android.api.JPushInterface;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -68,6 +69,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     String latestVersion;
     String url;
+    String log;
 
 
     @Override
@@ -88,6 +90,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if(data != null && data.getStatus() == 0){
                     latestVersion = data.getData().getVersion();
                     url = data.getData().getUrl();
+                    log = data.getData().getLog();
                     Log.i(TAG, "onSuccessful: " + latestVersion + url);
                     if(!latestVersion.equals("") && !url.equals("")){
                         checkVersion();
@@ -110,6 +113,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
+    }
+
     /**
      * 检查是否需要更新
      */
@@ -119,6 +135,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             PackageManager pm = getPackageManager();
             PackageInfo pi = pm.getPackageInfo("com.xiaobangzhu.xiaobangzhu", 0);
             String nowVersion = pi.versionName;
+            Log.i(TAG, "checkVersion: " + nowVersion);
 
             Log.i(TAG, "checkVersion: " + latestVersion);
             float lv = Float.valueOf(latestVersion);
@@ -126,8 +143,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             if(lv > nv){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("更新应用");
-                builder.setMessage("已有新版本更新");
-                builder.setIcon(R.mipmap.ic_launcher);
+                if(!log.equals("")){
+                    builder.setMessage("已有新版本更新\n\n" + log);
+                }
+                builder.setIcon(R.mipmap.ic_launcher2);
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

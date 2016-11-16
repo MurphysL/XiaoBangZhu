@@ -17,6 +17,7 @@ public class Notification {
     private String message;
     private String extras;
     private long time;
+    private boolean isRead;
 
     @Generated
     public Notification() {
@@ -27,11 +28,12 @@ public class Notification {
     }
 
     @Generated
-    public Notification(Long id, String message, String extras, long time) {
+    public Notification(Long id, String message, String extras, long time, boolean isRead) {
         this.id = id;
         this.message = message;
         this.extras = extras;
         this.time = time;
+        this.isRead = isRead;
     }
 
     public Long getId() {
@@ -66,6 +68,14 @@ public class Notification {
 
     public void setTime(long time) {
         this.time = time;
+    }
+
+    public boolean getIsRead() {
+        return isRead;
+    }
+
+    public void setIsRead(boolean isRead) {
+        this.isRead = isRead;
     }
 
 }

@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.SlidingTabLayout;
 import com.xiaobangzhu.xiaobangzhu.R;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.NotificationFragment;
 
@@ -28,9 +30,12 @@ public class MessageActivity extends AppCompatActivity {
     private static final String TAG = "MessageActivity";
 
     private TabLayout tabLayout;
+    //private SlidingTabLayout tabLayout2;
     private ViewPager viewPager;
-    private List<Fragment> list = new ArrayList<>();
+    private ArrayList<Fragment> list = new ArrayList<>();
     private TextView title;
+
+    private String[] titles = {"与我相关" , "系统通知"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,12 +71,10 @@ public class MessageActivity extends AppCompatActivity {
             public CharSequence getPageTitle(int position) {
                 return position == 0 ? "与我相关" : "系统通知";
             }
-
-            /*@Override
-            public boolean isViewFromObject(View view, Object object) {
-                return view == object;
-            }*/
         });
+        /*, titles , this , list*/
+        //tabLayout2.setViewPager(viewPager , titles);
+        //tabLayout2.showDot(4);
 
         tabLayout.setupWithViewPager(viewPager);
     }

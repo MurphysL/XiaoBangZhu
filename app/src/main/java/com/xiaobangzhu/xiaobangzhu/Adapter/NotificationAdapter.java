@@ -1,6 +1,7 @@
 package com.xiaobangzhu.xiaobangzhu.Adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,6 @@ import com.xiaobangzhu.xiaobangzhu.R;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.logging.SimpleFormatter;
-import java.util.zip.Inflater;
 
 /**
  * NotificationAdapter
@@ -24,6 +23,7 @@ import java.util.zip.Inflater;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>{
 
+    private static final String TAG = "NotificationAdapter";
     private List<Notification> list;
 
     public NotificationAdapter(List<Notification> list){
@@ -42,6 +42,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         long time = notification.getTime();
         long now = System.currentTimeMillis();
 
+        Log.i(TAG, "onBindViewHolder: " + time + "\n" + now +"\n" + (time - now));
         if(time - now < 36000){
             holder.time.setText("刚刚");
         }else{

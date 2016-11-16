@@ -12,17 +12,18 @@
         android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/linearLayout1"
-                android:layout_alignParentBottom="true"
+                android:layout_marginTop="40dp"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="280dp">
+                android:layout_height="240dp">
                 <LinearLayout
                     android:id="@+id/publish_normal"
                     android:layout_marginRight="-25dp"
@@ -31,6 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:layout_height="0dp">
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_gravity="center_horizontal"
                         android:padding="3dp"
@@ -38,8 +40,10 @@
                         android:alpha="1"
                         android:src="@mipmap/ic_publish_normal"
                         android:background="@color/transparent"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp" />
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/circleImageView3" />
+
                     <TextView
                         android:textColor="@color/base_white"
                         android:layout_gravity="center_horizontal"
@@ -63,8 +67,8 @@
                         android:alpha="1"
                         android:src="@mipmap/ic_publish_team"
                         android:background="@color/transparent"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp" />
+                        android:layout_width="60dp"
+                        android:layout_height="60dp" />
                     <TextView
                         android:textColor="@color/base_white"
                         android:layout_gravity="center_horizontal"
@@ -80,11 +84,11 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
-                android:layout_alignParentBottom="true"
+                android:layout_marginTop="40dp"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="280dp">
+                android:layout_height="240dp">
                 <LinearLayout
                     android:clickable="true"
                     android:id="@+id/publish_second"
@@ -103,8 +107,8 @@
                         android:alpha="1"
                         android:src="@mipmap/ic_publish_second"
                         android:background="@color/transparent"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp" />
+                        android:layout_width="60dp"
+                        android:layout_height="60dp" />
                     <TextView
                         android:clickable="false"
                         android:textColor="@color/base_white"
@@ -130,8 +134,8 @@
                         android:alpha="1"
                         android:src="@mipmap/ic_publish_express"
                         android:background="@color/transparent"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp" />
+                        android:layout_width="60dp"
+                        android:layout_height="60dp" />
                     <TextView
                         android:textColor="@color/base_white"
                         android:layout_gravity="center_horizontal"
@@ -152,20 +156,21 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="40dp"
                 android:id="@+id/linearLayout3"
                 android:layout_alignParentBottom="true"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="280dp">
+                android:layout_height="240dp">
                 <LinearLayout
                     android:id="@+id/publish_tangle"
                     android:layout_marginLeft="-25dp"
-                    android:layout_alignParentBottom="true"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:layout_height="0dp">
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_gravity="center_horizontal"
                         android:padding="3dp"
@@ -173,8 +178,10 @@
                         android:alpha="1"
                         android:src="@mipmap/ic_publish_tangle"
                         android:background="@color/transparent"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp" />
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/circleImageView2" />
+
                     <TextView
                         android:textColor="@color/base_white"
                         android:layout_gravity="center_horizontal"
@@ -198,8 +205,8 @@
                         android:alpha="1"
                         android:src="@mipmap/ic_publish_activity2"
                         android:background="@color/transparent"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp" />
+                        android:layout_width="60dp"
+                        android:layout_height="60dp" />
                     <TextView
                         android:textColor="@color/base_white"
                         android:layout_gravity="center_horizontal"
@@ -225,10 +232,11 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/publish_cancle"
                 android:layout_marginTop="234dp"
+                android:src="@drawable/bottom_bar_publish"
+                android:background="@color/transparent"
                 android:layout_gravity="center_horizontal"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/bottom_bar_publish"
                 android:layout_width="42dp"
                 android:layout_height="42dp" />
 

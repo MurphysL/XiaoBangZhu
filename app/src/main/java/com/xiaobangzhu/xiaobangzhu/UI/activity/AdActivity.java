@@ -23,6 +23,8 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by WQC on 2016/10/20.
  */

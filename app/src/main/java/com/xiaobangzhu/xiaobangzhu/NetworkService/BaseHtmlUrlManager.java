@@ -54,7 +54,7 @@ public class BaseHtmlUrlManager {
     }
 
     //组队任务列表
-    private static String urlForTeamTask = htmlAddress + "tabtest/组队列表.html#/";
+    private static String urlForTeamTask = htmlAddress + "tabtest/组队列表一.html#/";
     public static String getUrlForTeamTask() {
         return urlForTeamTask;
     }

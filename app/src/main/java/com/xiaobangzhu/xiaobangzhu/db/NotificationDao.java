@@ -28,6 +28,7 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
         public final static Property Message = new Property(1, String.class, "message", false, "MESSAGE");
         public final static Property Extras = new Property(2, String.class, "extras", false, "EXTRAS");
         public final static Property Time = new Property(3, long.class, "time", false, "TIME");
+        public final static Property IsRead = new Property(4, boolean.class, "isRead", false, "IS_READ");
     }
 
 
@@ -46,7 +47,8 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
                 "\"_id\" INTEGER PRIMARY KEY ," + // 0: id
                 "\"MESSAGE\" TEXT NOT NULL ," + // 1: message
                 "\"EXTRAS\" TEXT," + // 2: extras
-                "\"TIME\" INTEGER NOT NULL );"); // 3: time
+                "\"TIME\" INTEGER NOT NULL ," + // 3: time
+                "\"IS_READ\" INTEGER NOT NULL );"); // 4: isRead
     }
 
     /** Drops the underlying database table. */
@@ -70,6 +72,7 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
             stmt.bindString(3, extras);
         }
         stmt.bindLong(4, entity.getTime());
+        stmt.bindLong(5, entity.getIsRead() ? 1L: 0L);
     }
 
     @Override
@@ -87,6 +90,7 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
             stmt.bindString(3, extras);
         }
         stmt.bindLong(4, entity.getTime());
+        stmt.bindLong(5, entity.getIsRead() ? 1L: 0L);
     }
 
     @Override
@@ -100,7 +104,8 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // message
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // extras
-            cursor.getLong(offset + 3) // time
+            cursor.getLong(offset + 3), // time
+            cursor.getShort(offset + 4) != 0 // isRead
         );
         return entity;
     }
@@ -111,6 +116,7 @@ public class NotificationDao extends AbstractDao<Notification, Long> {
         entity.setMessage(cursor.getString(offset + 1));
         entity.setExtras(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setTime(cursor.getLong(offset + 3));
+        entity.setIsRead(cursor.getShort(offset + 4) != 0);
      }
     
     @Override

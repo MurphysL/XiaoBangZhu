@@ -5,8 +5,10 @@
     android:paddingTop="10dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:background="@drawable/home_item_selector"
+    android:background="@color/base_white"
+
     android:orientation="vertical">
+    <!--android:background="@drawable/home_item_selector"-->
 
     <LinearLayout
         android:layout_width="match_parent"

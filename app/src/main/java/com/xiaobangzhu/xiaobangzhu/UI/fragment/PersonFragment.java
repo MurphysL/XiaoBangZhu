@@ -41,6 +41,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import cn.jpush.android.api.JPushInterface;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -113,7 +114,7 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
 
         if (MyApplication.getInstance().isUserLogin()) {
             mViewsNumTv.setText(MyApplication.getInstance().getUserId()+"");
-            mLevelTv.setText("积分:" + MyApplication.getInstance().getUserLevel()+"");
+            mLevelTv.setText("积分 : " + MyApplication.getInstance().getUserLevel()+"");
             mFansNumTv.setText(MyApplication.getInstance().getUserFansNum()+"");
             mViewsNumTv.setText(MyApplication.getInstance().getAttentionNum()+"");
 
@@ -161,9 +162,9 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
                 intent.setClass(getActivity(), AuthActivity.class);
                 break;
             case 1:
-                MyApplication.showToastShort("功能暂未开放");
-                //intent.setClass(getActivity(),JoinMembersActivity.class);
-                flag = false;
+                //MyApplication.showToastShort("功能暂未开放");
+                intent.setClass(getActivity(),JoinMembersActivity.class);
+                //flag = false;
                 break;
             case 2:
                 bundle.putString("title", "我的门票");

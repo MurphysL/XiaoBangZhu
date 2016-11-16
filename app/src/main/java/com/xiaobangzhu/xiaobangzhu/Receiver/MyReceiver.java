@@ -37,7 +37,7 @@ public class MyReceiver extends BroadcastReceiver {
         if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
             String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);
             Log.d(TAG, "[MyReceiver] 接收Registration Id : " + regId);
-            //send the Registration Id to your server...
+            //send the Registration Id to your ic_vip_server...
                         
         } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
         	Log.d(TAG, "[MyReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
@@ -113,7 +113,7 @@ public class MyReceiver extends BroadcastReceiver {
 		Log.i(TAG, "processCustomMessage: " + extras);
 
 		NotificationDao notificationDao = MyApplication.getInstance().getDao();
-		Notification notification = new Notification(null , message , extras , System.currentTimeMillis());
+		Notification notification = new Notification(null , message , extras , System.currentTimeMillis() , false);
 		notificationDao.insert(notification);
 
 

@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -33,6 +35,47 @@ public class UpdateService extends Service {
     private String filePath;
     private Notification notification;
     private NotificationManager notificationManager;
+
+    private int temp = 0;
+
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            int progress = msg.what;
+            Log.i(TAG, "handleMessage: " + progress);
+            if(msg.what != 0){
+
+                if(msg.what - temp > 10 || msg.what >= 100){
+
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(UpdateService.this);
+
+                    builder.setSmallIcon(R.mipmap.ic_launcher2)
+                            .setLargeIcon(BitmapFactory.decodeResource(getResources() , R.mipmap.ic_launcher2));
+
+                    if(progress > 0 && progress < 100){
+                        Log.i(TAG, "notifyUser: " + progress);
+                        builder.setProgress(100 , progress , false);
+                    }else{
+                        Log.i(TAG, "notifyUser1: " + progress);
+                        builder.setProgress(0 , 0 , false);
+                    }
+
+                    builder.setAutoCancel(true);
+                    builder.setWhen(System.currentTimeMillis());
+                    //builder.setTicker(result);
+                    Log.i(TAG, "notifyUser: " + progress);
+                    builder.setContentTitle(progress>= 100? "点击安装" :"下载中");
+                    builder.setContentIntent(progress >= 100 ? getContentIntent()
+                            :PendingIntent.getActivity(UpdateService.this , 0 , new Intent() , PendingIntent.FLAG_UPDATE_CURRENT));
+                    notification = builder.build();
+                    notificationManager.notify(1997 , notification);
+                    temp = msg.what;
+                }
+
+            }
+            super.handleMessage(msg);
+        }
+    };
 
     @Override
     public void onCreate() {
@@ -99,28 +142,11 @@ public class UpdateService extends Service {
      * @param reason
      * @param progress
      */
+
     private void notifyUser(String result , String reason , int progress){
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setSmallIcon(R.mipmap.ic_launcher)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources() , R.mipmap.ic_launcher));
-
-        if(progress > 0 && progress < 100){
-            Log.i(TAG, "notifyUser: " + progress);
-            builder.setProgress(100 , progress , false);
-        }else{
-            Log.i(TAG, "notifyUser1: " + progress);
-            builder.setProgress(0 , 0 , false);
-        }
-
-        builder.setAutoCancel(true);
-        builder.setWhen(System.currentTimeMillis());
-        builder.setTicker(result);
-        Log.i(TAG, "notifyUser: " + progress);
-        builder.setContentIntent(progress >= 100 ? getContentIntent()
-        :PendingIntent.getActivity(this , 0 , new Intent() , PendingIntent.FLAG_UPDATE_CURRENT));
-        builder.setContentTitle(progress>= 100? "点击安装" :"下载中");
-        notification = builder.build();
-        notificationManager.notify(0 , notification);
+        Message message = new Message();
+        message.what = progress;
+        handler.sendMessage(message);
     }
 
     private PendingIntent getContentIntent() {

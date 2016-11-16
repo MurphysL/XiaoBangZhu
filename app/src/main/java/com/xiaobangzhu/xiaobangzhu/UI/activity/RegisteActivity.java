@@ -95,7 +95,9 @@ public class RegisteActivity extends AppCompatActivity implements DataChangeList
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
                 if (charSequence.length() < 9 ||charSequence.length()>12) {
+                    Log.i(TAG, "onTextChanged: " + "alld");
                     passwordTIL.setErrorEnabled(true);
                     passwordTIL.setError("密码以字母开头/长度9到12位");
                 }else {
@@ -112,6 +114,20 @@ public class RegisteActivity extends AppCompatActivity implements DataChangeList
 
             @Override
             public void afterTextChanged(Editable editable) {
+                /*if (userPassword.length() < 9 || userPassword.length()>12){
+                    passwordTIL.setErrorEnabled(true);
+                    passwordTIL.setError("密码以字母开头/长度9到12位");
+                }else{
+                    if (VerifyUtils.isPassWord(userPassword.toString())) {
+                        userPassword = passwordEditText.getText().toString().trim();
+                        passwordTIL.setErrorEnabled(false);
+                    }else {
+                        passwordTIL.setError("密码以字母开头/长度9到12位");
+                        passwordTIL.setErrorEnabled(true);
+                    }
+
+                }*/
+
             }
         });
 
@@ -167,15 +183,24 @@ public class RegisteActivity extends AppCompatActivity implements DataChangeList
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (userAccount != null && userPassword != null && mVerifyCodeResult) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("userAccount", userAccount);
-                    bundle.putString("userPassword", userPassword);
-                    bundle.putString("verifycode", verifyCode.getData().getCode());
-                    startActivity(new Intent(RegisteActivity.this, SelectCollegeActivity.class).putExtra("userData", bundle));
-                }else {
-                    MyApplication.showDialog(RegisteActivity.this,"请检查您的输入");
+                userPassword = passwordEditText.getText().toString().trim();
+                if (userPassword.length() < 9 || userPassword.length()>12 ||!VerifyUtils.isPassWord(userPassword.toString())){
+                    passwordTIL.setErrorEnabled(true);
+                    Log.i(TAG, "onClick: " + "wwww");
+                    MyApplication.showDialog(RegisteActivity.this,"密码以字母开头/长度9到12位");
+                    passwordTIL.setError("密码以字母开头/长度9到12位");
+                }else{
+                    if (userAccount != null && userPassword != null && mVerifyCodeResult) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("userAccount", userAccount);
+                        bundle.putString("userPassword", userPassword);
+                        bundle.putString("verifycode", verifyCode.getData().getCode());
+                        startActivity(new Intent(RegisteActivity.this, SelectCollegeActivity.class).putExtra("userData", bundle));
+                    }else {
+                        MyApplication.showDialog(RegisteActivity.this,"请检查您的输入");
+                    }
                 }
+
             }
         });
 
