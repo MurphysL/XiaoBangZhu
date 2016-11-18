@@ -92,6 +92,7 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
             @Override
             public void onSuccessful(NewsListResultCode data) {
                 Log.i("inform", data.getDesc());
+                newsListAdapter.setLoading(false);
                 if (data != null) {
                     if (data.getData().size() > 0) {
                         newsListResultCode = data;
@@ -160,6 +161,7 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
             Log.i(TAG, "initNewsList: alala" + newsListResultCode.getData().size());
             newsList.clear();//CTNND clear与notifyDataSetChange不要隔太远
             for (int i=0;i<newsListResultCode.getData().size();i++) {
+                Log.i(TAG, "initNewsList: "+ newsListResultCode);
                 newsList.add(newsListResultCode.getData().get(i));
             }
             refreshBtn.setVisibility(View.INVISIBLE);
@@ -294,6 +296,8 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //newsListAdapter.setLoading(false);
+        Log.i(TAG, "onItemClick: " + newsList.get(position - 1).getId() + " " +newsListAdapter.isLoading());
         if(!newsListAdapter.isLoading()){
             Intent intent  = new Intent(getContext(), WebActivity.class);
             Bundle bundle = new Bundle();

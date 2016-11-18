@@ -96,6 +96,7 @@ public class ActivityListFragment extends Fragment {
         activityListRecycleAdapter.setLoading(false);
         if (activityListResultCode != null) {
             for (int i=0;i<activityListResultCode.getData().size();i++) {
+                Log.i(TAG, "initActivityList: " + activityListResultCode);
                 activityList.add(activityListResultCode.getData().get(i));
             }
             refreshBtn.setVisibility(View.INVISIBLE);

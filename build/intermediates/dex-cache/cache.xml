@@ -2,454 +2,454 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_124a7fd07cb2d1385be29dd3b24711c0d519f3dd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\com.qiniu\happy-dns\0.2.7\d94b7987386a3aabbb5aa0be21589f72931f0489\happy-dns-0.2.7.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="d94b7987386a3aabbb5aa0be21589f72931f0489">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\happy-dns-0.2.7_78355874098d6a43ad1e20f9466a75edbdd82fa2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="7b6aebfe347153b327056a3a0171734629c90dfd">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.1.0_c19dc8238e39fd251f2342672ad3312228a83c65\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_6738aaf6c5577659784f262f3959e68c0170869f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.0.0_4e69a1b58780aea98f69082e49052a5c53a65bd8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\org.greenrobot\greendao-api\3.2.0\c6d610abe1d75d758431c9234917a349abc0a0ac\greendao-api-3.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="c6d610abe1d75d758431c9234917a349abc0a0ac">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\greendao-api-3.2.0_709abc03f05fd15fd5bb9d631a53826aa414f6fc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_079ef4a844929058f3e10eec696b8bf8a188d694\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\cn.finalteam\galleryfinal\1.4.8.7\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="c74f0952cfb481882d8cedf4ca9f3c60289a3301">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\cn.finalteam-galleryfinal-1.4.8.7_62a3bbdd0e0afb7b0b28cb836c1e8312b8100e8c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\com.qiniu\qiniu-android-sdk\7.2.3\613bb7ccae6436345e3583cfab295d888b79f558\qiniu-android-sdk-7.2.3.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="613bb7ccae6436345e3583cfab295d888b79f558">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\qiniu-android-sdk-7.2.3_2bd0cb260aa7749fd7808897d6b7873c1e131988\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.2.0_a15c7cf596b125dd12692bafbb6a7c84c4096c52\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_ee9ed88991b8ddd578c977a006130c983fe7938e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\org.greenrobot\greendao-generator\3.2.0\2abf1fce074717ff7abcb4fbfe8dad30d5ec3a8f\greendao-generator-3.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="2abf1fce074717ff7abcb4fbfe8dad30d5ec3a8f">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\greendao-generator-3.2.0_401f5179ee1e624ae2b0238a71d779d1795da849\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\badgeview.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="f77b0850a8adcf49b273a8f29ba481612aaaa19f">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\2\badgeview_741638242ae07d6002f248e673abc9a591c69249\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_d2ec39ca153db89df252157ee867c784c9210d1f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="61f72108a4120ba0243418c37e3f0002ab23071c">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_ce9d17f8f131521beca99835a864b3ccf333db74\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.flyco.tablayout\FlycoTabLayout_Lib\2.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="0a619246be9154909d1d93f5de8618225ddef418">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.flyco.tablayout-FlycoTabLayout_Lib-2.1.0_e81b9d21b00ef506140d313daaebc12187066f13\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_6873ead1675d441f583254cd66306b2830b87146\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_f696a2bed1ff4a5c90446b2a7ad0aaa6754cbb76\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.karumi\headerrecyclerview\1.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="be0d26e217b1909363cd363c04f1e0d66f5a2066">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.karumi-headerrecyclerview-1.1.0_130e6a72aa6368e1e30adffbea98cd5138bb0bc4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-24.2.1_9be2fb97f06c5af89ea7d5fb1b0422c2d6e43637\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\cn.jiguang\jpush\2.1.8\jars\libs\jpush-android-2.1.8.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="86f15a6e7555400affa351041374d5129e99660e">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\jpush-android-2.1.8_0257063de9997662e801da20a2275ff65821a5a1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\GifView.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="5a518235931001b94e87540c99bd13258f614622">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\2\GifView_f07fe1b7f04fe0472d35b9d202433a65572c24d8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\cn.jiguang\jpush\2.1.8\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="6bae57dc18d9f50285151cc473361ddaddb156cd">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\cn.jiguang-jpush-2.1.8_c3b08c07e14374d74fcb429b51acb8c0f1fc2fcc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\uk-co-senab-photoview.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="3746c6e7e5faa897fd6689bfbf19d39b9a4fc0c5">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\2\uk-co-senab-photoview_bd03af2d4773440ac044dd0274986fceb5b1175b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_679c10bc5d266b68bbfd118099418e21dd075a71\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\design\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.0.0_ee66691cdda3c3af9ffa81950b7d200bbe6ceac4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\XiaoBangZhu\zxinglibrary\unspecified\jars\libs\zxing.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="657431ffc6f0c763c22579b392e0bdfab26fc817">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\8\zxing_314cb8aa8e5ba40fcebb0999fd7317fb4df63229\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\uzPush.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
         sha1="c8a911a23d0fe42882c4f25adedba9113aaa4c7c">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\2\uzPush_354ec94617e5b9c8df2f5a2614058d3e16416c0c\classes.dex" />
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\uzPush_354ec94617e5b9c8df2f5a2614058d3e16416c0c.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="E:\Android Studio\gradle\m2repository\com\google\code\gson\gson\2.2.4\gson-2.2.4.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\XiaoBangZhu\zxinglibrary\unspecified\jars\libs\zxing.jar"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.2.4_ec71a833dc5b3b693d44159b207d22539d016c4a\classes.dex" />
+        sha1="657431ffc6f0c763c22579b392e0bdfab26fc817">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\zxing_314cb8aa8e5ba40fcebb0999fd7317fb4df63229.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.github.erd\android-volley\1.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="24c7ec1ecd41d65b24a76cef274fdd5f0805e98b">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.erd-android-volley-1.0.0_0457061decf2a4575c120476be040ceb4e83b67b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\jars\classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
         sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\de.hdodenhof-circleimageview-2.1.0_8928d2b2001693ad5a31953808048aaa9f4b39c4\classes.dex" />
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\de.hdodenhof-circleimageview-2.1.0_8928d2b2001693ad5a31953808048aaa9f4b39c4.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.github.erd\android-volley\1.0.0\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_db1ea6a05d799ad309576bd0613f4068e96a914b\classes.dex" />
+        sha1="24c7ec1ecd41d65b24a76cef274fdd5f0805e98b">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.github.erd-android-volley-1.0.0_0457061decf2a4575c120476be040ceb4e83b67b.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
         jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\alipaySdk-20161009.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
         sha1="1275bd1ea78a827546f3014ee58371d65ab1280e">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\2\alipaySdk-20161009_459173b837f5a36b70bf39a9840f0d20f562b38c\classes.dex" />
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\alipaySdk-20161009_459173b837f5a36b70bf39a9840f0d20f562b38c.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\design\24.0.0\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
-        sha1="9df05705ccebc216f01ec889cb3259cd18bb3609">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_9e8205ca9f72c7a33b21fc153f8d820681ea94e3\classes.dex" />
+        sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-design-24.0.0_ee66691cdda3c3af9ffa81950b7d200bbe6ceac4.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\cn.finalteam\toolsfinal\1.1.5\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="966da5b6a8bfdef0bfc660e349f8765dde5cb6f3">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\cn.finalteam-toolsfinal-1.1.5_3f93f15258e7deafd1e3dd31ec664ec79807c81f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\SwitchLayout1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="f777370db75cf31e9617bddc0e502ca2d98f262b">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\2\SwitchLayout1.0_daf6bca9614e22ebcd79555bf976d6e16ec5b0fa\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="E:\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
         sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_c4c94d77a5f3bb75ce9fc760d752c42f50b13dc5\classes.dex" />
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\support-annotations-24.2.1_c4c94d77a5f3bb75ce9fc760d752c42f50b13dc5.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\org.greenrobot\greendao\3.2.0\e70040568b2929b8e5869ad1ffca8e4386dc53bc\greendao-3.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="e70040568b2929b8e5869ad1ffca8e4386dc53bc">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\greendao-3.2.0_9ea8a0990ca806dabb58b47fa27d8373f596fcb2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.panxw.imageindicator\library\1.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="892612225e8cf83e32d2d36897391ce9610ad93b">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.panxw.imageindicator-library-1.0.2_f3deb31f37ce3159248fd7bce628ac5640d19673\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_3555339827a3d5c6ab5b650a951d71526cfd91e1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.bartoszlipinski\recyclerviewheader2\2.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="3324ea9b0bf0491c7d2304ffba1322d9c11ef017">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.bartoszlipinski-recyclerviewheader2-2.0.1_e144797099df5c13fd660d69cfaaeb6ea6fb0558\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\apiEngine v1.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="b80b1c6fd57968814265ed02255895398bba0a0b">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\2\apiEngine v1.1.0_8e92e8651f27464f2c57210ef82f349541e3a940\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_ba5fa0e7a5047079686dda6eeea97d6d0ceb3733\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\org.freemarker\freemarker\2.3.23\cd143cd8c02a9f838e3cb75a6dfe133750437f6d\freemarker-2.3.23.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="cd143cd8c02a9f838e3cb75a6dfe133750437f6d">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\freemarker-2.3.23_e7b716c63ab23b5e228e057b92d97648800e8e5f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\tbs_sdk_v1.5.1.1069_25451_obfs_20160510_174630.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="ecbfff81a64d384e48067c3984cfb8ea2eca92c1">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\2\tbs_sdk_v1.5.1.1069_25451_obfs_20160510_174630_7d887b4a06e2b2148fca27287c78642bed69aea1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_779794c6f8cabd0380cfe61cebc473b1de717174\classes.dex" />
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-support-v4-24.2.1_779794c6f8cabd0380cfe61cebc473b1de717174.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\cn.finalteam\toolsfinal\1.1.5\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.6.0_b913e305bee699dd2417731ae9f5d049251de9c5\classes.dex" />
+        sha1="966da5b6a8bfdef0bfc660e349f8765dde5cb6f3">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\cn.finalteam-toolsfinal-1.1.5_3f93f15258e7deafd1e3dd31ec664ec79807c81f.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.panxw.imageindicator\library\1.0.2\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f1827ae54a35f84033cc16c8bbf0cc3aebbdfadc\classes.dex" />
+        sha1="892612225e8cf83e32d2d36897391ce9610ad93b">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.panxw.imageindicator-library-1.0.2_f3deb31f37ce3159248fd7bce628ac5640d19673.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\tbs_sdk_v1.5.1.1069_25451_obfs_20160510_174630.jar"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_66e501cc3b51bde78e530084e622838e2bf59424\classes.dex" />
+        sha1="ecbfff81a64d384e48067c3984cfb8ea2eca92c1">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\tbs_sdk_v1.5.1.1069_25451_obfs_20160510_174630_7d887b4a06e2b2148fca27287c78642bed69aea1.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-animated-vector-drawable-24.2.1_ba5fa0e7a5047079686dda6eeea97d6d0ceb3733.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="24.0.0"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_53ca08b3d1ac5deb3fce1aaca1d77ad05898f97c\classes.dex" />
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\picasso-2.5.2_53ca08b3d1ac5deb3fce1aaca1d77ad05898f97c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\internal_impl-24.2.1_6738aaf6c5577659784f262f3959e68c0170869f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\org.greenrobot\greendao-api\3.2.0\c6d610abe1d75d758431c9234917a349abc0a0ac\greendao-api-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="c6d610abe1d75d758431c9234917a349abc0a0ac">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\greendao-api-3.2.0_709abc03f05fd15fd5bb9d631a53826aa414f6fc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\okhttp-3.2.0_a15c7cf596b125dd12692bafbb6a7c84c4096c52.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\badgeview.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="f77b0850a8adcf49b273a8f29ba481612aaaa19f">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\badgeview_741638242ae07d6002f248e673abc9a591c69249.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-support-media-compat-24.2.1_ee9ed88991b8ddd578c977a006130c983fe7938e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-support-compat-24.2.1_d2ec39ca153db89df252157ee867c784c9210d1f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.flyco.tablayout\FlycoTabLayout_Lib\2.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="0a619246be9154909d1d93f5de8618225ddef418">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.flyco.tablayout-FlycoTabLayout_Lib-2.1.0_e81b9d21b00ef506140d313daaebc12187066f13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\org.greenrobot\greendao-generator\3.2.0\2abf1fce074717ff7abcb4fbfe8dad30d5ec3a8f\greendao-generator-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="2abf1fce074717ff7abcb4fbfe8dad30d5ec3a8f">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\greendao-generator-3.2.0_401f5179ee1e624ae2b0238a71d779d1795da849.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\cn.jiguang\jpush\2.1.8\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="6bae57dc18d9f50285151cc473361ddaddb156cd">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\cn.jiguang-jpush-2.1.8_c3b08c07e14374d74fcb429b51acb8c0f1fc2fcc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-cardview-v7-24.2.1_9be2fb97f06c5af89ea7d5fb1b0422c2d6e43637.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\cn.jiguang\jpush\2.1.8\jars\libs\jpush-android-2.1.8.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="86f15a6e7555400affa351041374d5129e99660e">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\jpush-android-2.1.8_0257063de9997662e801da20a2275ff65821a5a1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\GifView.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="5a518235931001b94e87540c99bd13258f614622">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\GifView_f07fe1b7f04fe0472d35b9d202433a65572c24d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\uk-co-senab-photoview.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="3746c6e7e5faa897fd6689bfbf19d39b9a4fc0c5">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\uk-co-senab-photoview_bd03af2d4773440ac044dd0274986fceb5b1175b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\okio-1.6.0_b913e305bee699dd2417731ae9f5d049251de9c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android Studio\gradle\m2repository\com\google\code\gson\gson\2.2.4\gson-2.2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\gson-2.2.4_ec71a833dc5b3b693d44159b207d22539d016c4a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\XiaoBangZhu\androidlibrary\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="4441c9848b059529d32cad0d39f892e88918fa00">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\XiaoBangZhu-androidlibrary-unspecified_6db536047f6da160136dcf98daa08f1dcc7364f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\internal_impl-24.2.1_f1827ae54a35f84033cc16c8bbf0cc3aebbdfadc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\org.freemarker\freemarker\2.3.23\cd143cd8c02a9f838e3cb75a6dfe133750437f6d\freemarker-2.3.23.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="cd143cd8c02a9f838e3cb75a6dfe133750437f6d">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\freemarker-2.3.23_e7b716c63ab23b5e228e057b92d97648800e8e5f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\internal_impl-24.2.1_3555339827a3d5c6ab5b650a951d71526cfd91e1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\org.greenrobot\greendao\3.2.0\e70040568b2929b8e5869ad1ffca8e4386dc53bc\greendao-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="e70040568b2929b8e5869ad1ffca8e4386dc53bc">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\greendao-3.2.0_9ea8a0990ca806dabb58b47fa27d8373f596fcb2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\internal_impl-24.2.1_db1ea6a05d799ad309576bd0613f4068e96a914b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.bartoszlipinski\recyclerviewheader2\2.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="3324ea9b0bf0491c7d2304ffba1322d9c11ef017">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.bartoszlipinski-recyclerviewheader2-2.0.1_e144797099df5c13fd660d69cfaaeb6ea6fb0558.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\SwitchLayout1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="f777370db75cf31e9617bddc0e502ca2d98f262b">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\SwitchLayout1.0_daf6bca9614e22ebcd79555bf976d6e16ec5b0fa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\internal_impl-24.2.1_66e501cc3b51bde78e530084e622838e2bf59424.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\libs\apiEngine v1.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="b80b1c6fd57968814265ed02255895398bba0a0b">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\apiEngine v1.1.0_8e92e8651f27464f2c57210ef82f349541e3a940.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="7b6aebfe347153b327056a3a0171734629c90dfd">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-palette-v7-24.1.0_c19dc8238e39fd251f2342672ad3312228a83c65.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-support-fragment-24.2.1_124a7fd07cb2d1385be29dd3b24711c0d519f3dd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\com.qiniu\happy-dns\0.2.7\d94b7987386a3aabbb5aa0be21589f72931f0489\happy-dns-0.2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="d94b7987386a3aabbb5aa0be21589f72931f0489">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\happy-dns-0.2.7_78355874098d6a43ad1e20f9466a75edbdd82fa2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-support-core-ui-24.2.1_079ef4a844929058f3e10eec696b8bf8a188d694.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\XiaoBangZhu\zxinglibrary\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="78b2422c5b01fa85348c251ee0f8abbf96859858">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\XiaoBangZhu-zxinglibrary-unspecified_60efa0801d6fb1d5367ee6df394fb0073052f1fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-recyclerview-v7-24.0.0_4e69a1b58780aea98f69082e49052a5c53a65bd8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\cn.finalteam\galleryfinal\1.4.8.7\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="c74f0952cfb481882d8cedf4ca9f3c60289a3301">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\cn.finalteam-galleryfinal-1.4.8.7_62a3bbdd0e0afb7b0b28cb836c1e8312b8100e8c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\lenovo.Lenovo-PC\.gradle\caches\modules-2\files-2.1\com.qiniu\qiniu-android-sdk\7.2.3\613bb7ccae6436345e3583cfab295d888b79f558\qiniu-android-sdk-7.2.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="613bb7ccae6436345e3583cfab295d888b79f558">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\qiniu-android-sdk-7.2.3_2bd0cb260aa7749fd7808897d6b7873c1e131988.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-support-core-utils-24.2.1_6873ead1675d441f583254cd66306b2830b87146.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-support-vector-drawable-24.2.1_f696a2bed1ff4a5c90446b2a7ad0aaa6754cbb76.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.karumi\headerrecyclerview\1.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="be0d26e217b1909363cd363c04f1e0d66f5a2066">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.karumi-headerrecyclerview-1.1.0_130e6a72aa6368e1e30adffbea98cd5138bb0bc4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="E:\XiaoBangZhu\XiaoBangZhu\app\build\intermediates\pre-dexed\release\com.android.support-appcompat-v7-24.2.1_679c10bc5d266b68bbfd118099418e21dd075a71.jar" />
     </item>
 
 </items>

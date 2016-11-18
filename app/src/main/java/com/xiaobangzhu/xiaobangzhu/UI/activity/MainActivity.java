@@ -84,7 +84,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onSuccessful(LatestVersionCode data) {
                 if(data == null){
-                    Log.i(TAG, "onSuccessful: " );
+                    Log.i(TAG, "onSuccessful1111: " );
                 }
 
                 if(data != null && data.getStatus() == 0){
@@ -102,12 +102,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             public void onError(VolleyError volleyError) {
                 MyApplication.dismissProgress();
                 MyApplication.showToastShort("请检查网络状况");
+                Log.i(TAG, "onError: " );
             }
 
             @Override
             public void onResponseNull() {
                 MyApplication.dismissProgress();
                 MyApplication.showToastShort("请检查网络状况");
+                Log.i(TAG, "onResponseNull: " );
             }
         });
 
@@ -140,6 +142,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             Log.i(TAG, "checkVersion: " + latestVersion);
             float lv = Float.valueOf(latestVersion);
             float nv = Float.valueOf(nowVersion);
+
+            Log.i(TAG, "checkVersion: " + (lv >nv));
             if(lv > nv){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("更新应用");

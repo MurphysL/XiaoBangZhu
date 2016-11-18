@@ -70,35 +70,41 @@ public class ActivityListRecycleAdapter extends RecyclerView.Adapter<RecyclerVie
             itemViewHolder.tag_1_TextView.setText(data.getTags());
             itemViewHolder.timeTextView.setText(data.getC_time());
 
-            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            long t = 0;
-            try {
-                t = sdf.parse(data.getC_time()).getTime();
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
 
             /**
              * Y
              */
+            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             long now = System.currentTimeMillis();
-            Log.i(TAG, "onBindViewHolder: " +  data.getC_time() + " " + t + " " + now);
 
-            if(t < now){
-                itemViewHolder.joinBtn.setBackgroundResource(R.color.base_gray);
-                itemViewHolder.joinBtn.setClickable(false);
-                itemViewHolder.joinBtn.setText("活动结束");
-            }else{
-                if (onItemClickListener != null) {
-                    itemViewHolder.joinBtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
+            try {
+                if(!"".equals(data.getApply_endtime()) || !data.getApply_endtime().equals(null)){
+                    long t = (sdf.parse(data.getApply_endtime()).getTime());
+                    Log.i(TAG, "onBindViewHolder: " + (t > now) );
+                    if(t < now){
+                        itemViewHolder.joinBtn.setBackgroundResource(R.color.base_gray);
+                        itemViewHolder.joinBtn.setClickable(false);
+                        itemViewHolder.joinBtn.setText("活动结束");
+                    }else{
+                        if (onItemClickListener != null) {
+                            itemViewHolder.joinBtn.setBackgroundResource(R.color.orange);
+                            itemViewHolder.joinBtn.setText("加入活动");
+                            itemViewHolder.joinBtn.setOnClickListener(new View.OnClickListener() {
+                                @Override
 
-                        public void onClick(View v) {
-                            Log.i(TAG, "onClick:is use full");
-                            onItemClickListener.onItemClick(itemViewHolder, data, position);
+                                public void onClick(View v) {
+                                    Log.i(TAG, "onClick:is use full");
+                                    onItemClickListener.onItemClick(itemViewHolder, data, position);
+                                }
+                            });
+
                         }
-                    });
+                    }
+                }else{
+                    Log.i(TAG, "onBindViewHolder: " + "获取数据出错");
                 }
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
 
         }
