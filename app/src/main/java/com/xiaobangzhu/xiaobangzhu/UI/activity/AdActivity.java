@@ -64,6 +64,7 @@ public class AdActivity extends BaseActivity {
                     if (url != null && url != "") {
                         Log.i(TAG, "onSuccessful: "+url);
                         handler.obtainMessage(0x11, url).sendToTarget();
+                        enterApp();//Y
                     }
                 }else{
                     Log.i(TAG, "onSuccessful: is null");
@@ -73,14 +74,19 @@ public class AdActivity extends BaseActivity {
             @Override
             public void onError(VolleyError volleyError) {
                 MyApplication.showDialog(AdActivity.this,"请检查网络状况");
+                Log.i(TAG, "onError: " + System.currentTimeMillis());
             }
 
             @Override
             public void onResponseNull() {
                 MyApplication.showDialog(AdActivity.this,"请检查网络状况");
+                Log.i(TAG, "onError: " + System.currentTimeMillis());
             }
         });
 
+    }
+
+    private void enterApp() {
 
         long keyLive = MyApplication.getInstance().getKeyLiveTime();
         long loginTime = MyApplication.getInstance().getLoginTime();
@@ -115,7 +121,6 @@ public class AdActivity extends BaseActivity {
             startActivity(intent);
             finish();
         }
-
     }
 
 

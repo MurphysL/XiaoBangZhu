@@ -58,7 +58,6 @@ public class AuthActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         setContentView(R.layout.activity_auth);
         initViews();
         initEvent();
-
     }
 
     private void initViews() {
@@ -177,7 +176,9 @@ public class AuthActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
                 Log.i(TAG, "onClick: " + name+eduStartDate + identity + college);
 
-                if (VerifyUtils.isNull(college) || VerifyUtils.isNull(name)|| VerifyUtils.isNull(education)|| VerifyUtils.isNull(identity) || VerifyUtils.isNull(picture)|| VerifyUtils.isNull(edu)) {
+                if (!VerifyUtils.isNull(college) || !VerifyUtils.isNull(name)||
+                        !VerifyUtils.isNull(education)|| !VerifyUtils.isNull(identity)
+                        || !VerifyUtils.isNull(picture)|| !VerifyUtils.isNull(edu)) {
                     MyApplication.showToastShort("请检查输入");
                 } else {
                     if (edu != null && edu != "") {

@@ -18,6 +18,7 @@ import com.xiaobangzhu.xiaobangzhu.Bean.InitImageResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.LatestVersionCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.LoginResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.NewsListResultCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.PaySignCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.PublishResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.QiNiuResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.RegisteResultCode;
@@ -62,6 +63,7 @@ public class NetRequestManager {
     DataChangeListener<BaseResultCode> updateUserCodeListener;
     DataChangeListener<InitImageResultCode> initImageCodeListener;
     DataChangeListener<LatestVersionCode> latestVersionCodeDataChangeListener;
+    DataChangeListener<PaySignCode> paySignCodeDataChangeListener;
 
 
     private NetRequestManager() {
@@ -907,6 +909,41 @@ public class NetRequestManager {
     }
 
     /**
+     * 支付宝签名
+     * @param token
+     * @param subject
+     * @param body
+     * @param total_fee
+     */
+    public void getPaySign(String token , String subject , String body ,int total_fee){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        String url = HtmlManager.getmInstance().getUrlForPaySign(subject , body ,total_fee);
+        Log.i(TAG, "getPaySign: " + url);
+
+        postRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "getUrlForPaySign: " + response);
+                    PaySignCode data = gson.fromJson(response , PaySignCode.class);
+                    if(paySignCodeDataChangeListener != null){
+                        paySignCodeDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(paySignCodeDataChangeListener != null){
+                    paySignCodeDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+    }
+
+    /**
      * 新版本
      */
     public void getLatestVersion(String token){
@@ -1019,5 +1056,9 @@ public class NetRequestManager {
 
     public void setLatestVersionCodeDataChangeListener(DataChangeListener<LatestVersionCode> latestVersionCodeDataChangeListener){
         this.latestVersionCodeDataChangeListener = latestVersionCodeDataChangeListener;
+    }
+
+    public void setPaySignCodeDataChangeListener(DataChangeListener<PaySignCode> paySignCodeDataChangeListener){
+        this.paySignCodeDataChangeListener = paySignCodeDataChangeListener;
     }
 }

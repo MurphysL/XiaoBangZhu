@@ -65,7 +65,21 @@ public class ActivityListRecycleAdapter extends RecyclerView.Adapter<RecyclerVie
             Picasso.with(mContext).load(data.getHeader()) .fit()
                     .centerCrop().into(itemViewHolder.headerCircleView);
             itemViewHolder.titleTextView.setText(data.getTitle());
-            itemViewHolder.contentTextView.setText(data.getContent());
+
+            String content = data.getContent();
+            char[] c = new char[80];
+            if(content.length() > 70){
+                content.getChars(0 , 70 , c , 0);
+                c[71] = '.';
+                c[72] = '.';
+                c[73] = '.';
+                String s = new String(c);
+                itemViewHolder.contentTextView.setText(s);
+            }else{
+                itemViewHolder.contentTextView.setText(content);
+            }
+
+
             itemViewHolder.numTextView.setText(data.getPerson_num() + "");
             itemViewHolder.tag_1_TextView.setText(data.getTags());
             itemViewHolder.timeTextView.setText(data.getC_time());

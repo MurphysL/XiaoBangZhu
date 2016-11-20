@@ -21,6 +21,15 @@ public class BaseUrlManager {
     }
 
     /**
+     * 支付签名
+     */
+    private static String urlForPaySign = serverAddress + "signString.jhtml";
+    public static String getUrlForPaySign(String subject , String body ,int total_fee){
+        return urlForPaySign + "?param={\"subject\":" + "\"" + subject + "\","
+                + "\"body\":" + "\"" + body +"\"," + "\"total_fee\":" + total_fee + "}";
+    }
+
+    /**
      * 登录注册
      */
     private static final String urlForVerifyCode = serverAddress + "getCode.jhtml";

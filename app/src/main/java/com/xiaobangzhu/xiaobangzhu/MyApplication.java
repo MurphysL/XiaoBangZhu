@@ -362,7 +362,8 @@ public class MyApplication extends Application {
     public static void showDialog(Context context, String message) {
         if (alertDialog != null) {
             alertDialog.setMessage(message);
-            alertDialog.show();
+            if(context != null)
+                alertDialog.show();
         } else {
             alertDialog = new AlertDialog.Builder(context).setMessage(message).create();
             alertDialog.setCanceledOnTouchOutside(true);

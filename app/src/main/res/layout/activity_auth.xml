@@ -269,9 +269,11 @@
     <TextView
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="10dp"
         android:textSize="10sp"
-        android:text="注：我们会对您的资料进行隐私保护，绝不对外泄露"
+        android:text="注：我们会对您的资料进行隐私保护，绝不对外泄露\n
+        我们会在您提交认证之后电话回馈您的认证结果"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

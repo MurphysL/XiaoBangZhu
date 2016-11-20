@@ -126,9 +126,14 @@ public class HtmlManager {
         return BaseHtmlUrlManager.getUrlForDebit() + "?token=" + token;
     }
 
-    //获取最新版本
+    //获取最新版本 Y
     public String getUrlForUpdate() {
         return BaseHtmlUrlManager.getUrlForUpdate();
+    }
+
+    //获取支付宝签名
+    public String getUrlForPaySign(String subject , String body ,int total_fee){
+        return BaseUrlManager.getUrlForPaySign(subject , body ,total_fee);
     }
 
 

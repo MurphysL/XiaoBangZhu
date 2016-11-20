@@ -7,6 +7,7 @@ public class BaseHtmlUrlManager {
 
     private static String htmlAddress = "http://120.76.239.192/";
 
+
     //新闻详情
     private static String urlForNewsDetail = htmlAddress + "新闻详情.html#/";
     public static String getUrlForNewsDetail() {

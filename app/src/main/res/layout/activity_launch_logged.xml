@@ -11,14 +11,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <TextView
-        android:textSize="17sp"
-        android:textColor="@color/color_base"
-        android:layout_marginBottom="50dp"
-        android:layout_marginRight="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="欢迎登录萧帮主"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 </RelativeLayout>

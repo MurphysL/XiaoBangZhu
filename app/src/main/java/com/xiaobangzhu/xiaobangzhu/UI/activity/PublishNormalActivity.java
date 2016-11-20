@@ -139,7 +139,8 @@ public class PublishNormalActivity extends BaseActivity implements View.OnClickL
                     Log.i(TAG, "onClick: "+ showImgDir+"address:"+address);
                     MyApplication.showProgress(PublishNormalActivity.this,"发布中","请稍等");
                     QiniyunManager.uploadPicture(PublishNormalActivity.this,showImgDir);
-                    //startActivity(new Intent(PublishNormalActivity.this , PayOrderActivity.class));
+
+                    startActivity(new Intent(PublishNormalActivity.this , PayOrderActivity.class));
                 }
                 break;
             case R.id.publish_header_cancle:
@@ -210,4 +211,5 @@ public class PublishNormalActivity extends BaseActivity implements View.OnClickL
 
         }
     }
+
 }

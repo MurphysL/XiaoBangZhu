@@ -27,6 +27,7 @@ import com.uzmap.pkg.uzsocket.api.Receiver;
 import com.uzmap.pkg.uzsocket.g.c;
 import com.wei.zxinglibrary.activity.CaptureActivity;
 import com.xiaobangzhu.xiaobangzhu.Bean.LatestVersionCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.PaySignCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.HtmlManager;

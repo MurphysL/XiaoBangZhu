@@ -1,16 +1,13 @@
 package com.xiaobangzhu.xiaobangzhu.UI.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.PointerIcon;
 import android.widget.TextView;
 
-import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.xiaobangzhu.xiaobangzhu.Bean.Notification;
@@ -19,7 +16,6 @@ import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.R;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.MsgFragment;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.NotificationFragment;
-import com.xiaobangzhu.xiaobangzhu.db.DaoMaster;
 import com.xiaobangzhu.xiaobangzhu.db.NotificationDao;
 
 import java.util.ArrayList;

@@ -62,7 +62,7 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
     int[] icons = new int[]{R.drawable.person_verify, R.drawable.person_vip,
             R.drawable.person_tickets, R.drawable.person_order, R.drawable.person_pay,
             R.drawable.person_setting};
-    String[] names = new String[]{"用户认证","开通会员","我的门票","我的订单","还款账单","设置"};
+    String[] names = new String[]{"用户认证","开通会员","我的门票","我的任务","还款账单","设置"};
     List<Map<String, Object>> dataList;
     //头像路径
     String header;
