@@ -2,6 +2,9 @@ package com.xiaobangzhu.xiaobangzhu.Utils;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -94,15 +97,22 @@ public class PickUtils {
      * @param context
      * @return
      */
-    public static String pickString(Context context) {
+    public static String pickString(Context context , final Handler handler) {
         final StringBuilder res = new StringBuilder();
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_pick, null);
         final EditText inPutEdit = (EditText) view.findViewById(R.id.dialog_input);
+
         new AlertDialog.Builder(context).setView(view).setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 res.append(inPutEdit.getText().toString().trim());
                 Log.i(TAG, "onClick: " + res.toString());
+                Message msg = new Message();
+                msg.what = 1;
+                Bundle bundle = new Bundle();
+                bundle.putString("str" ,  res.toString());
+                msg.setData(bundle);
+                handler.sendMessage(msg);
             }
         }).create().show();
         return res.toString();

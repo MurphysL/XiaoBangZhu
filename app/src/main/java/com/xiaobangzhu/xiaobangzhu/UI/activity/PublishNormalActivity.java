@@ -2,6 +2,8 @@ package com.xiaobangzhu.xiaobangzhu.UI.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
@@ -140,7 +142,14 @@ public class PublishNormalActivity extends BaseActivity implements View.OnClickL
                     MyApplication.showProgress(PublishNormalActivity.this,"发布中","请稍等");
                     QiniyunManager.uploadPicture(PublishNormalActivity.this,showImgDir);
 
-                    startActivity(new Intent(PublishNormalActivity.this , PayOrderActivity.class));
+                    //Y
+                    Intent intent = new Intent(PublishNormalActivity.this , PayOrderActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("subject" , "normalpublish");
+                    b.putString("body" , desc);
+                    b.putInt("total_fee" , tip);
+                    intent.putExtras(b);
+                    startActivity(intent);
                 }
                 break;
             case R.id.publish_header_cancle:
@@ -202,14 +211,28 @@ public class PublishNormalActivity extends BaseActivity implements View.OnClickL
                     strTip = 10+"";
                     break;
                 case R.id.radio__btn_custom:
-                    strTip = PickUtils.pickString(PublishNormalActivity.this);
-                    Log.i(TAG, "onCheckedChanged: strTip is" + strTip);
+                    PickUtils.pickString(PublishNormalActivity.this , handler);
                     break;
-
             }
         }else {
 
         }
     }
+
+    //Y
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if(msg.what == 1){
+                Bundle bundle = msg.getData();
+                if(!"".equals(bundle.getString("str")) && null != bundle.getString("str")){
+                    strTip = bundle.getString("str");
+                    Log.i(TAG, "strTip is" + strTip);
+                }
+
+            }
+        }
+    };
 
 }

@@ -1,5 +1,6 @@
 package com.xiaobangzhu.xiaobangzhu.AliPay;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,7 +19,6 @@ import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.NetRequestManager;
 import com.xiaobangzhu.xiaobangzhu.R;
-import com.xiaobangzhu.xiaobangzhu.Utils.StringUtils;
 
 /**
  * PayOrderActivity
@@ -39,6 +39,8 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
     private String body ;
     private int total_fee;
 
+    private String orderInfo;
+
     private Handler handler = new Handler() {
         public void handleMessage(final Message msg) {
             switch (msg.what) {
@@ -54,44 +56,68 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_order);
 
+        initData();
         initView();
+        initEvent();
+    }
+
+    private void initData() {
+        Intent intent = getIntent();
+
+        Bundle bundle = intent.getExtras();
+        if(bundle != null){
+            subject = bundle.getString("subject");
+            body = bundle.getString("body");
+            total_fee = bundle.getInt("total_fee");
+            Log.i(TAG, "initData: " + subject + " " + body + " " + total_fee) ;
+        }
+
+    }
+
+    private void initEvent() {
+        pay.setOnClickListener(this);
+        if(!"".equals(subject) && !"".equals(body)){
+
+            NetRequestManager.getInstance().getPaySign(MyApplication.getInstance().getUserToken() , subject , body , total_fee);
+            NetRequestManager.getInstance().setPaySignCodeDataChangeListener(new DataChangeListener<PaySignCode>() {
+                @Override
+                public void onSuccessful(PaySignCode data) {
+                    MyApplication.dismissProgress();
+                    Log.i(TAG, "onSuccessful: " + "获取成功");
+                    pay.setBackgroundResource(R.color.orange);
+                    pay.setClickable(true);
+
+                    orderInfo = data.getData();
+                }
+
+                @Override
+                public void onError(VolleyError volleyError) {
+                    MyApplication.dismissProgress();
+                    MyApplication.showToastShort("发布失败");
+                }
+
+                @Override
+                public void onResponseNull() {
+                    MyApplication.dismissProgress();
+                    MyApplication.showToastShort("发布失败");
+                }
+            });
+        }
+
     }
 
     private void initView() {
         pay = (Button) findViewById(R.id.btn_to_pay);
 
-        pay.setOnClickListener(this);
-
-        subject = "test";
-        body = "test";
-        total_fee = 1;
-        NetRequestManager.getInstance().getPaySign(MyApplication.getInstance().getUserToken() , subject , body , total_fee);
-        NetRequestManager.getInstance().setPaySignCodeDataChangeListener(new DataChangeListener<PaySignCode>() {
-            @Override
-            public void onSuccessful(PaySignCode data) {
-                MyApplication.dismissProgress();
-                Log.i(TAG, "onSuccessful: " + "获取成功");
-            }
-
-            @Override
-            public void onError(VolleyError volleyError) {
-                MyApplication.dismissProgress();
-                MyApplication.showToastShort("发布失败");
-            }
-
-            @Override
-            public void onResponseNull() {
-                MyApplication.dismissProgress();
-                MyApplication.showToastShort("发布失败");
-            }
-        });
+        pay.setClickable(false);
+        pay.setBackgroundResource(R.color.base_gray);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_to_pay:
-                RequestPayment.payByAli(this , null , handler);
+                RequestPayment.payByAli(this , orderInfo , handler);
                 break;
         }
     }
@@ -136,4 +162,6 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
             finish();
         }
     }
+
+
 }

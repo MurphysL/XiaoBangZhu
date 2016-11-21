@@ -167,7 +167,7 @@ public class PublishSecondActivity  extends BaseActivity implements View.OnClick
                     useTime = "一年";
                     break;
                 case R.id.use_custom:
-                    useTime = PickUtils.pickString(PublishSecondActivity.this);
+                    //useTime = PickUtils.pickString(PublishSecondActivity.this);
                     publishCustomTextView.setText(useTime);
                     break;
             }

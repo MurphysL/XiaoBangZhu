@@ -675,6 +675,7 @@ public class NetRequestManager {
                 Log.i(TAG, "onResponse: " + response);
 
                 if (response != null) {
+                    Log.i(TAG, "Express onResponse: " + response);
                     BaseResultCode resultCode = gson.fromJson(response, BaseResultCode.class);
                     if (resultCode != null) {
                         if (addExpressResultCodeListener != null) {

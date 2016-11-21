@@ -5,10 +5,12 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.Toast;
 import com.alipay.sdk.app.PayTask;
 
@@ -19,6 +21,7 @@ import com.alipay.sdk.app.PayTask;
  *
  */
 public class AliPayManager {
+	private static final String TAG = "AliPayManager";
 
 	public static final String PARTNER = "2088421803105578";
 	public static final String APPID = "2016093002022464";
@@ -38,24 +41,24 @@ public class AliPayManager {
 	}
 
 	public interface OnPayResultListener {
-		public void onPayResult(String result);
+		void onPayResult(Map<String, String> result);
 	}
 
 	/**
 	 * call alipay sdk pay. 调用SDK支付
 	 *
 	 */
-	public void pay(String subject, String body, String price, String outTradeNo) {
-		String orderInfo = getOrderInfo(subject, body, price, outTradeNo);
-		String sign = sign(orderInfo);
-		try {
+	public void pay(final String orderInfo) {
+
+		//String sign = sign(orderInfo);
+		/*try {
 			// 仅需对sign 做URL编码
 			sign = URLEncoder.encode(sign, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
-				+ getSignType();
+				+ getSignType();*/
 
 		Runnable payRunnable = new Runnable() {
 
@@ -63,14 +66,11 @@ public class AliPayManager {
 			public void run() {
 				// 构造PayTask 对象
 				PayTask alipay = new PayTask(mActivity);
-				String result = null;
-				try {
-					// 调用支付接口。
-					result = alipay.pay(payInfo , true);
-				} catch (Exception e) {
-					// TODO: handle exception
-					handler.obtainMessage(0).sendToTarget();
-				}
+				Map<String, String> result = alipay.payV2(orderInfo , true);
+				Log.i(TAG, "run: " + result.toString());
+
+				//handler.obtainMessage(0).sendToTarget();
+
 
 				// 支付完成之后的调用
 				onPayResultListener.onPayResult(result);
@@ -80,6 +80,40 @@ public class AliPayManager {
 		Thread payThread = new Thread(payRunnable);
 		payThread.start();
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	/**
 	 * create the order info. 创建订单信息
