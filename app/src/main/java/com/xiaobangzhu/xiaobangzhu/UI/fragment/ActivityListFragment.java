@@ -49,43 +49,6 @@ public class ActivityListFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityListRecycleAdapter = new ActivityListRecycleAdapter(getContext(),activityList);
-
-        NetRequestManager.getInstance().getActivityList(MyApplication.getInstance().getUserToken(), BaseUrlManager.getUrlForGetActivityList(MyApplication.getInstance().getUserCollegeId(),activityList.size(),5));
-
-        NetRequestManager.getInstance().setActivityListResultCodeListener(new DataChangeListener<ActivityListResultCode>() {
-            @Override
-            public void onSuccessful(ActivityListResultCode data) {
-                Log.i("ActivityListFragment", data.getDesc());
-                if (data != null) {
-                    if (data.getStatus() == 0) {
-                        if (data.getData().size() >= 0) {
-                            activityListResultCode = data;
-                            initActivityList();
-                        }
-
-                    }else{
-                        activityListRecycleAdapter.setLoading(false);
-                    }
-
-                }
-
-            }
-
-            @Override
-            public void onError(VolleyError volleyError) {
-                MyApplication.showDialog(getContext(),"网络连到火星上了");
-                refreshLayout.setRefreshing(false);
-                activityListRecycleAdapter.setLoading(false);
-            }
-
-            @Override
-            public void onResponseNull() {
-                MyApplication.showDialog(getContext(),"暂时无法获取内容");
-                refreshLayout.setRefreshing(false);
-                activityListRecycleAdapter.setLoading(false);
-            }
-        });
-
     }
 
     /**
@@ -128,7 +91,47 @@ public class ActivityListFragment extends Fragment {
 
         initEvent();
 
+        initData();
+
         return mRootView;
+    }
+
+    private void initData() {
+        NetRequestManager.getInstance().getActivityList(MyApplication.getInstance().getUserToken(), BaseUrlManager.getUrlForGetActivityList(MyApplication.getInstance().getUserCollegeId(),activityList.size(),5));
+
+        NetRequestManager.getInstance().setActivityListResultCodeListener(new DataChangeListener<ActivityListResultCode>() {
+            @Override
+            public void onSuccessful(ActivityListResultCode data) {
+                Log.i("ActivityListFragment", data.getDesc());
+                if (data != null) {
+                    if (data.getStatus() == 0) {
+                        if (data.getData().size() >= 0) {
+                            activityListResultCode = data;
+                            initActivityList();
+                        }
+
+                    }else{
+                        activityListRecycleAdapter.setLoading(false);
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onError(VolleyError volleyError) {
+                MyApplication.showDialog(getContext(),"网络连到火星上了");
+                refreshLayout.setRefreshing(false);
+                activityListRecycleAdapter.setLoading(false);
+            }
+
+            @Override
+            public void onResponseNull() {
+                MyApplication.showDialog(getContext(),"暂时无法获取内容");
+                refreshLayout.setRefreshing(false);
+                activityListRecycleAdapter.setLoading(false);
+            }
+        });
     }
 
     private void initEvent() {

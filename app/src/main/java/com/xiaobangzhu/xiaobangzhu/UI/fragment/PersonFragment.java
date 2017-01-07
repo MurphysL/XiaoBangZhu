@@ -15,7 +15,6 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.xiaobangzhu.xiaobangzhu.Bean.UserBaseInform;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
@@ -24,24 +23,19 @@ import com.xiaobangzhu.xiaobangzhu.NetworkService.HtmlManager;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.NetRequestManager;
 import com.xiaobangzhu.xiaobangzhu.R;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.AuthActivity;
+import com.xiaobangzhu.xiaobangzhu.UI.activity.FamousVisitorInfoActivity;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.JoinMembersActivity;
-import com.xiaobangzhu.xiaobangzhu.UI.activity.LaunchActivity;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.MessageActivity;
-import com.xiaobangzhu.xiaobangzhu.UI.activity.PersonCenterActivity;
+import com.xiaobangzhu.xiaobangzhu.UI.activity.NormalVisitorInfoActivity;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.SettingActivity;
-import com.xiaobangzhu.xiaobangzhu.UI.activity.UpdateUserActivity;
+import com.xiaobangzhu.xiaobangzhu.UI.activity.ShopActivity;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.WebActivity;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import cn.jpush.android.api.JPushInterface;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -162,9 +156,7 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
                 intent.setClass(getActivity(), AuthActivity.class);
                 break;
             case 1:
-                //MyApplication.showToastShort("功能暂未开放");
                 intent.setClass(getActivity(),JoinMembersActivity.class);
-                //flag = false;
                 break;
             case 2:
                 bundle.putString("title", "我的门票");
@@ -175,7 +167,8 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
                 bundle.putString("url",HtmlManager.getmInstance().getUrlForMyOrder(MyApplication.getInstance().getUserToken()));
                 break;
             case 4:
-                MyApplication.showToastShort("功能暂未开放");
+                //MyApplication.showToastShort("功能暂未开放");
+                intent.setClass(getActivity() , ShopActivity.class);
                 flag = false;
                 //bundle.putString("title", "还款账单");
                 //intent.putExtra("url",HtmlManager.getmInstance().getUrlForDebit(MyApplication.getInstance().getUserToken()));
@@ -202,7 +195,8 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
                 }else{
                     intent.setClass(getActivity(), LaunchActivity.class);
                 }*/
-                intent.setClass(getActivity() , UpdateUserActivity.class);//Y
+                //intent.setClass(getActivity() , NormalVisitorInfoActivity.class);//Y
+                intent.setClass(getActivity() , FamousVisitorInfoActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 break;
@@ -231,17 +225,21 @@ public class PersonFragment extends Fragment implements AdapterView.OnItemClickL
 
     @Override
     public void onSuccessful(Object data) {
+
         UserBaseInform info = (UserBaseInform) data;
-        String imageDir = info.getData().getHeader();
-        if(imageDir != null){
-            Picasso.with(getContext())
-                    .load(imageDir)
-                    .into(mCircleImageView);
+        if(info.getData() != null){
+            String imageDir = info.getData().getHeader();
+            if(imageDir != null){
+                Picasso.with(getContext())
+                        .load(imageDir)
+                        .into(mCircleImageView);
+            }
+            if(!info.getData().getNick_name().equals("")){
+                Log.i(TAG, "onSuccessful: " + info.getData().getNick_name());
+                mTouchLoginTv.setText(info.getData().getNick_name());
+            }
         }
-        if(!info.getData().getNick_name().equals("")){
-            Log.i(TAG, "onSuccessful: " + info.getData().getNick_name());
-            mTouchLoginTv.setText(info.getData().getNick_name());
-        }
+
 
     }
 

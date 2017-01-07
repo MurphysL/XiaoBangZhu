@@ -331,9 +331,15 @@ public class ImageCycleView extends FrameLayout {
             //String text = data.get(index).text;
             //mText.setText(TextUtils.isEmpty(text) ? "" : text);
             //恢复默认没有获得焦点指示器样式
-            ((ImageView) (mIndicationGroup.getChildAt(preIndex))).setImageBitmap(unFocusIndicationStyle);
+            if(mIndicationGroup.getChildAt(preIndex) != null){
+                ((ImageView) (mIndicationGroup.getChildAt(preIndex))).setImageBitmap(unFocusIndicationStyle);
+            }
+
             // 设置当前显示图片的指示器样式
-            ((ImageView) (mIndicationGroup.getChildAt(index))).setImageBitmap(focusIndicationStyle);
+            if(mIndicationGroup.getChildAt(index) != null){
+                ((ImageView) (mIndicationGroup.getChildAt(index))).setImageBitmap(focusIndicationStyle);
+            }
+
             preIndex = index;
         }
 

@@ -219,6 +219,7 @@ public class MyApplication extends Application {
      * @return
      */
     public boolean writeUserInfrom(LoginResultCode.Data userInform) {
+        Log.i(TAG, "writeUserInfrom: " + "writeUserInfrom");
         boolean result = false;
         SharedPreferences.Editor editor = mSharedPreferences.edit();
         editor.putString(KEY_TOKEN, userInform.getToken());//用户token
@@ -238,6 +239,7 @@ public class MyApplication extends Application {
         editor.putString(KEY_TYPE, userInform.getType());//用户类型
         editor.putString(KEY_NICK_NAME, userInform.getNick_name());//昵称
         editor.putBoolean(KEY_IS_LOGIN, true);//是否登录
+        Log.i(TAG, "writeUserInfrom: " + userInform.getLive());
         editor.putLong(KEY_LIVE_TIME, userInform.getLive());//有效时长
         editor.putInt(KEY_DEPOSIT, userInform.getDeposit());//积分
         editor.putInt(KEY_LOAN_LIMIT, userInform.getLoanlimit());

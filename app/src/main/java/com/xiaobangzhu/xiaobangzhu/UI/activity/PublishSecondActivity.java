@@ -1,5 +1,6 @@
 package com.xiaobangzhu.xiaobangzhu.UI.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
+import com.xiaobangzhu.xiaobangzhu.AliPay.PayOrderActivity;
 import com.xiaobangzhu.xiaobangzhu.Bean.BaseResultCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.Interface.UploadCallback;
@@ -127,6 +129,15 @@ public class PublishSecondActivity  extends BaseActivity implements View.OnClick
                     Log.i(TAG, "onClick: "+ showImageDir+"address:"+address);
                     MyApplication.showProgress(PublishSecondActivity.this,"发布中","请稍后");
                     QiniyunManager.uploadPicture(PublishSecondActivity.this, showImageDir);
+
+                    //Y
+                    Intent intent = new Intent(PublishSecondActivity.this , PayOrderActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("subject" , "secondpublish");
+                    b.putString("body" , desc);
+                    b.putInt("total_fee" , price);
+                    intent.putExtras(b);
+                    startActivity(intent);
                 }
                 break;
             case R.id.publish_header_cancle:

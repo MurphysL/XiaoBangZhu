@@ -139,7 +139,7 @@ public class NewsListRecycleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             super(itemView);
             itemHeadPortraitImg = (CircleImageView) itemView.findViewById(R.id.home_item_header);
             itemNickName = (TextView) itemView.findViewById(R.id.home_item_nick_name);
-            itemTitle = (TextView) itemView.findViewById(R.id.home_item_title);
+            itemTitle = (TextView) itemView.findViewById(R.id.home_item_title1);
             itemShowImgFirst = (ImageView) itemView.findViewById(R.id.home_item_show_image_first);
             itemShowImgSecond = (ImageView) itemView.findViewById(R.id.home_item_show_image_second);
             itemShowImgThrid = (ImageView) itemView.findViewById(R.id.home_item_show_image_thrid);

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:layout_height="200dp"
+    android:background="@color/base_white"
+    android:layout_marginBottom="10dp">
+
+    <ImageView
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_buy"
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
+
+    <ImageView
+        android:src="@mipmap/ic_service"
+        android:layout_margin="20dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/goods_image"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+    <TextView
+        android:textColor="@color/base_color_text_black"
+        android:id="@+id/goods_name"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="珍珠奶茶"
+        android:textSize="20sp"
+        android:layout_below="@id/goods_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/goods_name"
+        android:layout_width="180dp"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/base_color_text_black"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="普通会员:"
+            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/base_color_text_black"
+            android:id="@+id/goods_price"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center|left"
+            android:text="2.5元"
+            android:textSize="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

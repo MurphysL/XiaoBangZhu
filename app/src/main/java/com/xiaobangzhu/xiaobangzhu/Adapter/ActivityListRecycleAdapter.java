@@ -66,21 +66,25 @@ public class ActivityListRecycleAdapter extends RecyclerView.Adapter<RecyclerVie
                     .centerCrop().into(itemViewHolder.headerCircleView);
             itemViewHolder.titleTextView.setText(data.getTitle());
 
+
             String content = data.getContent();
-            char[] c = new char[80];
-            if(content.length() > 70){
-                content.getChars(0 , 70 , c , 0);
-                c[71] = '.';
-                c[72] = '.';
-                c[73] = '.';
-                String s = new String(c);
-                itemViewHolder.contentTextView.setText(s);
-            }else{
-                itemViewHolder.contentTextView.setText(content);
+            if(!content.equals("")){
+                char[] c = new char[80];
+                if(content.length() > 70){
+                    content.getChars(0 , 70 , c , 0);
+                    c[71] = '.';
+                    c[72] = '.';
+                    c[73] = '.';
+                    String s = new String(c);
+                    itemViewHolder.contentTextView.setText(s);
+                }else{
+                    itemViewHolder.contentTextView.setText(content);
+                }
             }
 
 
-            itemViewHolder.numTextView.setText(data.getPerson_num() + "");
+            itemViewHolder.numTextView.setText("   票数：" + data.getPerson_num() + "   ");
+            itemViewHolder.placeTextView.setText(data.getAddress());
             itemViewHolder.tag_1_TextView.setText(data.getTags());
             itemViewHolder.timeTextView.setText(data.getC_time());
 
@@ -91,8 +95,10 @@ public class ActivityListRecycleAdapter extends RecyclerView.Adapter<RecyclerVie
             SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             long now = System.currentTimeMillis();
 
+            Log.i(TAG, "onBindViewHolder: " + data.getApply_endtime());
             try {
-                if(!"".equals(data.getApply_endtime()) || !data.getApply_endtime().equals(null)){
+                if(!"".equals(data.getApply_endtime()) && null!=data.getApply_endtime()){
+                    Log.i(TAG, "onBindViewHolder: " + data.getApply_endtime());
                     long t = (sdf.parse(data.getApply_endtime()).getTime());
                     Log.i(TAG, "onBindViewHolder: " + (t > now) );
                     if(t < now){
@@ -160,6 +166,7 @@ public class ActivityListRecycleAdapter extends RecyclerView.Adapter<RecyclerVie
         public final TextView tag_2_TextView;
         public final TextView timeTextView;
         public final TextView numTextView;
+        public final TextView placeTextView;
         public final Button joinBtn;
 
         public ViewHolder(View itemView) {
@@ -172,6 +179,7 @@ public class ActivityListRecycleAdapter extends RecyclerView.Adapter<RecyclerVie
             tag_2_TextView = (TextView) itemView.findViewById(R.id.activity_item_tag2);
             timeTextView = (TextView) itemView.findViewById(R.id.activity_item_time);
             numTextView = (TextView) itemView.findViewById(R.id.activity_item_numbers);
+            placeTextView = (TextView) itemView.findViewById(R.id.activity_item_place);
             joinBtn = (Button) itemView.findViewById(R.id.activity_enter_activity);
         }
     }

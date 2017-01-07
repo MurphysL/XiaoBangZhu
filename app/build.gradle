@@ -8,7 +8,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 22
         versionCode 1
-        versionName "1.1"
+        versionName "1.2"
 
         //Y
         ndk {
@@ -22,6 +22,9 @@ android {
             JPUSH_APPKEY : "fc19757999113b390856ba4c", //JPush上注册的包名对应的appkey.
             JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
         ]
+
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled  true
     }
     buildTypes {
         release {
@@ -69,13 +72,15 @@ dependencies {
     compile project(':androidlibrary')
     compile files('libs/SwitchLayout1.0.jar')
     //Y
-    compile files('libs/alipaySdk-20161009.jar')
     compile 'com.bartoszlipinski:recyclerviewheader2:2.0.1'
     compile 'com.karumi:headerrecyclerview:1.1.0'
-    compile 'cn.jiguang:jpush:2.1.8'  // 此处以SDK 2.1.8版本为例
+    compile 'cn.jiguang:jpush:2.1.8'
+    // 此处以SDK 2.1.8版本为例
     compile 'com.android.support:cardview-v7:24.2.1'
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'org.greenrobot:greendao-generator:3.2.0'
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar'
-
+    //高斯模糊
+    compile 'net.qiujuer.genius:blur:2.0.0-beta4'
+    compile files('libs/alipaySdk-20161129.jar')
 }

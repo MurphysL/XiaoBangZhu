@@ -20,6 +20,8 @@ public class BaseUrlManager {
         return serverAddress;
     }
 
+    private static final String serverAddress2 = "http://182.92.85.184.8080/XiaoBangZhu/moblieInterface/";
+
     /**
      * 支付签名
      */
@@ -175,5 +177,19 @@ public class BaseUrlManager {
     public static String getUrlForOrderInfo() {
         return urlForOrderInfo;
     }
+
+    /**
+     * 会员信息
+     */
+    private static final String urlForGetVipType = serverAddress +"getVipType.jhtml";
+    public static String getUrlForGetVipType(){
+        return urlForGetVipType;
+    }
+
+    private static final String urlForAddVIP = serverAddress2+"addVIP.jhtml";
+    public static String getUrlForAddVIP(int vip_id , int month){
+        return urlForAddVIP + "?param={\"vip_id\":" +vip_id +",\"month\":" + month;
+    }
+
 
 }

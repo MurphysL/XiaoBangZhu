@@ -130,6 +130,14 @@ public class NewsListResultCode {
         }
 
 
+        @Override
+        public String toString() {
+            return "\ntitle" + title
+                    + "\nid" + id
+                    + "\nPicture1 " + picture1
+                    + "\nPicture2 " + picture2
+                    + "\nPicture3 " + picture3;
+        }
     }
 
 }

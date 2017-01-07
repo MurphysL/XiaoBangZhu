@@ -1,5 +1,6 @@
 package com.xiaobangzhu.xiaobangzhu.UI.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
+import com.xiaobangzhu.xiaobangzhu.AliPay.PayOrderActivity;
 import com.xiaobangzhu.xiaobangzhu.Bean.BaseResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.GetExressCompanyResultCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
@@ -217,6 +219,15 @@ public class PublishExpressActivity extends AppCompatActivity implements View.On
                     MyApplication.showProgress(PublishExpressActivity.this,"发布中","请稍等");
                     Log.i(TAG, "onClick: " + name + address + phoneTail + expressId + tip);
                     NetRequestManager.getInstance().addExpress(MyApplication.getInstance().getUserToken(), MyApplication.getInstance().getUserCollegeId(), name, expressId, address, tip, phoneTail, expressCompanyId, endTime);
+
+                    //Y
+                    Intent intent = new Intent(PublishExpressActivity.this , PayOrderActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("subject" , "normalpublish");
+                    b.putString("body" , expressId + "");
+                    b.putInt("total_fee" , tip);
+                    intent.putExtras(b);
+                    startActivity(intent);
                 }
                 break;
             case R.id.publish_header_cancle:

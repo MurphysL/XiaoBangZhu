@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.flyco.tablayout.SlidingTabLayout;
@@ -37,6 +39,8 @@ public class MessageActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private ArrayList<Fragment> list = new ArrayList<>();
     private TextView title;
+
+    private ImageView back;
 
     private String[] titles = {"与我相关" , "系统通知"};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
@@ -105,6 +109,13 @@ public class MessageActivity extends AppCompatActivity {
             tabLayout2.setMsgMargin(2 , 66 , 10);
         }
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void initView() {
@@ -112,5 +123,6 @@ public class MessageActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.msg_viewpager);
         title = (TextView) findViewById(R.id.web_title);
         title.setText("我的消息");
+        back = (ImageView) findViewById(R.id.web_back);
     }
 }

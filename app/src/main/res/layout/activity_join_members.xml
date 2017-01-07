@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@color/light_gray"
     android:layout_width="match_parent"
+    android:background="@color/base_white"
     android:layout_height="match_parent">
-
+    <!--标题栏-->
     <RelativeLayout
+        android:elevation="5dp"
+        android:background="@color/base_white"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/base_action_bar_height">
         <ImageView
             android:id="@+id/activity_join_member_back_icon"
             android:layout_centerVertical="true"
@@ -26,169 +28,421 @@
             android:layout_height="match_parent" />
     </RelativeLayout>
 
-
+    <!--状态栏-->
     <RelativeLayout
-        android:padding="15dp"
-        android:background="@drawable/member_background"
+        android:background="#eeeeee"
         android:layout_width="match_parent"
-        android:layout_height="190dp">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/activity_join_member_header_img"
-            android:src="@mipmap/ic_publish_express"
-            android:layout_marginTop="10dp"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_centerHorizontal="true"/>
+        android:layout_height="200dp">
 
-        <TextView
-            android:id="@+id/activity_join_member_user_name"
-            android:textColor="@color/base_white"
-            android:layout_marginTop="5dp"
-            android:layout_centerHorizontal="true"
-            android:textSize="12sp"
-            android:layout_below="@id/activity_join_member_header_img"
-            android:text="爱魔法的少女"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <ImageView
+            android:background="@drawable/member_bg"
+            android:layout_width="match_parent"
+            android:layout_height="190dp" />
+
         <LinearLayout
-            android:id="@+id/activity_join_member_text_line"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/activity_join_member_user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:id="@+id/fr1"
+                android:layout_alignParentBottom="true"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/sanjiao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/fr2"
+                android:visibility="invisible"
+                android:layout_alignParentBottom="true"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/sanjiao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/fr3"
+                android:visibility="invisible"
+                android:layout_alignParentBottom="true"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/sanjiao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/fr4"
+                android:visibility="invisible"
+                android:layout_alignParentBottom="true"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/sanjiao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/activity_join_member_header_img"
+                android:src="@mipmap/ic_publish_express"
+                android:layout_marginTop="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@mipmap/ic_vip_1"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:id="@+id/circleImageView"
+                android:layout_above="@+id/activity_join_member_user_name"
+                android:layout_alignEnd="@+id/activity_join_member_header_img" />
+
             <TextView
-                android:id="@+id/activity_join_member_not_vip_text"
+                android:id="@+id/activity_join_member_user_name"
                 android:textColor="@color/base_white"
                 android:layout_marginTop="5dp"
-                android:textSize="10sp"
-                android:text="您还不是会员"
+                android:layout_centerHorizontal="true"
+                android:textSize="12sp"
+                android:layout_below="@id/activity_join_member_header_img"
+                android:text="爱魔法的少女"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/acivity_change_info_btn_bg"
-                android:layout_marginTop="5dp"
-                android:textSize="10sp"
+           <View
+               android:id="@+id/view_vip_sign1"
+                android:visibility="gone"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/activity_join_member_header_img"
+                android:layout_toEndOf="@+id/activity_join_member_user_name"
+                android:background="@drawable/vip_sign"
+                android:layout_width="25dp"
+                android:layout_height="12dp"/>
+            <View
+                android:visibility="gone"
+                android:id="@+id/view_vip_sign2"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/activity_join_member_header_img"
+                android:layout_toEndOf="@+id/activity_join_member_user_name"
+                android:background="@drawable/vip1_sign"
+                android:layout_width="18dp"
+                android:layout_height="10dp"/>
+            <View
+                android:visibility="gone"
+                android:id="@+id/view_vip_sign3"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/activity_join_member_header_img"
+                android:layout_toEndOf="@+id/activity_join_member_user_name"
+                android:background="@drawable/vip3_sign"
+                android:layout_width="18dp"
+                android:layout_height="10dp"/>
+            <LinearLayout
+                android:id="@+id/activity_join_member_text_line"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/activity_join_member_user_name"
-                android:layout_toRightOf="@id/activity_join_member_not_vip_text"
-                android:text="立即开通"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/activity_join_member_not_vip_text"
+                    android:textColor="@color/base_white"
+                    android:layout_marginTop="5dp"
+                    android:textSize="10sp"
+                    android:text="您还不是会员"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/tv_join_member"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/acivity_change_info_btn_bg"
+                    android:layout_marginTop="5dp"
+                    android:textSize="10sp"
 
-        <LinearLayout
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/activity_join_member_text_line">
+                    android:layout_below="@id/activity_join_member_user_name"
+                    android:layout_toRightOf="@id/activity_join_member_not_vip_text"
+                    android:text="立即开通"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <View
+                android:visibility="gone"
+                android:id="@+id/join_member_line"
+                android:layout_below="@+id/activity_join_member_text_line"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/line"
+                android:layout_marginTop="30dp"
+                android:layout_width="85dp"
+                android:layout_height="2dp"/>
+            <View
+                android:visibility="gone"
+                android:id="@+id/join_member_line2"
+                android:layout_below="@+id/activity_join_member_text_line"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/line"
+                android:layout_marginTop="30dp"
+                android:layout_width="170dp"
+                android:layout_height="2dp"/>
+            <View
+                android:visibility="gone"
+                android:id="@+id/join_member_line3"
+                android:layout_below="@+id/activity_join_member_text_line"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/line"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="32dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_gravity="center"
-                    android:src="@mipmap/ic_vip_1"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"/>
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#fff"
-                    android:textSize="10sp"
-                    android:layout_gravity="center"
-                    android:text="普通用户"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_below="@id/activity_join_member_text_line"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_gravity="center"
-                    android:src="@mipmap/ic_vip_2"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"/>
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#fff"
-                    android:textSize="10sp"
-                    android:layout_gravity="center"
-                    android:text="普通会员(VIP1)"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_below="@id/activity_join_member_text_line"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_gravity="center"
-                    android:src="@mipmap/ic_vip_3"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"/>
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#fff"
-                    android:textSize="10sp"
-                    android:layout_gravity="center"
-                    android:text="高级会员(VIP 3)"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_below="@id/activity_join_member_text_line"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_gravity="center"
-                    android:src="@mipmap/ic_vip_4"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"/>
-                <TextView
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#fff"
-                    android:textSize="10sp"
-                    android:layout_gravity="center"
-                    android:text="尊贵会员(VIP 6)"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </LinearLayout>
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/activity_join_member_text_line">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@mipmap/ic_vip_1"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:id="@+id/circleImageView"
-            android:layout_above="@+id/activity_join_member_user_name"
-            android:layout_alignEnd="@+id/activity_join_member_header_img" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_vip_1"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:id="@+id/circleImageView4" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#fff"
+                        android:textSize="10sp"
+                        android:layout_gravity="center"
+                        android:text="普通用户"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@id/activity_join_member_text_line"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_vip_2"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#fff"
+                        android:textSize="10sp"
+                        android:layout_gravity="center"
+                        android:text="普通会员(VIP1)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@id/activity_join_member_text_line"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView3"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_vip_3"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#fff"
+                        android:textSize="10sp"
+                        android:layout_gravity="center"
+                        android:text="高级会员(VIP 3)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@id/activity_join_member_text_line"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_vip_4"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#fff"
+                        android:textSize="10sp"
+                        android:layout_gravity="center"
+                        android:text="尊贵会员(VIP 6)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_join_member_text_line"
+                android:layout_alignParentStart="true">
+
+                <RelativeLayout
+                    android:id="@+id/rl1"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_vip_1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/circleImageView1" />
+
+                    <View
+                        android:layout_toRightOf="@+id/circleImageView1"
+                        android:background="@drawable/line"
+                        android:layout_marginTop="15dp"
+                        android:layout_width="70dp"
+                        android:layout_height="2dp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl2"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/activity_join_member_text_line"
+                    android:layout_toRightOf="@+id/rl1">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_vip_2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/circleImageView2" />
+
+                   &lt;!&ndash; <View
+                        android:layout_toRightOf="@+id/circleImageView2"
+                        android:background="@drawable/line"
+                        android:layout_marginTop="15dp"
+                        android:layout_width="70dp"
+                        android:layout_height="2dp"/>&ndash;&gt;
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl3"
+                    android:layout_toRightOf="@+id/rl2"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/activity_join_member_text_line">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_vip_3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/circleImageView3" />
+
+                    &lt;!&ndash;<View
+                        android:layout_toRightOf="@+id/circleImageView3"
+                        android:background="@drawable/line"
+                        android:layout_marginTop="15dp"
+                        android:layout_width="70dp"
+                        android:layout_height="2dp"/>&ndash;&gt;
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_toRightOf="@+id/rl3"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/activity_join_member_text_line">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_vip_4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>-->
+
+
+        </RelativeLayout>
+
 
     </RelativeLayout>
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="15dp"
-        android:textSize="15sp"
-        android:text="普通会员特权"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <LinearLayout
+        android:background="#eeeeee"
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+        <!--特权栏-->
+        <TextView
+            android:id="@+id/tv_rank"
+            android:layout_marginStart="15dp"
+            android:textSize="10sp"
+            android:text="萧帮主服务"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+
+
+   <!-- <LinearLayout
         android:padding="10dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
@@ -203,6 +457,7 @@
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/im_vip"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -225,6 +480,7 @@
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/safety"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -247,6 +503,7 @@
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/imPush"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -269,6 +526,7 @@
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/imShopping"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -296,71 +554,74 @@
         android:layout_weight="1"
         android:layout_height="0dp">
 
-         <LinearLayout
-             android:layout_weight="1"
-             android:layout_width="0dp"
-             android:orientation="vertical"
-             android:layout_height="match_parent">
-             <ImageView
-                 android:layout_gravity="center_horizontal"
-                 android:layout_width="wrap_content"
-                 android:layout_height="match_parent"
-                 android:layout_weight="1"
-                 android:src="@mipmap/ic_vip_travel"/>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/im_kuaidi"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_vip_kuaidi"/>
 
-             <TextView
-                 android:text="出行特权"
-                 android:textSize="14sp"
-                 android:layout_marginTop="10dp"
-                 android:layout_gravity="center_horizontal"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content" />
+            <TextView
+                android:text="免费快递"
+                android:maxLines="1"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-         </LinearLayout>
-         <LinearLayout
-             android:layout_weight="1"
-             android:layout_width="0dp"
-             android:orientation="vertical"
-             android:layout_height="match_parent">
-             <ImageView
-                 android:layout_gravity="center_horizontal"
-                 android:layout_width="wrap_content"
-                 android:layout_height="match_parent"
-                 android:layout_weight="1"
-                 android:src="@mipmap/ic_vip_shop"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/im_activity"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_vip_activity"/>
 
-             <TextView
-                 android:text="实体店特权"
-                 android:textSize="14sp"
-                 android:layout_marginTop="10dp"
-                 android:layout_gravity="center_horizontal"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content" />
+            <TextView
+                android:text="专属活动"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-         </LinearLayout>
-         <LinearLayout
-             android:layout_weight="1"
-             android:layout_width="0dp"
-             android:orientation="vertical"
-             android:layout_height="match_parent">
-             <ImageView
-                 android:layout_gravity="center_horizontal"
-                 android:layout_width="wrap_content"
-                 android:layout_height="match_parent"
-                 android:layout_weight="1"
-                 android:src="@mipmap/ic_vip_jifen"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/im_door"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_vip_door"/>
 
-             <TextView
-                 android:text="额外积分奖励"
-                 android:maxLines="1"
-                 android:textSize="12sp"
-                 android:layout_marginTop="10dp"
-                 android:layout_gravity="center_horizontal"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content" />
+            <TextView
+                android:text="门票特权"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-         </LinearLayout>
-         <LinearLayout
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/im_server"
              android:layout_weight="1"
              android:layout_width="0dp"
              android:orientation="vertical"
@@ -393,11 +654,13 @@
         android:layout_height="0dp">
 
         <LinearLayout
+            android:id="@+id/im_first"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -414,11 +677,13 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/im_fenqi"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -435,11 +700,13 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/school"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -456,19 +723,21 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/im_shop"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_vip_activity"/>
+                android:src="@mipmap/ic_vip_shop"/>
 
             <TextView
-                android:text="专属活动"
+                android:text="实体店特权"
                 android:textSize="14sp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
@@ -476,6 +745,7 @@
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -487,8 +757,31 @@
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="0dp">
-
         <LinearLayout
+            android:id="@+id/im_jifen"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_vip_jifen"/>
+
+            <TextView
+                android:text="额外积分"
+                android:maxLines="1"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/im_travel"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
@@ -498,10 +791,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_vip_door"/>
+                android:src="@mipmap/ic_vip_travel"/>
 
             <TextView
-                android:text="门票特权"
+                android:text="出行特权"
                 android:textSize="14sp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
@@ -514,23 +807,268 @@
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="match_parent">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+
+        </LinearLayout>
+    </LinearLayout>-->
+
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:id="@+id/members_shop"
+            android:padding="18dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
             <ImageView
+                android:layout_margin="5dp"
+                android:id="@+id/im_kuaidi"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_vip_kuaidi"/>
+                android:src="@mipmap/ic_shop"/>
 
             <TextView
-                android:text="免费快递特权"
-                android:textSize="12sp"
+                android:text="店内商城"
                 android:maxLines="1"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
+        <ImageView
+            android:src="@mipmap/sline"
+            android:layout_width="4dp"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:padding="18dp"
+            android:id="@+id/im_activity"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_ktv"/>
+
+            <TextView
+                android:text="KTV"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <ImageView
+            android:src="@mipmap/sline"
+            android:layout_width="4dp"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:padding="18dp"
+            android:id="@+id/im_door"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_hotel"/>
+
+            <TextView
+                android:text="酒店"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:src="@mipmap/hline"
+        android:layout_width="match_parent"
+        android:layout_height="4dp" />
+
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:padding="18dp"
+            android:id="@+id/im_first"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_school"/>
+
+            <TextView
+                android:text="校内服务"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <ImageView
+            android:src="@mipmap/sline"
+            android:layout_width="2dp"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:padding="18dp"
+            android:id="@+id/im_fenqi"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_private"
+                android:id="@+id/imageView3" />
+
+            <TextView
+                android:text="私人订制"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <ImageView
+            android:src="@mipmap/sline"
+            android:layout_width="2dp"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:padding="18dp"
+            android:id="@+id/school"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_service"/>
+
+            <TextView
+                android:text="我的客服"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:src="@mipmap/hline"
+        android:layout_width="match_parent"
+        android:layout_height="4dp" />
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:padding="18dp"
+            android:id="@+id/im_jifen"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_recommend"
+                android:id="@+id/imageView2" />
+
+            <TextView
+                android:text="兼职"
+                android:maxLines="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <ImageView
+            android:src="@mipmap/sline"
+            android:layout_width="2dp"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:padding="18dp"
+            android:id="@+id/im_travel"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_commonweal"/>
+
+            <TextView
+                android:text="萧帮主公益"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <ImageView
+            android:src="@mipmap/sline"
+            android:layout_width="2dp"
+            android:layout_height="match_parent" />
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -538,13 +1076,7 @@
             android:layout_height="match_parent">
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
 
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

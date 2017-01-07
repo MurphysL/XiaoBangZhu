@@ -136,6 +136,14 @@ public class HtmlManager {
         return BaseUrlManager.getUrlForPaySign(subject , body ,total_fee);
     }
 
+    public String getUrlForVipType(){
+        return BaseUrlManager.getUrlForGetVipType();
+    }
+
+    public String getUrlForAddVIP(int vip_id , int month){
+        return BaseUrlManager.getUrlForAddVIP(vip_id , month);
+    }
+
 
 
 }

@@ -12,9 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.alipay.sdk.app.PayTask;
 import com.android.volley.VolleyError;
-import com.xiaobangzhu.xiaobangzhu.AliPay.PayDemoActivity;
 import com.xiaobangzhu.xiaobangzhu.AliPay.PayOrderActivity;
 import com.xiaobangzhu.xiaobangzhu.Bean.PublishResultCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;

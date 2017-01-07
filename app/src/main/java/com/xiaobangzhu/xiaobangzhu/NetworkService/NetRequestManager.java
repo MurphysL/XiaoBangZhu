@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.xiaobangzhu.xiaobangzhu.Bean.ActivityListResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.AdPictures;
 import com.xiaobangzhu.xiaobangzhu.Bean.AddTangleResultCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.AddVIPCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.BaseResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.CollegeListResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.GetExressCompanyResultCode;
@@ -24,6 +25,7 @@ import com.xiaobangzhu.xiaobangzhu.Bean.QiNiuResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.RegisteResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.UserBaseInform;
 import com.xiaobangzhu.xiaobangzhu.Bean.VerifyCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.VipTypeCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.Utils.VerifyUtils;
@@ -64,6 +66,8 @@ public class NetRequestManager {
     DataChangeListener<InitImageResultCode> initImageCodeListener;
     DataChangeListener<LatestVersionCode> latestVersionCodeDataChangeListener;
     DataChangeListener<PaySignCode> paySignCodeDataChangeListener;
+    DataChangeListener<VipTypeCode> vipTypeCodeDataChangeListener;
+    DataChangeListener<AddVIPCode> addVIPCodeDataChangeListener;
 
 
     private NetRequestManager() {
@@ -288,7 +292,9 @@ public class NetRequestManager {
         getRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 if (response != null) {
+                    Log.i(TAG, "onResponse: " + response);
                     UserBaseInform userBaseInform = gson.fromJson(response, UserBaseInform.class);
                     if (userBaseInform != null) {
                         userBaseInformListener.onSuccessful(userBaseInform);
@@ -902,6 +908,7 @@ public class NetRequestManager {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.i(TAG, "onErrorResponse: " + error);
                 if (initImageCodeListener != null) {
                     initImageCodeListener.onError(error);
                 }
@@ -945,6 +952,71 @@ public class NetRequestManager {
     }
 
     /**
+     * 添加会员
+     * @param token
+     */
+    public void addVIP(String token , int vip_id , int month){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        String url = HtmlManager.getmInstance().getUrlForAddVIP(vip_id , month);
+        Log.i(TAG, "addVIP: " + url);
+
+        postRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "addVIP: " + response);
+                    AddVIPCode data = gson.fromJson(response , AddVIPCode.class);
+                    if(addVIPCodeDataChangeListener != null){
+                        addVIPCodeDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(addVIPCodeDataChangeListener != null){
+                    addVIPCodeDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+    }
+
+    /**
+     * 获取会员种类
+     */
+    public void getVipType(String token){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        String url = HtmlManager.getmInstance().getUrlForVipType();
+        Log.i(TAG, "getVipType: " + url);
+
+        getRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "getVipType: " + response);
+                    VipTypeCode data = gson.fromJson(response , VipTypeCode.class);
+                    if(vipTypeCodeDataChangeListener != null){
+                        vipTypeCodeDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(vipTypeCodeDataChangeListener != null){
+                    vipTypeCodeDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+    }
+
+
+
+    /**
      * 新版本
      */
     public void getLatestVersion(String token){
@@ -973,6 +1045,7 @@ public class NetRequestManager {
             }
         } , headers);
     }
+
 
 
     public void setInitImageCodeListener(DataChangeListener<InitImageResultCode> initImageCodeListener) {
@@ -1062,4 +1135,13 @@ public class NetRequestManager {
     public void setPaySignCodeDataChangeListener(DataChangeListener<PaySignCode> paySignCodeDataChangeListener){
         this.paySignCodeDataChangeListener = paySignCodeDataChangeListener;
     }
+
+    public void setVipTypeCodeDataChangeListener(DataChangeListener<VipTypeCode> vipTypeCodeDataChangeListener){
+        this.vipTypeCodeDataChangeListener = vipTypeCodeDataChangeListener;
+    }
+
+    public void setAddVIPCodeDataChangeListener(DataChangeListener<AddVIPCode> addVIPCodeDataChangeListener){
+        this.addVIPCodeDataChangeListener = addVIPCodeDataChangeListener;
+    }
+
 }

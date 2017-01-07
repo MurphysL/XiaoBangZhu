@@ -86,39 +86,37 @@
         android:id="@+id/activity_item_join"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center_vertical">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="20dp"/>
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="-5dp"/>
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="-5dp"/>
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="-5dp"/>
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="-5dp"/>
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="-5dp"/>
 
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/paper"
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
         <TextView
+            android:text="票数:300"
             android:id="@+id/activity_item_numbers"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:layout_marginLeft = "5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/loc"
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/activity_item_place"
             android:layout_marginLeft="5dp"
+            android:text="地址"
             android:gravity="center"
             android:textSize="10sp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
+
     </LinearLayout>
 
     <Button
@@ -134,5 +132,7 @@
         android:background="@drawable/login_btn_background"
         android:layout_width="75dp"
         android:layout_height="30dp" />
+
+
 
 </RelativeLayout>

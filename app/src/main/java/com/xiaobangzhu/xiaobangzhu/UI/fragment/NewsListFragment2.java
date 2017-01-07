@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
@@ -93,12 +92,11 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
             public void onSuccessful(NewsListResultCode data) {
                 Log.i("inform", data.getDesc());
                 newsListAdapter.setLoading(false);
-                if (data != null) {
+                if (data != null && data.getData() != null) {
                     if (data.getData().size() > 0) {
                         newsListResultCode = data;
                         initNewsList();
                     }else{
-                        //refreshLayout.setEnabled(false);
                         refreshLayout.setRefreshing(false);
                     }
                 }else{
@@ -126,8 +124,6 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
     @Override
     public void onStart() {
         super.onStart();
-        refreshBtn.setVisibility(View.INVISIBLE);
-
         if(adImageUrlList != null){
             mImageIndicatorView.loadData(adImageUrlList);
         }
@@ -155,20 +151,18 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
     void initNewsList() {
         refreshLayout.setRefreshing(false);
         shelter.setVisibility(View.GONE);
-        //refreshLayout.setEnabled(false);
 
         if (newsListResultCode != null && newsListResultCode.getData().size() > 0) {
-            Log.i(TAG, "initNewsList: alala" + newsListResultCode.getData().size());
-            newsList.clear();//CTNND clear与notifyDataSetChange不要隔太远
+            Log.i(TAG, "initNewsList: " +newsListResultCode.getData().size() +newsListResultCode.getData().toString());
+
             for (int i=0;i<newsListResultCode.getData().size();i++) {
-                Log.i(TAG, "initNewsList: "+ newsListResultCode);
                 newsList.add(newsListResultCode.getData().get(i));
             }
             refreshBtn.setVisibility(View.INVISIBLE);
             MyApplication.dismissProgress();
+            Log.i(TAG, "initNewsList: " + newsList.size());
             newsListAdapter.notifyDataSetChanged();
             newsListView.setVisibility(View.VISIBLE);
-            Log.i(TAG, "initNewsList: newsList is not null");
         }else{
             refreshBtn.setVisibility(View.VISIBLE);
             Log.i(TAG, "initNewsList: newsListResultCode is null");
@@ -211,30 +205,16 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
 
         refreshLayout.setColorSchemeColors(Color.RED,Color.BLUE,Color.GREEN);
 
-
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Log.i(TAG, "onRefresh: " + "-----------------------------------------------------");
                 refreshLayout.setClickable(false);
                 shelter.setVisibility(View.VISIBLE);
+                newsList.clear();
+                newsListAdapter.notifyDataSetChanged();
                 NetRequestManager.getInstance().getNewsList(MyApplication.getInstance().getUserToken(),BaseUrlManager.getUrlForGetNewsList(MyApplication.getInstance().getUserCollegeId(),0,15));
             }
         });
-
-       /* refreshBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MyApplication.showProgress(getContext(),"加载中","请稍等");
-                Timer timer = new Timer();
-                timer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        MyApplication.dismissProgress();
-                    }
-                },8000);
-                NetRequestManager.getInstance().getNewsList(MyApplication.getInstance().getUserToken(),BaseUrlManager.getUrlForGetNewsList(MyApplication.getInstance().getUserCollegeId(),0,15));            }
-        });*/
 
         mImageIndicatorView.setOnPageClickListener(new ImageCycleView.OnPageClickListener() {
             @Override
@@ -257,15 +237,13 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         //isBottom是自定义的boolean变量，用于标记是否滑动到底部
-        Log.i(TAG, "onScrollStateChanged: " + newsListAdapter.isLoading());
         if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE && isBottom && !newsListAdapter.isLoading()) {
             int lastVisibleItem = firstVisibleItem + visibleItemCount;
-            Log.i(TAG, "onScrollStateChanged: " + "LASTVISIABLE" + lastVisibleItem );
-            Log.i(TAG, "onScrollStateChanged: " + newsListAdapter.isLoading());
+
             if (!newsListAdapter.isLoading() && totalItemCount < (lastVisibleItem + 3)) {
                 newsListAdapter.setLoading(true);
                 refreshLayout.setRefreshing(true);
-                Log.i(TAG, "onScrollStateChanged: " +"读取数据中。。。");
+                Log.i(TAG, "onScrollStateChanged: " +"读取数据中。。。" + newsList.size());
                 NetRequestManager.getInstance().getNewsList(MyApplication.getInstance().getUserToken(),BaseUrlManager.getUrlForGetNewsList(MyApplication.getInstance().getUserCollegeId(),newsList.size(),5));
             }
         }
@@ -296,8 +274,7 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //newsListAdapter.setLoading(false);
-        Log.i(TAG, "onItemClick: " + newsList.get(position - 1).getId() + " " +newsListAdapter.isLoading());
+        Log.i(TAG, "onItemClick: " + " " + position);
         if(!newsListAdapter.isLoading()){
             Intent intent  = new Intent(getContext(), WebActivity.class);
             Bundle bundle = new Bundle();

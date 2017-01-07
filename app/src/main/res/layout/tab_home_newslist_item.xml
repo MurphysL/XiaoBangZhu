@@ -38,7 +38,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
         android:textSize="@dimen/home_summary_text_size"
-        android:id="@+id/home_item_title"
+        android:id="@+id/home_item_title1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"/>
@@ -78,20 +78,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
-
-       <!-- <TextView
-            android:visibility="invisible"
-            android:padding="2dp"
-            android:layout_centerVertical="true"
-            android:id="@+id/home_item_sticky_view"
-            android:layout_alignParentLeft="true"
-            android:text="置顶"
-            android:textSize="10sp"
-            android:gravity="center"
-            android:textColor="@color/color_base"
-            android:background="@drawable/sticky_background"
-            android:layout_width="25dp"
-            android:layout_height="16dp" />-->
         
        <ImageView
            android:id="@+id/view_icon"

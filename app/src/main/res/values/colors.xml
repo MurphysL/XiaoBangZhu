@@ -25,6 +25,7 @@
     <color name="line_color">#FFD2D2D2</color>
     <color name="txt_gray">#B9B9B9</color>
     <color name="orange">#FFFF9600</color>
+    <color name="vip">#ffcc00</color>
 
 
 </resources>

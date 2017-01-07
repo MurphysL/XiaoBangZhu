@@ -134,13 +134,16 @@ public class LaunchActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onSuccessful(LoginResultCode data) {
         MyApplication.dismissProgress();
+        Log.i(TAG, "onSuccessful: " + " 登陆成功");
         if (data.getStatus() == 0) {
             MyApplication.getInstance().setUserLogin(true);//Y
             Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
+            Log.i(TAG, "onSuccessful: " + " 登陆成功");
             MyApplication.getInstance().writeUserInfrom(data.getData());
             startActivity(intent);
             finish();
         } else if (data.getStatus() == 1) {
+            Log.i(TAG, "onSuccessful3: " + " 登陆成功");
             MyApplication.showDialog(LaunchActivity.this,"登录失败,请重试");
         }
     }
@@ -148,12 +151,14 @@ public class LaunchActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onError(VolleyError volleyError) {
         MyApplication.dismissProgress();
+        Log.i(TAG, "onSuccessful4: " + " 登陆成功");
         MyApplication.showDialog(LaunchActivity.this,"请检查网络状况");
     }
 
     @Override
     public void onResponseNull() {
         MyApplication.dismissProgress();
+        Log.i(TAG, "onSuccessful5: " + " 登陆成功");
         MyApplication.showDialog(LaunchActivity.this,"请检查网络状况");
     }
 }

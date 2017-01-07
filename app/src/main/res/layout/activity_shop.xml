@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/publish_top_bar_height"
+        android:background="@color/base_white">
+
+        <ImageView
+            android:id="@+id/activity_join_member_back_icon"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_arrow_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:text="萧帮主自营"
+            android:layout_centerInParent="true"
+            android:textSize="25sp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tab_home_shoplist_refresh"
+        android:textSize="16sp"
+        android:textColor="@color/color_base"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="下拉刷新"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+    
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+        <Button
+            android:text="饮品"
+            android:background="@drawable/pay_for_member_bg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="小吃"
+            android:background="@drawable/pay_for_member_bg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shop_pull_refresh">
+        <android.support.v7.widget.RecyclerView
+            android:layout_centerInParent="true"
+            android:id="@+id/shop_list"
+            android:elevation="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/goods_list_view">
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

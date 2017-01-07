@@ -27,12 +27,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NewsListAdapter extends BaseAdapter {
 
-    private static final String TAG = "NewsListRecycleAdapter";
+    private static final String TAG = "NewsListAdapter";
     List<NewsListResultCode.Data> datas;
     Context mContext;
-    //NewsListAdapter.OnItemClickListener mOnItemClickListener;
     private boolean loading = false;
-    private static final int VIEW_PROG = 1;
 
     public NewsListAdapter(Context context, List<NewsListResultCode.Data> dataList) {
         this.datas = dataList;
@@ -68,18 +66,17 @@ public class NewsListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
-        if(convertView == null){
+        ViewHolder viewHolder;
+
+        if(null == convertView){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.tab_home_newslist_item , parent , false);
             viewHolder = new ViewHolder();
             viewHolder.itemHeadPortraitImg = (CircleImageView) convertView.findViewById(R.id.home_item_header);
             viewHolder.itemNickName = (TextView) convertView.findViewById(R.id.home_item_nick_name);
-            viewHolder.itemTitle = (TextView) convertView.findViewById(R.id.home_item_title);
+            viewHolder.itemTitle = (TextView) convertView.findViewById(R.id.home_item_title1);
             viewHolder.itemShowImgFirst = (ImageView) convertView.findViewById(R.id.home_item_show_image_first);
             viewHolder.itemShowImgSecond = (ImageView) convertView.findViewById(R.id.home_item_show_image_second);
             viewHolder.itemShowImgThrid = (ImageView) convertView.findViewById(R.id.home_item_show_image_thrid);
-
-            //viewHolder.itemSticky = (TextView) convertView.findViewById(R.id.home_item_sticky_view);
             viewHolder.itemReadNum = (TextView) convertView.findViewById(R.id.home_item_read_num);
             viewHolder.itemComment = (TextView) convertView.findViewById(R.id.home_item_comment);
             viewHolder.itemTimeStamp = (TextView) convertView.findViewById(R.id.home_item_time_stamp);
@@ -90,23 +87,29 @@ public class NewsListAdapter extends BaseAdapter {
         }
 
         final NewsListResultCode.Data data = datas.get(position);
+        Log.i(TAG, position + "getView: " + data.toString());
         Picasso.with(mContext)
                 .load(data.getHeader())
                 .into(viewHolder.itemHeadPortraitImg);
         viewHolder.itemNickName.setText(data.getNick_name());
         viewHolder.itemTitle.setText(data.getTitle());
-        Log.i(TAG, "onBindViewHolder: " + data.getPicture1());
         if (data.getPicture1() != null && data.getPicture1() != "") {
             viewHolder.itemShowImgFirst.setVisibility(View.VISIBLE);
             Picasso.with(mContext).load(data.getPicture1()).into(viewHolder.itemShowImgFirst);
+        }else{
+            viewHolder.itemShowImgFirst.setImageResource(R.color.base_white);
         }
         if (data.getPicture2() != null && data.getPicture2() != "") {
             viewHolder.itemShowImgSecond.setVisibility(View.VISIBLE);
             Picasso.with(mContext).load(data.getPicture2()).into(viewHolder.itemShowImgSecond);
+        }else{
+            viewHolder.itemShowImgSecond.setImageResource(R.color.base_white);
         }
         if (data.getPicture3() != null && data.getPicture3() != "") {
             viewHolder.itemShowImgThrid.setVisibility(View.VISIBLE);
             Picasso.with(mContext).load(data.getPicture3()).into(viewHolder.itemShowImgThrid);
+        }else{
+            viewHolder.itemShowImgThrid.setImageResource(R.color.base_white);
         }
         if (data.getHeader() != null) {
             viewHolder.itemHeadPortraitImg.setVisibility(View.VISIBLE);
@@ -124,25 +127,13 @@ public class NewsListAdapter extends BaseAdapter {
         return super.getItemViewType(position);
     }
 
-    public int getBottomId(int position) {
-        int id = 0;
-        for(int i = 0 ; i< datas.size() ; i ++){
-            if(datas.get(i).getId() > id){
-                id = datas.get(i).getId();
-            }
-        }
-        return id;
-    }
-
     class ViewHolder{
         public CircleImageView itemHeadPortraitImg;
         public TextView itemNickName;
         public TextView itemTitle;
-        public TextView itemSticky;
         public TextView itemReadNum;
         public TextView itemComment;
         public TextView itemTimeStamp;
         public ImageView itemShowImgFirst,itemShowImgSecond,itemShowImgThrid;
-
     }
 }

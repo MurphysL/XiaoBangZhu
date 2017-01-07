@@ -7,7 +7,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
@@ -17,13 +16,9 @@ import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.NetRequestManager;
 import com.xiaobangzhu.xiaobangzhu.R;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import cn.jpush.android.api.JPushInterface;
 
 /**
  * Created by WQC on 2016/10/20.
@@ -64,7 +59,6 @@ public class AdActivity extends BaseActivity {
                     if (url != null && url != "") {
                         Log.i(TAG, "onSuccessful: "+url);
                         handler.obtainMessage(0x11, url).sendToTarget();
-                        enterApp();//Y
                     }
                 }else{
                     Log.i(TAG, "onSuccessful: is null");
@@ -73,7 +67,7 @@ public class AdActivity extends BaseActivity {
 
             @Override
             public void onError(VolleyError volleyError) {
-                MyApplication.showDialog(AdActivity.this,"请检查网络状况");
+                //MyApplication.showDialog(AdActivity.this,"请检查网络状况"); 不明原因闪退
                 Log.i(TAG, "onError: " + System.currentTimeMillis());
             }
 
@@ -83,6 +77,7 @@ public class AdActivity extends BaseActivity {
                 Log.i(TAG, "onError: " + System.currentTimeMillis());
             }
         });
+        enterApp();//Y
 
     }
 
@@ -91,22 +86,20 @@ public class AdActivity extends BaseActivity {
         long keyLive = MyApplication.getInstance().getKeyLiveTime();
         long loginTime = MyApplication.getInstance().getLoginTime();
         long currTime = System.currentTimeMillis();
-        long t = 2124400000;
 
         SimpleDateFormat sdf= new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         String s2 = sdf.format(keyLive);
         String s3 = sdf.format(loginTime);
         String s4 = sdf.format(currTime);
-        String s1 = sdf.format(t);
 
 
         /**
          * Y
-         * 1、< --- >  >
-         * 2、keylive
          */
-        Log.i(TAG, "onCreate: " + s1+"(" + t+ ")" + " " + s4 + " " + s3+ " " + s2+"(" + keyLive+ ")" );
-        if (MyApplication.getInstance().isUserLogin() && (currTime-loginTime< t)) {
+        Log.i(TAG, "onCreate: "  + "currTime" + s4 +" " +  currTime +" \n" +
+                "login"+ s3+" "+ loginTime +"\n "+
+                        "keylive"+ s2+"(" + keyLive+ ")\n" + (currTime-loginTime));
+        if (MyApplication.getInstance().isUserLogin() && (currTime-loginTime< (keyLive*1000))) {
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override

@@ -69,7 +69,7 @@ public class LoginResultCode {
 
         private int loanlimit;
 
-        private int live = 2592000;
+        private int live;
 
         public void setAttentionNum(int attentionNum){
             this.attentionNum = attentionNum;
