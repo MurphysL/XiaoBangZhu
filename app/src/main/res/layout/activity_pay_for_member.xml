@@ -322,6 +322,7 @@
                 android:layout_height="wrap_content" />
 
             <RadioButton
+                android:visibility="invisible"
                 android:text="  微信支付"
                 android:textColor="@color/color_base"
                 android:textSize="10sp"

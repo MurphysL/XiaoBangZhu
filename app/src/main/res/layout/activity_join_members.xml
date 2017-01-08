@@ -49,6 +49,7 @@
             android:layout_height="wrap_content">
             <FrameLayout
                 android:id="@+id/fr1"
+                android:visibility="invisible"
                 android:layout_alignParentBottom="true"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -74,19 +75,6 @@
             </FrameLayout>
             <FrameLayout
                 android:id="@+id/fr3"
-                android:visibility="invisible"
-                android:layout_alignParentBottom="true"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/sanjiao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </FrameLayout>
-            <FrameLayout
-                android:id="@+id/fr4"
                 android:visibility="invisible"
                 android:layout_alignParentBottom="true"
                 android:layout_width="0dp"
@@ -229,7 +217,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/activity_join_member_text_line">
-
+<!--
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="0dp"
@@ -252,7 +240,7 @@
                         android:text="普通用户"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
-                </LinearLayout>
+                </LinearLayout>-->
 
                 <LinearLayout
                     android:layout_below="@id/activity_join_member_text_line"
@@ -271,7 +259,7 @@
                         android:textColor="#fff"
                         android:textSize="10sp"
                         android:layout_gravity="center"
-                        android:text="普通会员(VIP1)"
+                        android:text="普通会员"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -294,7 +282,7 @@
                         android:textColor="#fff"
                         android:textSize="10sp"
                         android:layout_gravity="center"
-                        android:text="高级会员(VIP 3)"
+                        android:text="高级会员"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -316,7 +304,7 @@
                         android:textColor="#fff"
                         android:textSize="10sp"
                         android:layout_gravity="center"
-                        android:text="尊贵会员(VIP 6)"
+                        android:text="年卡会员"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -429,7 +417,6 @@
         android:background="#eeeeee"
         android:layout_width="match_parent"
         android:layout_height="20dp">
-        <!--特权栏-->
         <TextView
             android:id="@+id/tv_rank"
             android:layout_marginStart="15dp"
@@ -439,386 +426,7 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-
-
-
-   <!-- <LinearLayout
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp">
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/im_vip"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_badge"/>
-
-            <TextView
-                android:text="徽章特权"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/safety"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_safety"/>
-
-            <TextView
-                android:text="安全特权"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/imPush"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_push"/>
-
-            <TextView
-                android:text="推送特权"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/imShopping"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_shopping"/>
-
-            <TextView
-                android:text="购物特权"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp">
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/im_kuaidi"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_kuaidi"/>
-
-            <TextView
-                android:text="免费快递"
-                android:maxLines="1"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/im_activity"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_activity"/>
-
-            <TextView
-                android:text="专属活动"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/im_door"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_door"/>
-
-            <TextView
-                android:text="门票特权"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/im_server"
-             android:layout_weight="1"
-             android:layout_width="0dp"
-             android:orientation="vertical"
-             android:layout_height="match_parent">
-             <ImageView
-                 android:layout_gravity="center_horizontal"
-                 android:layout_width="wrap_content"
-                 android:layout_height="match_parent"
-                 android:layout_weight="1"
-                 android:src="@mipmap/ic_vip_server"/>
-
-             <TextView
-                 android:text="服务类别"
-                 android:textSize="14sp"
-                 android:layout_marginTop="10dp"
-                 android:layout_gravity="center_horizontal"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content" />
-
-         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp">
-
-        <LinearLayout
-            android:id="@+id/im_first"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_first"/>
-
-            <TextView
-                android:text="优先特权"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/im_fenqi"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_fenqi"/>
-
-            <TextView
-                android:text="分期特权"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/school"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_school"/>
-
-            <TextView
-                android:text="学校特权"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/im_shop"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_shop"/>
-
-            <TextView
-                android:text="实体店特权"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginLeft="12dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp">
-        <LinearLayout
-            android:id="@+id/im_jifen"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_jifen"/>
-
-            <TextView
-                android:text="额外积分"
-                android:maxLines="1"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/im_travel"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_vip_travel"/>
-
-            <TextView
-                android:text="出行特权"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-
-
-        </LinearLayout>
-    </LinearLayout>-->
-
+    <!--特权栏-->
     <LinearLayout
         android:padding="10dp"
         android:orientation="horizontal"
@@ -835,12 +443,12 @@
             android:layout_height="match_parent">
             <ImageView
                 android:layout_margin="5dp"
-                android:id="@+id/im_kuaidi"
+                android:id="@+id/iv_shop"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_shop"/>
+                android:src="@mipmap/ic_shop_grey"/>
 
             <TextView
                 android:text="店内商城"
@@ -856,18 +464,19 @@
             android:layout_height="match_parent" />
         <LinearLayout
             android:padding="18dp"
-            android:id="@+id/im_activity"
+            android:id="@+id/im_ktv"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/iv_ktv"
                 android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_ktv"/>
+                android:src="@mipmap/ic_ktv_grey"/>
 
             <TextView
                 android:text="KTV"
@@ -883,18 +492,19 @@
             android:layout_height="match_parent" />
         <LinearLayout
             android:padding="18dp"
-            android:id="@+id/im_door"
+            android:id="@+id/im_hotel"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/iv_hotel"
                 android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_hotel"/>
+                android:src="@mipmap/ic_hotel_grey"/>
 
             <TextView
                 android:text="酒店"
@@ -921,18 +531,19 @@
 
         <LinearLayout
             android:padding="18dp"
-            android:id="@+id/im_first"
+            android:id="@+id/im_school"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/iv_school"
                 android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_school"/>
+                android:src="@mipmap/ic_school_grey"/>
 
             <TextView
                 android:text="校内服务"
@@ -948,7 +559,7 @@
             android:layout_height="match_parent" />
         <LinearLayout
             android:padding="18dp"
-            android:id="@+id/im_fenqi"
+            android:id="@+id/im_private"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
@@ -960,8 +571,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_private"
-                android:id="@+id/imageView3" />
+                android:src="@mipmap/ic_private_grey"
+                android:id="@+id/iv_private" />
 
             <TextView
                 android:text="私人订制"
@@ -977,18 +588,19 @@
             android:layout_height="match_parent" />
         <LinearLayout
             android:padding="18dp"
-            android:id="@+id/school"
+            android:id="@+id/im_service"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/iv_service"
                 android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_service"/>
+                android:src="@mipmap/ic_service_grey"/>
 
             <TextView
                 android:text="我的客服"
@@ -1015,7 +627,7 @@
         android:layout_height="0dp">
         <LinearLayout
             android:padding="18dp"
-            android:id="@+id/im_jifen"
+            android:id="@+id/im_recommend"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
@@ -1027,8 +639,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_recommend"
-                android:id="@+id/imageView2" />
+                android:src="@mipmap/ic_recommend_grey"
+                android:id="@+id/iv_recommend"/>
 
             <TextView
                 android:text="兼职"
@@ -1044,18 +656,19 @@
             android:layout_height="match_parent" />
         <LinearLayout
             android:padding="18dp"
-            android:id="@+id/im_travel"
+            android:id="@+id/im_commonweal"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/iv_commonweal"
                 android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_commonweal"/>
+                android:src="@mipmap/ic_commonweal_grey"/>
 
             <TextView
                 android:text="萧帮主公益"

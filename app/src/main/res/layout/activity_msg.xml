@@ -29,17 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"></com.flyco.tablayout.SlidingTabLayout>
 
-    <!--<android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
-        app:tabMode="fixed"
-        app:tabGravity="fill"
-        android:background="@color/base_white"
-        app:tabIndicatorColor="@color/color_base"
-        app:tabSelectedTextColor="@color/color_base"
-        android:elevation="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.design.widget.TabLayout>-->
-
     <android.support.v4.view.ViewPager
         android:id="@+id/msg_viewpager"
         android:layout_width="match_parent"

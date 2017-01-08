@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -25,50 +26,29 @@
             android:layout_height="wrap_content" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tab_home_shoplist_refresh"
-        android:textSize="16sp"
-        android:textColor="@color/color_base"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        android:text="下拉刷新"
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/shop_tab_layout"
+        android:elevation="5dp"
+        android:background="@color/base_white"
+        app:tl_tab_space_equal="true"
+        app:tl_indicator_margin_left="5dp"
+        app:tl_indicator_color="@color/color_base"
+        app:tl_indicator_margin_bottom="9dp"
+        app:tl_indicator_width="55dp"
+        app:tl_indicator_margin_right="4dp"
+        app:tl_textSelectColor="@color/color_base"
+        app:tl_underline_color="@color/color_base"
+        app:tl_textUnselectColor="@color/base_gray"
+        app:tl_iconGravity="RIGHT"
+        app:tl_iconWidth="10dp"
+        app:tl_iconHeight="10dp"
+        app:tl_indicator_bounce_enable="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
-    
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:layout_height="50dp">
-        <Button
-            android:text="饮品"
-            android:background="@drawable/pay_for_member_bg"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
-        <Button
-            android:text="小吃"
-            android:background="@drawable/pay_for_member_bg"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+        android:layout_height="50dp"></com.flyco.tablayout.SlidingTabLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/shop_pull_refresh">
-        <android.support.v7.widget.RecyclerView
-            android:layout_centerInParent="true"
-            android:id="@+id/shop_list"
-            android:elevation="1dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            tools:listitem="@layout/goods_list_view">
-        </android.support.v7.widget.RecyclerView>
-
-    </android.support.v4.widget.SwipeRefreshLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/shop_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
 
 </LinearLayout>

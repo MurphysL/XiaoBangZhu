@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
@@ -35,26 +36,29 @@ public class JoinMembersActivity extends AppCompatActivity {
     private TextView tvJoinMember;
     private TextView tvJoinMemberHint;
 
-    private ImageView imVip;
-    private ImageView imSafety;
-    private ImageView imPush;
-    private ImageView imShoping;
-    private ImageView imKuaidi;
-    private ImageView imActivity;
+    private ImageView back;
 
-    private LinearLayout imDoor;
-    private LinearLayout imServer;
-    private LinearLayout imFirst;
-    private LinearLayout imFenqi;
+    private ImageView ivShop;
+    private ImageView ivKTV;
+    private ImageView ivHotel;
+    private ImageView ivSchool;
+    private ImageView ivPrivate;
+    private ImageView ivService;
+    private ImageView ivRecommend;
+    private ImageView ivCommonweal;
+
+    private LinearLayout imService;
+    private LinearLayout imPrivate;
     private LinearLayout imSchool;
     private LinearLayout imShop;
-    private LinearLayout imJifen;
-    private LinearLayout imTravel;
+    private LinearLayout imKTV;
+    private LinearLayout imHotel;
+    private LinearLayout imRecommend;
+    private LinearLayout imCommonweal;
 
     private FrameLayout fl1;
     private FrameLayout fl2;
     private FrameLayout fl3;
-    private FrameLayout fl4;
 
     private View line;
     private View line1;
@@ -64,7 +68,7 @@ public class JoinMembersActivity extends AppCompatActivity {
     private View vSign2;
     private View vSign3;
 
-    private int rank;
+    private int rank = 1;
 
 
     /**
@@ -177,42 +181,103 @@ public class JoinMembersActivity extends AppCompatActivity {
             }
         });
 
-        Log.i(TAG, "initEvent: ");
-        shop.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "onClick: ");
-                startActivity(new Intent(JoinMembersActivity.this , ShopActivity.class));
+                finish();
             }
         });
+
+        if(rank == 1){
+            imShop.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText( JoinMembersActivity.this ,"仅对会员开放", Toast.LENGTH_SHORT).show();
+                }
+            });
+            imKTV.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText( JoinMembersActivity.this ,"仅对会员开放", Toast.LENGTH_SHORT).show();
+                }
+            });
+            imHotel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText( JoinMembersActivity.this ,"仅对会员开放", Toast.LENGTH_SHORT).show();
+                }
+            });
+            imSchool.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText( JoinMembersActivity.this ,"仅对会员开放", Toast.LENGTH_SHORT).show();
+                }
+            });
+            imPrivate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText( JoinMembersActivity.this ,"仅对会员开放", Toast.LENGTH_SHORT).show();
+                }
+            });
+            imService.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText( JoinMembersActivity.this ,"仅对会员开放", Toast.LENGTH_SHORT).show();
+                }
+            });
+            imRecommend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText( JoinMembersActivity.this ,"仅对会员开放", Toast.LENGTH_SHORT).show();
+                }
+            });
+            imCommonweal.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText( JoinMembersActivity.this ,"仅对会员开放", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            shop.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i(TAG, "onClick: ");
+                    startActivity(new Intent(JoinMembersActivity.this , ShopActivity.class));
+                }
+            });
+
+        }
     }
 
     private void initView() {
+        back = (ImageView) findViewById(R.id.activity_join_member_back_icon);
         header = (CircleImageView) findViewById(R.id.activity_join_member_header_img);
         rank_header = (CircleImageView) findViewById(R.id.circleImageView);
         nickname = (TextView) findViewById(R.id.activity_join_member_user_name);
         tvJoinMember = (TextView) findViewById(R.id.tv_join_member);
         tvJoinMemberHint = (TextView) findViewById(R.id.activity_join_member_not_vip_text);
         tvRank = (TextView) findViewById(R.id.tv_rank);
-//        imVip = (ImageView) findViewById(R.id.im_vip);
-//        imSafety = (ImageView) findViewById(R.id.safety);
-//        imPush = (ImageView) findViewById(R.id.imPush);
-//        imShoping = (ImageView) findViewById(R.id.imShopping);
-        imKuaidi = (ImageView) findViewById(R.id.im_kuaidi);
-        imActivity = (ImageView) findViewById(R.id.im_kuaidi);
-        imDoor = (LinearLayout) findViewById(R.id.im_door);
-//        imServer = (LinearLayout) findViewById(R.id.im_server);
-        imFirst = (LinearLayout) findViewById(R.id.im_first);
-        imFenqi = (LinearLayout) findViewById(R.id.im_fenqi);
-        imSchool = (LinearLayout) findViewById(R.id.school);
-//        imShop = (LinearLayout) findViewById(R.id.im_shop);
-        imJifen = (LinearLayout) findViewById(R.id.im_jifen);
-        imTravel = (LinearLayout) findViewById(R.id.im_travel);
+
+        imShop = (LinearLayout) findViewById(R.id.members_shop);
+        ivShop = (ImageView) findViewById(R.id.iv_shop);
+        imKTV = (LinearLayout) findViewById(R.id.im_ktv);
+        ivKTV = (ImageView) findViewById(R.id.iv_ktv);
+        imHotel = (LinearLayout) findViewById(R.id.im_hotel);
+        ivHotel = (ImageView) findViewById(R.id.iv_hotel);
+        imSchool = (LinearLayout) findViewById(R.id.im_school);
+        ivSchool = (ImageView) findViewById(R.id.iv_school);
+        imPrivate = (LinearLayout) findViewById(R.id.im_private);
+        ivPrivate = (ImageView) findViewById(R.id.iv_private);
+        imService = (LinearLayout) findViewById(R.id.im_service);
+        ivService = (ImageView) findViewById(R.id.iv_service);
+        imRecommend = (LinearLayout) findViewById(R.id.im_recommend);
+        ivRecommend = (ImageView) findViewById(R.id.iv_recommend);
+        imCommonweal = (LinearLayout) findViewById(R.id.im_commonweal);
+        ivCommonweal = (ImageView) findViewById(R.id.iv_commonweal);
 
         fl1 = (FrameLayout) findViewById(R.id.fr1);
         fl2 = (FrameLayout) findViewById(R.id.fr2);
         fl3 = (FrameLayout) findViewById(R.id.fr3);
-        fl4 = (FrameLayout) findViewById(R.id.fr4);
 
         line = findViewById(R.id.join_member_line);
         line1= findViewById(R.id.join_member_line2);

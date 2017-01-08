@@ -61,7 +61,7 @@ public class PayForMemberActivity extends Activity {
     private void initEvent() {
         Resources resource = getBaseContext().getResources();
         final ColorStateList csl = resource.getColorStateList(R.color.vip);
-        final ColorStateList csl2 = resource.getColorStateList(R.color.base_gray);
+        final ColorStateList csl2 = resource.getColorStateList(R.color.base_color_text_black);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
