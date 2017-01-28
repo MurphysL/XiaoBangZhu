@@ -159,8 +159,9 @@
         <activity android:name=".UI.activity.MessageActivity"/>
         <service android:name=".NetworkService.UpdateService"/>
 
-        <activity android:name=".UI.activity.PayForMemberActivity"
-            android:theme="@style/publishStyle"/>
+        <activity android:name=".UI.activity.MemberSelectActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/TranslucentTheme"/>
         <activity android:name=".UI.activity.NormalVisitorInfoActivity"/>
         <activity android:name=".UI.activity.FamousVisitorInfoActivity"/>
         <activity android:name=".UI.activity.ShopActivity"/>

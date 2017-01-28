@@ -158,7 +158,7 @@ public class JoinMembersActivity extends AppCompatActivity {
         tvJoinMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(JoinMembersActivity.this , PayForMemberActivity.class));
+                startActivity(new Intent(JoinMembersActivity.this , MemberSelectActivity.class));
             }
         });
         NetRequestManager.getInstance().getVipType(MyApplication.getInstance().getUserToken());
@@ -291,4 +291,5 @@ public class JoinMembersActivity extends AppCompatActivity {
         shop = (LinearLayout) findViewById(R.id.members_shop);
 
     }
+
 }

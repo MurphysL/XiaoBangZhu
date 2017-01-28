@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transparent">
@@ -19,149 +20,23 @@
         android:background="@color/base_white"
         android:id="@+id/pay_for_memeber_rl"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="380dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true">
+        
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pay_for_member_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp">
+        </android.support.v4.view.ViewPager>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
-            android:id="@+id/pay_for_member_bt"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-                <RelativeLayout
-                    android:id="@+id/pay_for_normal"
-                    android:background="@drawable/pay_for_member_bg2"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:layout_height="match_parent">
-                    <RelativeLayout
-                        android:layout_centerInParent="true"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:id="@+id/ic_vip1"
-                            android:layout_centerVertical="true"
-                            android:layout_toLeftOf="@+id/tx_normal_member"
-                            android:src="@mipmap/normal_member"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp" />
-                        <TextView
-                            android:textColor="@color/base_color_text_black"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginLeft="10dp"
-                            android:id="@+id/tx_normal_member"
-                            android:text="普通会员"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </RelativeLayout>
-                </RelativeLayout>
-                <RelativeLayout
-                    android:id="@+id/pay_for_high"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/pay_for_member_bg2"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:layout_height="match_parent">
-                    <RelativeLayout
-                        android:layout_centerInParent="true"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:id="@+id/ic_vip2"
-                            android:layout_centerVertical="true"
-                            android:layout_toLeftOf="@+id/tx_high_member"
-                            android:src="@mipmap/high_member"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp" />
-                        <TextView
-                            android:textColor="@color/base_color_text_black"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginLeft="10dp"
-                            android:id="@+id/tx_high_member"
-                            android:text="高级会员"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </RelativeLayout>
-                </RelativeLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-                <RelativeLayout
-                    android:id="@+id/pay_for_king"
-                    android:background="@drawable/pay_for_member_bg2"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:layout_height="match_parent">
-                    <RelativeLayout
-                        android:layout_centerInParent="true"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:id="@+id/ic_vip3"
-                            android:layout_centerVertical="true"
-                            android:layout_toLeftOf="@+id/tx_king_member"
-                            android:src="@mipmap/king_member"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp" />
-                        <TextView
-                            android:textColor="@color/base_color_text_black"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginLeft="10dp"
-                            android:id="@+id/tx_king_member"
-                            android:text="王冠会员"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </RelativeLayout>
-                </RelativeLayout>
-                <RelativeLayout
-                    android:id="@+id/pay_for_emperor"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/pay_for_member_bg2"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent">
-                    <RelativeLayout
-                        android:layout_centerInParent="true"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:id="@+id/ic_vip4"
-                            android:layout_centerVertical="true"
-                            android:layout_toLeftOf="@+id/tx_emperor_member"
-                            android:src="@mipmap/emperor_member"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp" />
-
-                        <TextView
-                            android:textColor="@color/base_color_text_black"
-                            android:layout_marginLeft="10dp"
-                            android:id="@+id/tx_emperor_member"
-                            android:text="高级会员"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true" />
-                    </RelativeLayout>
-
-                </RelativeLayout>
-            </LinearLayout>
-
-        </LinearLayout>
+            android:layout_below="@id/pay_for_member_bt"
+            android:id="@+id/indicator"
+            android:layout_width="40dp"
+            android:layout_height="5dp"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal" ></LinearLayout>
 
         <ImageView
             android:layout_marginTop="10dp"
@@ -195,14 +70,13 @@
             android:layout_height="wrap_content" />
 
         <ImageView
-            android:layout_marginTop="5dp"
             android:layout_above="@+id/pay_for_member_bt2"
             android:background="@mipmap/hline"
             android:layout_width="match_parent"
             android:layout_height="1dp" />
 
         <LinearLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:id="@+id/pay_for_member_bt2"
@@ -222,10 +96,10 @@
 
             <Button
                 android:text="1"
-                android:textColor="@color/base_color_text_black"
+                android:textColor="@color/vip"
                 android:id="@+id/month_1"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/pay_for_member_bg2"
+                android:background="@drawable/pay_for_member_bg"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent" />
@@ -247,14 +121,21 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent" />
-            <Button
-                android:textColor="@color/base_color_text_black"
+
+            <EditText
                 android:id="@+id/month_other"
+                android:focusable="false"
                 android:text="其他"
-                android:layout_marginLeft="5dp"
+                android:digits="0123456789"
+                android:textColorHint="@color/base_color_text_black"
+                android:cursorVisible="false"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:textColor="@color/base_color_text_black"
                 android:background="@drawable/pay_for_member_bg2"
-                android:layout_width="0dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
@@ -290,7 +171,7 @@
         <TextView
             android:layout_centerVertical="true"
             android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/tv_type_hint"
             android:text="支付方式:"
@@ -300,7 +181,7 @@
             android:layout_height="wrap_content" />
 
         <RadioGroup
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/tv_type_hint"
             android:layout_marginLeft="20dp"
@@ -335,14 +216,14 @@
         </RadioGroup>
 
         <ImageView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_below="@+id/tv_type_hint"
             android:background="@mipmap/hline"
             android:layout_width="match_parent"
             android:layout_height="1dp" />
 
         <TextView
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:text="金额:"
             android:id="@+id/pay_for_member_money_hint"
             android:layout_marginLeft="10dp"
@@ -352,7 +233,8 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:layout_marginTop="20dp"
+            android:id="@+id/pay_for_member_price"
+            android:layout_marginTop="25dp"
             android:text="金额:"
             android:layout_marginLeft="10dp"
             android:layout_toEndOf="@+id/pay_for_member_money_hint"

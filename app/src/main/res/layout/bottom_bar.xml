@@ -104,7 +104,7 @@
         <TextView
             android:textSize="@dimen/bottom_bar_text_size"
             android:id="@+id/bottom_debit_text"
-            android:text="花吧"
+            android:text="轻生活"
             android:textColor="@color/color_user_list_text"
             android:gravity="center"
             android:layout_width="match_parent"

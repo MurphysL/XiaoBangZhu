@@ -91,7 +91,8 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
             @Override
             public void onSuccessful(NewsListResultCode data) {
                 Log.i("inform", data.getDesc());
-                newsListAdapter.setLoading(false);
+                if(newsListAdapter!= null)
+                    newsListAdapter.setLoading(false);
                 if (data != null && data.getData() != null) {
                     if (data.getData().size() > 0) {
                         newsListResultCode = data;
@@ -137,7 +138,7 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
             for (int i=0;i<adPictures.getData().size();i++) {
                 adImageUrlList.add(adPictures.getData().get(i).getPicture());
             }
-            if(adImageUrlList.size() > 0){
+            if(adImageUrlList.size() > 0 && mImageIndicatorView!= null){
                 mImageIndicatorView.loadData(adImageUrlList);
             }
         }else{
@@ -149,8 +150,10 @@ public class NewsListFragment2 extends Fragment implements AdapterView.OnItemCli
      * 初始化新闻列表的数据
      */
     void initNewsList() {
-        refreshLayout.setRefreshing(false);
-        shelter.setVisibility(View.GONE);
+        if(refreshLayout != null)
+            refreshLayout.setRefreshing(false);
+        if(shelter != null)
+            shelter.setVisibility(View.GONE);
 
         if (newsListResultCode != null && newsListResultCode.getData().size() > 0) {
             Log.i(TAG, "initNewsList: " +newsListResultCode.getData().size() +newsListResultCode.getData().toString());
