@@ -1,34 +1,23 @@
 package com.xiaobangzhu.xiaobangzhu.UI.activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
-import com.xiaobangzhu.xiaobangzhu.Adapter.GoodsListRecycleAdapter;
 import com.xiaobangzhu.xiaobangzhu.Bean.TabLayoutEntity;
-import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.R;
-import com.xiaobangzhu.xiaobangzhu.UI.fragment.MsgFragment;
-import com.xiaobangzhu.xiaobangzhu.UI.fragment.NotificationFragment;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.ShopDrinkFragment;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.ShopHealthFragment;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.ShopSnackFragment;
-import com.xiaobangzhu.xiaobangzhu.View.DividerItemDecoration;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * ShopActivity

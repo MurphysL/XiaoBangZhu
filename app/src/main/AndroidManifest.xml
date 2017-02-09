@@ -165,6 +165,9 @@
         <activity android:name=".UI.activity.NormalVisitorInfoActivity"/>
         <activity android:name=".UI.activity.FamousVisitorInfoActivity"/>
         <activity android:name=".UI.activity.ShopActivity"/>
+        <activity
+            android:theme="@style/TranslucentTheme"
+            android:name=".UI.activity.PayForGoodsActivity"/>
 
         <!-- User defined.  For test only  用户自定义的广播接收器-->
         <receiver

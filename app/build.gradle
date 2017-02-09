@@ -83,4 +83,6 @@ dependencies {
     //高斯模糊
     compile 'net.qiujuer.genius:blur:2.0.0-beta4'
     compile files('libs/alipaySdk-20161129.jar')
+
+
 }

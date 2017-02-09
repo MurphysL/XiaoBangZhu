@@ -27,5 +27,10 @@
     <color name="orange">#FFFF9600</color>
     <color name="vip">#ffcc00</color>
 
+    <color name="orange2">#e82e2e</color>
+
+    <color name="pay_for_goods_grey">#bbbbbb</color>
+    <color name="pay_for_goods_black">#585858</color>
+
 
 </resources>

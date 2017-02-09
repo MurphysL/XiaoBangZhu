@@ -192,7 +192,8 @@ public class JoinMembersActivity extends AppCompatActivity {
             imShop.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText( JoinMembersActivity.this ,"仅对会员开放", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(JoinMembersActivity.this , ShopActivity.class));
+                    //Toast.makeText( JoinMembersActivity.this ,"仅对会员开放", Toast.LENGTH_SHORT).show();
                 }
             });
             imKTV.setOnClickListener(new View.OnClickListener() {
