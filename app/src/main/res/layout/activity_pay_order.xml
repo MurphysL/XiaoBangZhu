@@ -15,7 +15,7 @@
         android:layout_marginBottom="10dp">
 
         <TextView
-            android:id="@+id/tv_hint"
+            android:id="@+id/select_year_hint"
             android:text="待支付费用"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
@@ -27,7 +27,7 @@
             android:layout_centerHorizontal="true"
             android:text="5.00"
             android:textSize="50dp"
-            android:layout_below="@+id/tv_hint"
+            android:layout_below="@+id/select_year_hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

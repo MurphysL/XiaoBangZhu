@@ -1,8 +1,6 @@
 package com.xiaobangzhu.xiaobangzhu.AliPay;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,6 +21,7 @@ import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.NetRequestManager;
 import com.xiaobangzhu.xiaobangzhu.R;
+import com.xiaobangzhu.xiaobangzhu.UI.activity.PayMemberSuccessActivity;
 
 import java.util.Map;
 
@@ -68,7 +67,9 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
     private String subject ;
     private String body ;
     private int total_fee;
-    private String type;
+
+    private int vip_type;
+    private int vip_month;
 
     private static final int SDK_PAY_FLAG = 1;
 
@@ -77,7 +78,7 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
         @SuppressWarnings("unused")
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case SDK_PAY_FLAG: {
+                case SDK_PAY_FLAG:
                     @SuppressWarnings("unchecked")
                     PayResult payResult = new PayResult((Map<String, String>) msg.obj);
                     /**
@@ -89,14 +90,21 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
                     if (TextUtils.equals(resultStatus, "9000")) {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
                         Toast.makeText(PayOrderActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
-                        if(subject == "member"){
+                        if(subject.equals("member")){
+                            final int vip = Integer.parseInt(body);
+                            vip_type = vip%10;
+                            vip_month = vip/10;
+                            NetRequestManager.getInstance().addVIP(MyApplication.getInstance().getUserToken() , vip_type , vip_month);
                             NetRequestManager.getInstance().setAddVIPCodeDataChangeListener(new DataChangeListener<AddVIPCode>() {
                                 @Override
                                 public void onSuccessful(AddVIPCode data) {
-                                    MyApplication.dismissProgress();
                                     if (data != null) {
                                         if (data.getStatus() == 0) {
                                             MyApplication.showToastShort("申请会员成功");
+                                            Intent intent = new Intent();
+                                            intent.setClass(PayOrderActivity.this , PayMemberSuccessActivity.class);
+                                            intent.putExtra("type" ,vip_month);
+                                            startActivity(intent);
                                             finish();
                                         }
                                     }
@@ -114,17 +122,12 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
                                     MyApplication.showToastShort("申请会员失败");
                                 }
                             });
-
-                            int vip = Integer.getInteger(body);
-
-                            NetRequestManager.getInstance().addVIP(MyApplication.getInstance().getUserToken() ,  vip/100 , vip%100);
                         }
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
                         Toast.makeText(PayOrderActivity.this, "支付失败", Toast.LENGTH_SHORT).show();
                     }
                     break;
-                }
                 default:
                     break;
             }
@@ -143,7 +146,7 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
          *
          * orderInfo的获取必须来自服务端；
          */
-        Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID);
+        Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID , total_fee , subject , body);
         String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
         String sign = OrderInfoUtil2_0.getSign(params, RSA_PRIVATE);
         final String orderInfo = orderParam + "&" + sign;
@@ -201,11 +204,14 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = getIntent();
 
         Bundle bundle = intent.getExtras();
+        Log.i("123" , "000000");
         if(bundle != null){
             subject = bundle.getString("subject");
             body = bundle.getString("body");
             total_fee = bundle.getInt("total_fee");
+
             Log.i(TAG, "initData: " + subject + " " + body + " " + total_fee ) ;
+
         }
 
     }
@@ -259,9 +265,6 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
         publishBtn.setVisibility(View.GONE);
         tvFee.setText(total_fee + ".00");
         tvFeeS.setText(total_fee + ".00");
-
-        //pay.setClickable(false);
-        //pay.setBackgroundResource(R.color.base_gray);
     }
 
     @Override
@@ -270,6 +273,7 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btn_to_pay:
                 //orderInfo = "app_id=2016093002022464&timestamp=2016-07-29+16%3A55%3A53&biz_content=%7B%22timeout_express%22%3A%2230m%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22total_amount%22%3A%220.01%22%2C%22subject%22%3A%221%22%2C%22body%22%3A%22%E6%88%91%E6%98%AF%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%22%2C%22out_trade_no%22%3A%22121309430218130%22%7D&method=alipay.trade.app.pay&charset=utf-8&version=1.0&sign_type=RSA&sign=epWkbEUDmCs9gCQwF8e%2BgXanE5UgFzB526t%2F7onWOcsMz6NxGWMkaAT7LTuJnrMKzTx2nczxXAUDPt0hDPJWu9p29peGfDhpuqZ6QoZQEHa045cs1lfZcSOsiGc19%2FG3XG6m1uhlpDPKTXIR1dq8Xo7un4NBSZB5hjkH5Buo6Hw%3D";
                 //RequestPayment.payByAli(this , orderInfo , handler);
+
                 payV2();
                 break;
         }

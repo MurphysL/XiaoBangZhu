@@ -26,11 +26,6 @@
             android:layout_height="wrap_content" />
     </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/shop_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
-
     <com.flyco.tablayout.SlidingTabLayout
         android:id="@+id/shop_tab_layout"
         android:elevation="5dp"
@@ -50,5 +45,11 @@
         app:tl_indicator_bounce_enable="true"
         android:layout_width="match_parent"
         android:layout_height="50dp"></com.flyco.tablayout.SlidingTabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/shop_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
 
 </LinearLayout>

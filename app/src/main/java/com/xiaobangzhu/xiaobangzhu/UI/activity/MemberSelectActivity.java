@@ -1,5 +1,6 @@
 package com.xiaobangzhu.xiaobangzhu.UI.activity;
-;
+
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -13,16 +14,15 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.xiaobangzhu.xiaobangzhu.AliPay.PayOrderActivity;
 import com.xiaobangzhu.xiaobangzhu.Bean.UserBaseInform;
 import com.xiaobangzhu.xiaobangzhu.Bean.VipTypeCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
@@ -39,6 +39,10 @@ import java.util.List;
 /**
  * MemberSelectActivity
  *
+ * 暂不支持后端获取
+ * 价格为整形
+ * 会员种类不同
+ *
  * @author: MurphySL
  * @time: 2017/1/26 16:21
  */
@@ -50,30 +54,33 @@ public class MemberSelectActivity extends AppCompatActivity {
     private ImageView cancel;
     private TextView name;
     private TextView price;
-    private Button command_bt , pay_for_member;
-    private TextView month_1,month_3,month_6;
+    private Button pay_for_member;
+    private Button month_1,month_3,month_6,month_fake;
     private EditText month_other;
+    private TextView selectYear;
+    private TextView timeType;
 
-    private List<ImageView> indicatorImages;
+    private List<ImageView> indicatorImages = new ArrayList<>();
     private LinearLayout indicator;
     private List<Fragment> fragments;
     private ViewPager viewPager;
     int currentPager = 1;
 
-    private float price_normal , price_high , price_year;
+    private float price_normal = 25 , price_high = 35 , price_year = 450;
     /**
      * 0--normal
      * 1--high
      * 2--year
      */
-    private int vip_type;
-    private int t;
+    private int vip_type = 0;
     private int m = 1;
+
+    private float money = 25;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pay_for_member);
+        setContentView(R.layout.activity_select_member);
 
         initSelectFrag();
         initData();
@@ -108,23 +115,29 @@ public class MemberSelectActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        price = (TextView) findViewById(R.id.pay_for_member_price);
+        price = (TextView) findViewById(R.id.member_select_money);
         indicator = (LinearLayout) findViewById(R.id.indicator);
-        viewPager = (ViewPager) findViewById(R.id.pay_for_member_bt);
-        name = (TextView) findViewById(R.id.tv_name);
-        cancel = (ImageView) findViewById(R.id.pay_for_member_cancel);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        name = (TextView) findViewById(R.id.name);
+        cancel = (ImageView) findViewById(R.id.cancel);
+        timeType = (TextView) findViewById(R.id.time_hint);
 
-        month_1 = (TextView) findViewById(R.id.month_1);
-        month_3 = (TextView) findViewById(R.id.month_3);
-        month_6 = (TextView) findViewById(R.id.month_6);
+        month_1 = (Button) findViewById(R.id.month_1);
+        month_3 = (Button) findViewById(R.id.month_3);
+        month_6 = (Button) findViewById(R.id.month_6);
+        month_fake = (Button) findViewById(R.id.month_other_fake);
         month_other = (EditText) findViewById(R.id.month_other);
         Drawable drawable = getResources().getDrawable(R.drawable.member_recommend);
         drawable.setBounds(0 ,0 , 60 , 40);
         month_1.setCompoundDrawables(drawable , null , null , null);
 
         pay_for_member = (Button) findViewById(R.id.bt_pay_for_member);
+        selectYear = (TextView) findViewById(R.id.select_year);
     }
 
+    /**
+     * 暂不从后端获取价格
+     */
     private void initData() {
         NetRequestManager.getInstance().getUserInform(MyApplication.getInstance().getUserToken());
         NetRequestManager.getInstance().getVipType(MyApplication.getInstance().getUserToken());
@@ -154,11 +167,11 @@ public class MemberSelectActivity extends AppCompatActivity {
             public void onSuccessful(VipTypeCode data) {
                 List<VipTypeCode.Data> list = data.getData();
                 if(list != null && list.size() >= 3){
-                    price_year = list.get(list.size() - 1).getPrice();
-                    price_high = list.get(list.size() - 2).getPrice();
-                    price_normal = list.get(list.size() - 3).getPrice();
+                    //price_year = list.get(list.size() - 1).getPrice();
+                    //price_high = list.get(list.size() - 2).getPrice();
+                    //price_normal = list.get(list.size() - 3).getPrice();
                 }
-                calculatePrice();
+                money = calculatePrice();
             }
 
             @Override
@@ -176,7 +189,10 @@ public class MemberSelectActivity extends AppCompatActivity {
     }
 
     private void initEvent() {
-        indicatorImages = new ArrayList<>();
+        Resources resource = getBaseContext().getResources();
+        final ColorStateList csl = resource.getColorStateList(R.color.vip);
+        final ColorStateList csl2 = resource.getColorStateList(R.color.base_color_text_black);
+
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -188,9 +204,7 @@ public class MemberSelectActivity extends AppCompatActivity {
                 return fragments.size();
             }
         });
-
         viewPager.setCurrentItem(currentPager);
-
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -199,7 +213,6 @@ public class MemberSelectActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                Log.i(TAG, "onPageSelected: " + position);
                 if(position == fragments.size()-1){
                     currentPager = 1;
                 }else if(position == 0){
@@ -209,33 +222,27 @@ public class MemberSelectActivity extends AppCompatActivity {
                 }
 
                 for(int i = 0 ;i < indicatorImages.size() ;i ++){
-                    if(i == (position-1)%indicatorImages.size()){
+                    if(i == currentPager - 1){
                         indicatorImages.get(i).setImageResource(R.drawable.indicator_select);
                         vip_type = i;
                     } else {
                         indicatorImages.get(i).setImageResource(R.drawable.indicator_unselect);
                     }
                 }
-                if(position == 0){
-                    indicatorImages.get(2).setImageResource(R.drawable.indicator_select);
-                    vip_type = 2;
-                }
-                calculatePrice();
-
+                if(currentPager == 3)
+                    timeType.setText("年");
+                else
+                    timeType.setText("月");
+                money = calculatePrice();
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-                Log.i(TAG, "onPageScrollStateChanged: " + currentPager);
                 viewPager.setCurrentItem(currentPager , false);
             }
         });
         createIndicator();
 
-
-        Resources resource = getBaseContext().getResources();
-        final ColorStateList csl = resource.getColorStateList(R.color.vip);
-        final ColorStateList csl2 = resource.getColorStateList(R.color.base_color_text_black);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -243,25 +250,22 @@ public class MemberSelectActivity extends AppCompatActivity {
             }
         });
 
-        month_other.setOnClickListener(new View.OnClickListener() {
+        month_fake.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                month_other.setText("");
-                //找回焦点
+                month_fake.setVisibility(View.GONE);
+                month_other.setVisibility(View.VISIBLE);
+                month_1.setBackgroundResource(R.drawable.month_unselect);
+                month_3.setBackgroundResource(R.drawable.month_unselect);
+                month_6.setBackgroundResource(R.drawable.month_unselect);
+                month_other.setBackgroundResource(R.drawable.month_select);
+                month_1.setTextColor(csl2);
+                month_3.setTextColor(csl2);
+                month_6.setTextColor(csl2);
                 month_other.setFocusable(true);
                 month_other.setFocusableInTouchMode(true);
                 month_other.requestFocus();
                 month_other.findFocus();
-
-                month_other.setCursorVisible(true);
-                month_1.setBackgroundResource(R.drawable.pay_for_member_bg2);
-                month_3.setBackgroundResource(R.drawable.pay_for_member_bg2);
-                month_6.setBackgroundResource(R.drawable.pay_for_member_bg2);
-                month_other.setBackgroundResource(R.drawable.pay_for_member_bg);
-                month_1.setTextColor(csl2);
-                month_3.setTextColor(csl2);
-                month_6.setTextColor(csl2);
-                month_other.setTextColor(csl);
             }
         });
 
@@ -281,7 +285,6 @@ public class MemberSelectActivity extends AppCompatActivity {
                 int i = 0;
                 try {
                     i = Integer.valueOf(s.toString());
-                    Log.i(TAG, "afterTextChanged: " + i);
                 }catch (NumberFormatException e){
                     if(s.toString().equals("")){
 
@@ -292,7 +295,7 @@ public class MemberSelectActivity extends AppCompatActivity {
 
                 if( i >= 1){
                     m = i;
-                    calculatePrice();
+                    money = calculatePrice();
                 }
             }
         });
@@ -301,84 +304,110 @@ public class MemberSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 m = 1;
-                month_1.setBackgroundResource(R.drawable.pay_for_member_bg);
-                month_3.setBackgroundResource(R.drawable.pay_for_member_bg2);
-                month_6.setBackgroundResource(R.drawable.pay_for_member_bg2);
-                month_other.setBackgroundResource(R.drawable.pay_for_member_bg2);
+                month_fake.setVisibility(View.VISIBLE);
+                month_other.setVisibility(View.GONE);
+                month_1.setBackgroundResource(R.drawable.month_select);
+                month_3.setBackgroundResource(R.drawable.month_unselect);
+                month_6.setBackgroundResource(R.drawable.month_unselect);
+                month_fake.setBackgroundResource(R.drawable.month_unselect);
                 month_1.setTextColor(csl);
                 month_3.setTextColor(csl2);
                 month_6.setTextColor(csl2);
-                month_other.setTextColor(csl2);
-                month_other.setCursorVisible(false);
-                month_other.setFocusable(true);
-                calculatePrice();
+                money = calculatePrice();
             }
         });
         month_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 m = 3;
-                month_1.setBackgroundResource(R.drawable.pay_for_member_bg2);
-                month_3.setBackgroundResource(R.drawable.pay_for_member_bg);
-                month_6.setBackgroundResource(R.drawable.pay_for_member_bg2);
-                month_other.setBackgroundResource(R.drawable.pay_for_member_bg2);
+                month_fake.setVisibility(View.VISIBLE);
+                month_other.setVisibility(View.GONE);
+                month_1.setBackgroundResource(R.drawable.month_unselect);
+                month_3.setBackgroundResource(R.drawable.month_select);
+                month_6.setBackgroundResource(R.drawable.month_unselect);
+                month_fake.setBackgroundResource(R.drawable.month_unselect);
                 month_1.setTextColor(csl2);
                 month_3.setTextColor(csl);
                 month_6.setTextColor(csl2);
-                month_other.setTextColor(csl2);
-                month_other.setCursorVisible(false);
-                month_other.setFocusable(true);
-                calculatePrice();
+                money = calculatePrice();
             }
         });
         month_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 m = 6;
-                month_1.setBackgroundResource(R.drawable.pay_for_member_bg2);
-                month_3.setBackgroundResource(R.drawable.pay_for_member_bg2);
-                month_6.setBackgroundResource(R.drawable.pay_for_member_bg);
-                month_other.setBackgroundResource(R.drawable.pay_for_member_bg2);
+                month_fake.setVisibility(View.VISIBLE);
+                month_other.setVisibility(View.GONE);
+                month_1.setBackgroundResource(R.drawable.month_unselect);
+                month_3.setBackgroundResource(R.drawable.month_unselect);
+                month_6.setBackgroundResource(R.drawable.month_select);
+                month_fake.setBackgroundResource(R.drawable.month_unselect);
                 month_1.setTextColor(csl2);
                 month_3.setTextColor(csl2);
                 month_6.setTextColor(csl);
-                month_other.setTextColor(csl2);
-                month_other.setCursorVisible(false);
-                month_other.setFocusable(true);
-                calculatePrice();
+                money = calculatePrice();
             }
         });
 
-//        pay_for_member.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(.this , JoinMember.class);
-//                Bundle b = new Bundle();
-//                b.putString("subject" , "member");
-//                b.putString("body" , t*100 + m + "");
-//                b.putInt("total_fee" , 1);
-//                intent.putExtras(b);
-//                startActivity(intent);
-//            }
-//        });
+        selectYear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPager = 3;
+                viewPager.setCurrentItem(currentPager);
+                vip_type = 2;
+                m = 12;
+                month_other.setFocusable(true);
+                month_other.setFocusableInTouchMode(true);
+                month_other.requestFocus();
+                month_other.findFocus();
+                month_other.setText(12 + "");
+                month_1.setBackgroundResource(R.drawable.month_unselect);
+                month_3.setBackgroundResource(R.drawable.month_unselect);
+                month_6.setBackgroundResource(R.drawable.month_unselect);
+                month_other.setBackgroundResource(R.drawable.month_select);
+                money = calculatePrice();
+            }
+        });
+
+        //判断0
+        pay_for_member.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MemberSelectActivity.this , PayOrderActivity.class);
+                Bundle b = new Bundle();
+                b.putString("subject" , "member");
+                Log.i("123" , "llala" + m + vip_type + "");
+                b.putString("body" , m * 10 + vip_type +"");
+                b.putInt("total_fee" , (int)money);
+                intent.putExtras(b);
+                startActivity(intent);
+
+            }
+        });
     }
 
     private float calculatePrice(){
-        float p = 0;
-        switch (vip_type){
-            case 0:
-                p = price_normal;
-                break;
-            case 1:
-                p = price_high;
-                break;
-            case 2:
-                p = price_year;
-                break;
-            default:
-                p = 100;
+        float p;
+        if(m == 0){
+            Toast.makeText(MemberSelectActivity.this , "月数错误" , Toast.LENGTH_SHORT).show();
+            return 450;
+        }else{
+            switch (vip_type){
+                case 0:
+                    p = price_normal;
+                    break;
+                case 1:
+                    p = price_high;
+                    break;
+                case 2:
+                    p = price_year;
+                    break;
+                default:
+                    p = 450;
+            }
+            price.setText((p * m) + " ");
+            return p * m;
         }
-        price.setText((p * m) + " ");
-        return p * m;
+
     }
 }

@@ -18,4 +18,16 @@
     <string name="tangle">纠结癌</string>
     <string name="team">求组队</string>
     <string name="express_delivery">取快递</string>
+
+    <string name="member_select_name_hint">账号:</string>
+    <string name="member_select_month_hint">月:</string>
+    <string name="member_select_month_other">其他</string>
+    <string name="member_select_year_hint">开通年费会员可享更多特权</string>
+    <string name="member_select_year">开通年费会员</string>
+    <string name="member_select_pay_method_hint">支付方式:</string>
+    <string name="member_select_money_hint">金额:</string>
+
+    <string name="aliPay">支付宝支付</string>
+    <string name="wechat">  微信支付</string>
+    <string name="pay">立即开通</string>
 </resources>

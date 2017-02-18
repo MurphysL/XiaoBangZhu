@@ -7,11 +7,11 @@
     android:background="@color/transparent">
 
     <ImageView
-        android:id="@+id/pay_for_member_cancel"
+        android:id="@+id/cancel"
         android:background="@color/transparent"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:src="@drawable/ic_close_black_24dp"
+        android:src="@drawable/close"
         android:layout_above="@+id/pay_for_memeber_rl"
         android:layout_width="30dp"
         android:layout_height="30dp" />
@@ -23,15 +23,15 @@
         android:layout_height="380dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true">
-        
+
         <android.support.v4.view.ViewPager
-            android:id="@+id/pay_for_member_bt"
+            android:id="@+id/viewpager"
             android:layout_width="wrap_content"
             android:layout_height="60dp">
         </android.support.v4.view.ViewPager>
 
         <LinearLayout
-            android:layout_below="@id/pay_for_member_bt"
+            android:layout_below="@id/viewpager"
             android:id="@+id/indicator"
             android:layout_width="40dp"
             android:layout_height="5dp"
@@ -40,7 +40,7 @@
 
         <ImageView
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/pay_for_member_bt"
+            android:layout_below="@+id/viewpager"
             android:background="@mipmap/hline"
             android:layout_width="match_parent"
             android:layout_height="1dp" />
@@ -50,27 +50,26 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             android:textColor="@color/base_color_text_black"
-            android:id="@+id/tv_name_hint"
-            android:layout_below="@+id/pay_for_member_bt"
-            android:text="账号:"
+            android:id="@+id/name_hint"
+            android:layout_below="@+id/viewpager"
+            android:text="@string/member_select_name_hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/pay_for_member_bt2" />
+            android:layout_alignStart="@+id/month_select" />
 
         <TextView
             android:layout_marginTop="20dp"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="5dp"
-            android:id="@+id/tv_name"
-            android:text="XXXX"
+            android:id="@+id/name"
             android:textColor="@color/base_color_text_black"
-            android:layout_below="@+id/pay_for_member_bt"
-            android:layout_toEndOf="@+id/tv_name_hint"
+            android:layout_below="@+id/viewpager"
+            android:layout_toEndOf="@+id/name_hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <ImageView
-            android:layout_above="@+id/pay_for_member_bt2"
+            android:layout_above="@+id/month_select"
             android:background="@mipmap/hline"
             android:layout_width="match_parent"
             android:layout_height="1dp" />
@@ -79,14 +78,15 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:id="@+id/pay_for_member_bt2"
-            android:layout_below="@+id/tv_name"
+            android:id="@+id/month_select"
+            android:layout_below="@+id/name"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="月份:"
+                android:id="@+id/time_hint"
+                android:text="@string/member_select_month_hint"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/base_color_text_black"
                 android:gravity="center_vertical"
@@ -99,7 +99,7 @@
                 android:textColor="@color/vip"
                 android:id="@+id/month_1"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/pay_for_member_bg"
+                android:background="@drawable/month_select"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent" />
@@ -108,7 +108,7 @@
                 android:id="@+id/month_3"
                 android:text="3"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/pay_for_member_bg2"
+                android:background="@drawable/month_unselect"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent" />
@@ -117,22 +117,30 @@
                 android:id="@+id/month_6"
                 android:text="6"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/pay_for_member_bg2"
+                android:background="@drawable/month_unselect"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:textColor="@color/base_color_text_black"
+                android:id="@+id/month_other_fake"
+                android:text="其他"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/month_unselect"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent" />
 
             <EditText
+                android:visibility="gone"
                 android:id="@+id/month_other"
-                android:focusable="false"
-                android:text="其他"
                 android:digits="0123456789"
                 android:textColorHint="@color/base_color_text_black"
-                android:cursorVisible="false"
                 android:textSize="14sp"
                 android:gravity="center"
-                android:textColor="@color/base_color_text_black"
-                android:background="@drawable/pay_for_member_bg2"
+                android:textColor="@color/vip"
+                android:background="@drawable/month_unselect"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -142,28 +150,30 @@
 
         <TextView
             android:layout_marginTop="5dp"
-            android:id="@+id/tv_hint"
+            android:id="@+id/select_year_hint"
             android:layout_marginLeft="54dp"
             android:textSize="12sp"
             android:textColor="@color/base_color_text_black"
-            android:text="开通年费会员可享更多特权"
-            android:layout_below="@+id/pay_for_member_bt2"
+            android:text="@string/member_select_year_hint"
+            android:layout_below="@+id/month_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
         <TextView
+            android:id="@+id/select_year"
             android:textSize="12sp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
-            android:text="开通年费会员"
+            android:text="@string/member_select_year"
             android:textColor="@color/debit_header_bg_color"
-            android:layout_toEndOf="@+id/tv_hint"
-            android:layout_below="@+id/pay_for_member_bt2"
+            android:layout_toEndOf="@+id/select_year_hint"
+            android:layout_below="@+id/month_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <ImageView
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/tv_hint"
+            android:layout_below="@+id/select_year_hint"
             android:background="@mipmap/hline"
             android:layout_width="match_parent"
             android:layout_height="1dp" />
@@ -173,26 +183,26 @@
             android:gravity="center_vertical"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/tv_type_hint"
-            android:text="支付方式:"
+            android:id="@+id/select_method_hint"
+            android:text="@string/member_select_pay_method_hint"
             android:textColor="@color/base_color_text_black"
-            android:layout_below="@+id/tv_hint"
+            android:layout_below="@+id/select_year_hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <RadioGroup
             android:layout_marginTop="20dp"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/tv_type_hint"
+            android:layout_toEndOf="@+id/select_method_hint"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:orientation="horizontal"
-            android:layout_below="@+id/tv_hint"
+            android:layout_below="@+id/select_year_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RadioButton
                 android:padding="5dp"
-                android:text="支付宝支付"
+                android:text="@string/aliPay"
                 android:textColor="@color/color_base"
                 android:textSize="10sp"
                 android:layout_width="0dp"
@@ -204,7 +214,7 @@
 
             <RadioButton
                 android:visibility="invisible"
-                android:text="  微信支付"
+                android:text="@string/wechat"
                 android:textColor="@color/color_base"
                 android:textSize="10sp"
                 android:layout_marginLeft="10dp"
@@ -217,40 +227,39 @@
 
         <ImageView
             android:layout_marginTop="15dp"
-            android:layout_below="@+id/tv_type_hint"
+            android:layout_below="@+id/select_method_hint"
             android:background="@mipmap/hline"
             android:layout_width="match_parent"
             android:layout_height="1dp" />
 
         <TextView
             android:layout_marginTop="25dp"
-            android:text="金额:"
-            android:id="@+id/pay_for_member_money_hint"
+            android:text="@string/member_select_money_hint"
+            android:id="@+id/member_select_money_hint"
             android:layout_marginLeft="10dp"
             android:textColor="@color/debit_header_bg_color"
-            android:layout_below="@+id/tv_type_hint"
+            android:layout_below="@+id/select_method_hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/pay_for_member_price"
+            android:id="@+id/member_select_money"
             android:layout_marginTop="25dp"
-            android:text="金额:"
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@+id/pay_for_member_money_hint"
+            android:layout_toEndOf="@+id/member_select_money_hint"
             android:textColor="@color/orange"
-            android:layout_below="@+id/tv_type_hint"
+            android:layout_below="@+id/select_method_hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/bt_pay_for_member"
             android:layout_marginTop="20dp"
-            android:text="立即开通"
+            android:text="@string/pay"
             android:textColor="@color/base_white"
             android:background="@color/orange"
             android:layout_centerInParent="true"
-            android:layout_below="@+id/pay_for_member_money_hint"
+            android:layout_below="@+id/member_select_money_hint"
             android:layout_width="300dp"
             android:layout_height="40dp" />
 

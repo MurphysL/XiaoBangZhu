@@ -186,9 +186,9 @@ public class BaseUrlManager {
         return urlForGetVipType;
     }
 
-    private static final String urlForAddVIP = serverAddress2+"addVIP.jhtml";
+    private static final String urlForAddVIP = serverAddress+"addVIP.jhtml";
     public static String getUrlForAddVIP(int vip_id , int month){
-        return urlForAddVIP + "?param={\"vip_id\":" +vip_id +",\"month\":" + month;
+        return urlForAddVIP + "?param={\"vip_id\":" +vip_id +",\"month\":" + month +"}";
     }
 
 

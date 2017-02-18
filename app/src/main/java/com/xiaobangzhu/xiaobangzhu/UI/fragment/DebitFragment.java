@@ -23,27 +23,20 @@ import com.xiaobangzhu.xiaobangzhu.UI.activity.WebActivity;
 public class DebitFragment extends Fragment implements RecycleViewItemClickListener {
 
     private static final String TAG = "DebitFragment";
-    View mRootView;
-    RecyclerView mRecyclerView;
-    private DebitRecycleAdapter mDebitRecycleAdapter;
+    private View mRootView;
 
-    private String[] names  = {"极速取现","话费/流量","游戏充值","房屋分期","门票分期","一元耍大牌"};
-    private int[] iconIds = {R.drawable.debit_fast_cash, R.drawable.debit_calls_traffic, R.drawable.debit_games_recharge, R.drawable.debit_house_staging, R.drawable.tickets_staging, R.drawable.one_yuan_diva};
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDebitRecycleAdapter = new DebitRecycleAdapter(names, iconIds);
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_debit, container, false);
-        mRecyclerView = (RecyclerView) mRootView.findViewById(R.id.debit_recycle_view);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(container.getContext(), 2));
-        mDebitRecycleAdapter.setItemClickListener(this);
-        mRecyclerView.setAdapter(mDebitRecycleAdapter);
+
         return mRootView;
     }
 

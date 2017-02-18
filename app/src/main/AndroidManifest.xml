@@ -168,6 +168,8 @@
         <activity
             android:theme="@style/TranslucentTheme"
             android:name=".UI.activity.PayForGoodsActivity"/>
+        <activity android:name=".UI.activity.PayMemberSuccessActivity"
+            android:theme="@style/TranslucentTheme"/>
 
         <!-- User defined.  For test only  用户自定义的广播接收器-->
         <receiver

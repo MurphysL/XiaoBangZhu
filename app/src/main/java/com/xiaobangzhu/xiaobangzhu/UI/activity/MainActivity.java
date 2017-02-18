@@ -272,7 +272,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         rewardSelected();
                         break;
                     case 2:
-                        titleTextView.setText("花吧");
+                        titleTextView.setText("轻生活");
                         debitSelected();
                         break;
                     case 3:

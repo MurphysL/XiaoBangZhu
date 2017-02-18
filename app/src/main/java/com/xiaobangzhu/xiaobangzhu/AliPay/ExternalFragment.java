@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xiaobangzhu.xiaobangzhu.R;
+/*
 
 public class ExternalFragment extends Fragment {
 
@@ -16,3 +17,4 @@ public class ExternalFragment extends Fragment {
 		return inflater.inflate(R.layout.pay_external, container, false);
 	}
 }
+*/
