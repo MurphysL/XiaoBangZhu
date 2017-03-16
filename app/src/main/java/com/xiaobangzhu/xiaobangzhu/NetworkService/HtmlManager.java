@@ -3,6 +3,8 @@ package com.xiaobangzhu.xiaobangzhu.NetworkService;
 import java.sql.Date;
 
 /**
+ * HtmlManager
+ *
  * Created by WQC on 2016/8/8.
  */
 public class HtmlManager {

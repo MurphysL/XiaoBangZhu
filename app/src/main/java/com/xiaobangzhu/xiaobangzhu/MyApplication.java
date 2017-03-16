@@ -317,8 +317,6 @@ public class MyApplication extends Application {
 
     /**
      * 获取是否登录
-     *
-     * @return
      */
     public boolean isUserLogin() {
         isUserLogin = mSharedPreferences.getBoolean(KEY_IS_LOGIN, false);
@@ -333,10 +331,6 @@ public class MyApplication extends Application {
 
     /**
      * 显示进度条
-     *
-     * @param context
-     * @param title
-     * @param message
      */
     public static void showProgress(Context context, String title, String message) {
         mProgressDialog = null;
@@ -357,9 +351,6 @@ public class MyApplication extends Application {
 
     /**
      * 显示对话框
-     *
-     * @param context
-     * @param message
      */
     public static void showDialog(Context context, String message) {
         if (alertDialog != null) {

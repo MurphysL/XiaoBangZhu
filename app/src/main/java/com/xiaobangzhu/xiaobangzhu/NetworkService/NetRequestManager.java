@@ -14,12 +14,19 @@ import com.xiaobangzhu.xiaobangzhu.Bean.AddTangleResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.AddVIPCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.BaseResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.CollegeListResultCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.DelOrdersByNumberCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.GetAllItemsCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.GetAllOrdersByUidCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.GetCartAllItemsCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.GetExressCompanyResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.InitImageResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.LatestVersionCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.LoginResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.NewsListResultCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.OptionItemsToCartCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.OptionOrdersCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.PaySignCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.PaySuccessByNumberCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.PublishResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.QiNiuResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.RegisteResultCode;
@@ -30,45 +37,50 @@ import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.Utils.VerifyUtils;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * BaseHtmlUrlManager
+ *
  * Created by WQC on 2016/7/27.
  */
 public class NetRequestManager {
-    static final String TAG = "NetRequestManager";
-    static NetRequestManager mInstance = new NetRequestManager();
-    Gson gson;
-    DataChangeListener<LoginResultCode> loginResultCodeListener;
-    DataChangeListener<RegisteResultCode> registeResultCodeListener;
-    DataChangeListener<UserBaseInform> userBaseInformListener;
-    DataChangeListener<AddTangleResultCode> addTangleResultCodeListener;
-    DataChangeListener<VerifyCode> verifyCodeListener;
-    DataChangeListener<AdPictures> adPicturesListener;
-    DataChangeListener<NewsListResultCode> newsListResultCodeListener;
-    DataChangeListener<QiNiuResultCode> qiNiuResultCodeChangeListener;
-    DataChangeListener<CollegeListResultCode> collegeListResultCodeListener;
-    DataChangeListener<ActivityListResultCode> activityListResultCodeListener;
-
-    DataChangeListener<PublishResultCode> addNormalResultCodeChangeListener;
-    DataChangeListener<BaseResultCode> addSecondResultCodeChangeListener;
-    DataChangeListener<BaseResultCode> addSuggestResultCodeChangListener;
-    DataChangeListener<BaseResultCode> addExpressResultCodeListener;
-    DataChangeListener<BaseResultCode> addTeamResultCodeListener;
-    DataChangeListener<BaseResultCode> addActivityResultCodeListener;
-    DataChangeListener<GetExressCompanyResultCode> getExressCompanyResultCodeListener;
-    DataChangeListener<BaseResultCode> authResultCodeListener;
-    DataChangeListener<BaseResultCode> updateUserCodeListener;
-    DataChangeListener<InitImageResultCode> initImageCodeListener;
-    DataChangeListener<LatestVersionCode> latestVersionCodeDataChangeListener;
-    DataChangeListener<PaySignCode> paySignCodeDataChangeListener;
-    DataChangeListener<VipTypeCode> vipTypeCodeDataChangeListener;
-    DataChangeListener<AddVIPCode> addVIPCodeDataChangeListener;
+    private static final String TAG = "NetRequestManager";
+    private static NetRequestManager mInstance = new NetRequestManager();
+    private Gson gson;
+    private DataChangeListener<LoginResultCode> loginResultCodeListener;
+    private DataChangeListener<RegisteResultCode> registeResultCodeListener;
+    private DataChangeListener<UserBaseInform> userBaseInformListener;
+    private DataChangeListener<AddTangleResultCode> addTangleResultCodeListener;
+    private DataChangeListener<VerifyCode> verifyCodeListener;
+    private DataChangeListener<AdPictures> adPicturesListener;
+    private DataChangeListener<NewsListResultCode> newsListResultCodeListener;
+    private DataChangeListener<QiNiuResultCode> qiNiuResultCodeChangeListener;
+    private DataChangeListener<CollegeListResultCode> collegeListResultCodeListener;
+    private DataChangeListener<ActivityListResultCode> activityListResultCodeListener;
+    private DataChangeListener<PublishResultCode> addNormalResultCodeChangeListener;
+    private DataChangeListener<BaseResultCode> addSecondResultCodeChangeListener;
+    private DataChangeListener<BaseResultCode> addSuggestResultCodeChangListener;
+    private DataChangeListener<BaseResultCode> addExpressResultCodeListener;
+    private DataChangeListener<BaseResultCode> addTeamResultCodeListener;
+    private DataChangeListener<BaseResultCode> addActivityResultCodeListener;
+    private DataChangeListener<GetExressCompanyResultCode> getExressCompanyResultCodeListener;
+    private DataChangeListener<BaseResultCode> authResultCodeListener;
+    private DataChangeListener<BaseResultCode> updateUserCodeListener;
+    private DataChangeListener<InitImageResultCode> initImageCodeListener;
+    private DataChangeListener<LatestVersionCode> latestVersionCodeDataChangeListener;
+    private DataChangeListener<PaySignCode> paySignCodeDataChangeListener;
+    private DataChangeListener<VipTypeCode> vipTypeCodeDataChangeListener;
+    private DataChangeListener<AddVIPCode> addVIPCodeDataChangeListener;
+    private DataChangeListener<OptionItemsToCartCode> optionItemsToCartDataChangeListener;
+    private DataChangeListener<PaySuccessByNumberCode> paySuccessByNumberDataChangeListener;
+    private DataChangeListener<OptionOrdersCode> optionOrdersDataChangeListener;
+    private DataChangeListener<DelOrdersByNumberCode> delOrdersByNumberDataChangeListener;
+    private DataChangeListener<GetAllItemsCode> getAllItemsDataChangeListener;
+    private DataChangeListener<GetAllOrdersByUidCode> getAllOrdersByUidDataChangeListener;
+    private DataChangeListener<GetCartAllItemsCode> getCartAllItemsDataChangeListener;
 
 
     private NetRequestManager() {
@@ -80,11 +92,8 @@ public class NetRequestManager {
     }
     /**
      * post请求
-     * @param url
-     * @param responseListener
-     * @param errorListener
      */
-    public void postRequest(String url, Response.Listener<String> responseListener,Response.ErrorListener errorListener) {
+    private void postRequest(String url, Response.Listener<String> responseListener, Response.ErrorListener errorListener) {
         StringRequest request = new StringRequest(Request.Method.POST, url, responseListener, errorListener);
         Log.i(TAG, url);
         request.setTag(url);
@@ -94,11 +103,8 @@ public class NetRequestManager {
 
     /**
      * post请求,可自定义request的Headers
-     * @param url
-     * @param responseListener
-     * @param errorListener
      */
-    public void postRequest(String url, Response.Listener<String> responseListener, Response.ErrorListener errorListener, final Map<String,String> headers) throws IllegalArgumentException {
+    private void postRequest(String url, Response.Listener<String> responseListener, Response.ErrorListener errorListener, final Map<String, String> headers) throws IllegalArgumentException {
         if (url != null && responseListener != null && errorListener != null) {
             if (headers == null) {
                 postRequest(url, responseListener, errorListener);
@@ -117,49 +123,12 @@ public class NetRequestManager {
             throw new IllegalArgumentException();
         }
 
-    }
-
-    /**
-     *
-     * @param token
-     * @param url
-     * @param headers
-     * @param parems
-     * @param responseListener
-     * @param errorListener
-     */
-    public void postRequest(String token,String url,final Map<String,String> headers,final Map<String,String> parems,Response.Listener<String> responseListener,Response.ErrorListener errorListener) {
-        if (url != null && responseListener != null && errorListener != null) {
-            if (headers == null) {
-                postRequest(url, responseListener, errorListener);
-            }else{
-                StringRequest request = new StringRequest(Request.Method.POST, url, responseListener, errorListener){
-                    @Override
-                    public Map<String, String> getHeaders() throws AuthFailureError {
-                        return headers;
-                    }
-
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        return parems;
-                    }
-                };
-                Log.i(TAG, url);
-                request.setTag(url);
-                MyApplication.getRequestQueue().add(request);
-            }
-        }else{
-            throw new IllegalArgumentException();
-        }
     }
 
     /**
      * get请求
-     * @param url
-     * @param responseListener
-     * @param errorListener
      */
-    public void getRequest(String url, Response.Listener<String> responseListener,Response.ErrorListener errorListener) {
+    private void getRequest(String url, Response.Listener<String> responseListener, Response.ErrorListener errorListener) {
         StringRequest request = new StringRequest(Request.Method.GET, url, responseListener, errorListener);
         Log.i(TAG, url);
         request.setTag(url);
@@ -168,11 +137,8 @@ public class NetRequestManager {
 
     /**
      * get请求,可自定义request的Headers
-     * @param url
-     * @param responseListener
-     * @param errorListener
      */
-    public void getRequest(String url, Response.Listener<String> responseListener, Response.ErrorListener errorListener, final Map<String,String> headers) throws IllegalArgumentException {
+    private void getRequest(String url, Response.Listener<String> responseListener, Response.ErrorListener errorListener, final Map<String, String> headers) throws IllegalArgumentException {
         if (url != null && responseListener != null && errorListener != null) {
             if (headers == null) {
                 getRequest(url, responseListener, errorListener);
@@ -194,9 +160,6 @@ public class NetRequestManager {
 
     /**
      * 获取验证码
-     * @param loginId
-     * @param type
-     * @return verifycode
      */
     public void getVerifyCode(String loginId, int type) {
         String url = BaseUrlManager.getUrlForVerifyCode(loginId, type);
@@ -225,11 +188,6 @@ public class NetRequestManager {
 
     /**
      * 注册用户
-     *
-     * @param loginId
-     * @param password
-     * @param sex
-     * @return
      */
     public void registeUser(String loginId, String password, String sex,int collegeId) {
         String url = BaseUrlManager.getUrlForRegiste(loginId, password, sex,collegeId);
@@ -251,10 +209,6 @@ public class NetRequestManager {
 
     /**
      * 用户登录
-     *
-     * @param loginId
-     * @param password
-     * @return
      */
     public void login(String loginId, String password) {
         String url = BaseUrlManager.getUrlForLogin() + "?param={\"login_id\":" + "\"" + loginId + "\"," + "\"password\":" + "\"" + password + "\"}";
@@ -269,7 +223,7 @@ public class NetRequestManager {
                         loginResultCodeListener.onSuccessful(loginResultCode);
                     }
                 }else {
-
+                    Log.i(TAG, "Error: login");
                 }
             }
         }, new Response.ErrorListener() {
@@ -282,13 +236,11 @@ public class NetRequestManager {
 
     /**
      * 获取用户基本信息的接口
-     *
-     * @return
      */
     public void getUserInform(final String token) {
         String url = BaseUrlManager.getUrlForGetUserInform();
         Log.i(TAG, "getUserInform: " + url);
-        Map<String, String> headers = new HashMap<String, String>();
+        Map<String, String> headers = new HashMap<>();
         headers.put("token",token );
         getRequest(url, new Response.Listener<String>() {
             @Override
@@ -312,13 +264,10 @@ public class NetRequestManager {
     }
     /**
      * 添加纠结癌
-     * @param collegeId
-     * @param content
-     * @return
      */
     public void addTangleCancer(final String token ,int collegeId, String content, String chooseA, String chooseB) {
         String url = BaseUrlManager.getUrlForAddTangleCancer(collegeId, content, chooseA, chooseB);
-        Map<String, String> headers = new HashMap<String, String>();
+        Map<String, String> headers = new HashMap<>();
         headers.put("token",token);
         postRequest(url, new Response.Listener<String>() {
             @Override
@@ -344,12 +293,11 @@ public class NetRequestManager {
 
     /**
      * 获取首页图片
-     * @param collegeId
      */
     public void getAdPictures(int collegeId,final String token){
         String url = BaseUrlManager.getUrlForAdPictures(collegeId);
         Log.i(TAG, "getAdPictures: " + url);
-        Map<String, String> headers = new HashMap<String, String>();
+        Map<String, String> headers = new HashMap<>();
         headers.put("token", token);
         getRequest(url, new Response.Listener<String>() {
             @Override
@@ -375,7 +323,7 @@ public class NetRequestManager {
      * 获取首页新闻列表
      */
     public void getNewsList(final String token,String url) {
-        Map<String, String> headers = new HashMap<String, String>();
+        Map<String, String> headers = new HashMap<>();
         headers.put("token", token);
         Log.i(TAG, "getNewsList:" + url);
         getRequest(url, new Response.Listener<String>() {
@@ -387,11 +335,7 @@ public class NetRequestManager {
                     if (newsListResultCode != null) {
                         if (newsListResultCodeListener != null) {
                             newsListResultCodeListener.onSuccessful(newsListResultCode);
-                        }else{
-//                            throw new NullPointerException("NewsListResultCodeListener is null");
                         }
-                    }else{
-//                        throw new NullPointerException("NewsListResultCode is null");
                     }
                 }else {
                     newsListResultCodeListener.onResponseNull();
@@ -410,14 +354,14 @@ public class NetRequestManager {
      * 获取首页活动列表
      */
     public void getActivityList(final String token,String url) {
-        Map<String, String> headers = new HashMap<String, String>();
+        Map<String, String> headers = new HashMap<>();
         headers.put("token", token);
         Log.i(TAG, "getActivityList: " + url);
         getRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.i(TAG, "getActivityList: " + response);
-                if (response != null && response != "") {
+                if (response != null && !response.equals("")) {
                     ActivityListResultCode resultCode = gson.fromJson(response, ActivityListResultCode.class);
                     if (resultCode != null) {
                         if (activityListResultCodeListener != null) {
@@ -510,15 +454,6 @@ public class NetRequestManager {
 
     /**
      * 添加普通任务
-     * @param token
-     * @param collegeId
-     * @param title
-     * @param desc
-     * @param imageUrl
-     * @param address
-     * @param tip
-     * @param specify
-     * @param endTime
      */
     public void addNormalTask(String token,int collegeId,String title,String desc,String imageUrl,String address,int tip,String specify,String endTime) {
         Map<String, String> headers = new HashMap<>();
@@ -555,14 +490,6 @@ public class NetRequestManager {
     }
     /**
      * 添加二手任务
-     * @param token
-     * @param collegeId
-     * @param price
-     * @param title
-     * @param desc
-     * @param picture1
-     * @param picture2
-     * @param picture3
      */
     public void addSecondTask(String token,int collegeId,int price,String title,String desc,String picture1,String picture2,String picture3) {
         Map<String, String> headers = new HashMap<>();
@@ -600,9 +527,6 @@ public class NetRequestManager {
 
     /**
      * 添加建议
-     * @param token
-     * @param content
-     * @param contact
      */
     public void addSuggest(String token, String content, String contact) {
         Map<String, String> headers = new HashMap<>();
@@ -630,8 +554,6 @@ public class NetRequestManager {
 
     /**
      * 扫描二维码
-     * @param token
-     * @param url
      */
     public void sacnQR(String token, String url) {
         Map<String, String> headers = new HashMap<>();
@@ -662,8 +584,6 @@ public class NetRequestManager {
 
     /**
      * 快递发布
-     *
-     * @param token
      */
     public void addExpress(String token, int collegeId, String name, int expressId, String address, int tip, String phoneTail, int type, String limitTime) {
         Map<String, String> headers = new HashMap<>();
@@ -703,7 +623,6 @@ public class NetRequestManager {
 
     /**
      * 获取快递公司列表
-     * @param token
      */
     public void getExpressCompany(String token) {
         Map<String, String> headers = new HashMap<>();
@@ -736,17 +655,6 @@ public class NetRequestManager {
 
     /**
      * 发布校园活动
-     * @param token
-     * @param collegeId
-     * @param title
-     * @param address
-     * @param startTime
-     * @param endTime
-     * @param content
-     * @param picture
-     * @param poster
-     * @param tags
-     * @param num
      */
     public void addCollegeActivity(String token, int collegeId, String title, String address, String startTime, String endTime, String content, String picture, String poster, String tags,int num) {
         Map<String, String> headers = new HashMap<>();
@@ -774,17 +682,8 @@ public class NetRequestManager {
         }, headers);
     }
 
-
     /**
      * 添加组队任务
-     * @param token
-     * @param collegeId
-     * @param content
-     * @param picture
-     * @param num
-     * @param address
-     * @param endTime
-     * @param special
      */
     public void addTeamTask(String token ,int collegeId,String content,String picture,int num,String address,String endTime,String special){
         Map<String, String> headers = new HashMap<>();
@@ -816,13 +715,6 @@ public class NetRequestManager {
 
     /**
      * 添加用户认证
-     * @param token
-     * @param name
-     * @param college
-     * @param education
-     * @param picture
-     * @param identity
-     * @param eduStartDate
      */
     public void auth(String token,String name, String college, String education, String picture, String identity, int eduStartDate) {
         Map<String, String> headers = new HashMap<>();
@@ -855,12 +747,6 @@ public class NetRequestManager {
 
     /**
      * 更新用户信息
-     * @param signature
-     * @param major
-     * @param header
-     * @param sex
-     * @param collegeId
-     * @param nickName
      */
     public void updateUserInform(String token,String signature,String major,String header,String sex,int collegeId,String nickName){
         Map<String, String> headers = new HashMap<>();
@@ -870,7 +756,7 @@ public class NetRequestManager {
         postRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response != null && response != "") {
+                if (response != null && !response.equals("") ) {
                     BaseResultCode data = gson.fromJson(response, BaseResultCode.class);
                     if (updateUserCodeListener != null) {
                         updateUserCodeListener.onSuccessful(data);
@@ -919,10 +805,6 @@ public class NetRequestManager {
 
     /**
      * 支付宝签名
-     * @param token
-     * @param subject
-     * @param body
-     * @param total_fee
      */
     public void getPaySign(String token , String subject , String body ,int total_fee){
         Map<String, String> headers = new HashMap<>();
@@ -947,39 +829,6 @@ public class NetRequestManager {
             public void onErrorResponse(VolleyError error) {
                 if(paySignCodeDataChangeListener != null){
                     paySignCodeDataChangeListener.onError(error);
-                }
-            }
-        } , headers);
-    }
-
-    /**
-     * 添加会员
-     * @param token
-     */
-    public void addVIP(String token , int uid , int viptype , int expressnum , Date starttime , Date endtime){
-        Map<String, String> headers = new HashMap<>();
-        headers.put("token", token);
-
-        //String url = HtmlManager.getmInstance().getUrlForAddVIP(vip_id , month);
-        String url = HtmlManager.getmInstance().getUrlForAddVIP(uid , viptype ,expressnum , starttime , endtime);
-        Log.i(TAG, "addVIP: " + url);
-
-        postRequest(url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                if (!response.equals("")) {
-                    Log.i(TAG, "addVIP: " + response);
-                    AddVIPCode data = gson.fromJson(response , AddVIPCode.class);
-                    if(addVIPCodeDataChangeListener != null){
-                        addVIPCodeDataChangeListener.onSuccessful(data);
-                    }
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                if(addVIPCodeDataChangeListener != null){
-                    addVIPCodeDataChangeListener.onError(error);
                 }
             }
         } , headers);
@@ -1016,8 +865,6 @@ public class NetRequestManager {
         } , headers);
     }
 
-
-
     /**
      * 新版本
      */
@@ -1048,7 +895,249 @@ public class NetRequestManager {
         } , headers);
     }
 
+    /**
+     * 添加会员
+     */
+    public void addVIP(String token , int uid , int viptype , int expressnum , Date starttime , Date endtime){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
 
+        //String url = HtmlManager.getmInstance().getUrlForAddVIP(vip_id , month);
+        String url = HtmlManager.getmInstance().getUrlForAddVIP(uid , viptype ,expressnum , starttime , endtime);
+        Log.i(TAG, "addVIP: " + url);
+
+        postRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "addVIP: " + response);
+                    AddVIPCode data = gson.fromJson(response , AddVIPCode.class);
+                    if(addVIPCodeDataChangeListener != null){
+                        addVIPCodeDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(addVIPCodeDataChangeListener != null){
+                    addVIPCodeDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+    }
+
+    /**
+     * 操作购物车
+     */
+    public void getOptionItemsToCart(String token , String url){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        Log.i(TAG, "getOptionItemsToCart: " + url);
+
+        postRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "getOptionItemsToCart: " + response);
+                    OptionItemsToCartCode data = gson.fromJson(response , OptionItemsToCartCode.class);
+                    if(optionItemsToCartDataChangeListener != null){
+                        optionItemsToCartDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(optionItemsToCartDataChangeListener != null){
+                    optionItemsToCartDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+
+    }
+
+    /**
+     * 操作购物车
+     */
+    public void getPaySuccessByNumber(String token , String url){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        Log.i(TAG, "getPaySuccessByNumber: " + url);
+
+        postRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "getPaySuccessByNumber: " + response);
+                    PaySuccessByNumberCode data = gson.fromJson(response , PaySuccessByNumberCode.class);
+                    if(paySuccessByNumberDataChangeListener != null){
+                        paySuccessByNumberDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(paySuccessByNumberDataChangeListener != null){
+                    paySuccessByNumberDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+
+    }
+
+    /**
+     * 生成订单
+     */
+    public void getOptionOrders(String token , String url){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        Log.i(TAG, "getOptionOrders: " + url);
+
+        postRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "getOptionOrders: " + response);
+                    OptionOrdersCode data = gson.fromJson(response , OptionOrdersCode.class);
+                    if(optionOrdersDataChangeListener != null){
+                        optionOrdersDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(optionOrdersDataChangeListener != null){
+                    optionOrdersDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+    }
+
+    /**
+     * 获取商品列表
+     */
+    public void getCartAllItems(String token , String url){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        Log.i(TAG, "getCartAllItems: " + url);
+
+        postRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "getCartAllItems: " + response);
+                    GetCartAllItemsCode data = gson.fromJson(response , GetCartAllItemsCode.class);
+                    if(getCartAllItemsDataChangeListener != null){
+                        getCartAllItemsDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(getCartAllItemsDataChangeListener != null){
+                    getCartAllItemsDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+    }
+
+    /**
+     * 删除订单
+     */
+    public void getDelOrdersByNumber(String token , String url){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        Log.i(TAG, "getDelOrdersByNumber: " + url);
+
+        postRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "getDelOrdersByNumber: " + response);
+                    DelOrdersByNumberCode data = gson.fromJson(response , DelOrdersByNumberCode.class);
+                    if(delOrdersByNumberDataChangeListener != null){
+                        delOrdersByNumberDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(delOrdersByNumberDataChangeListener != null){
+                    delOrdersByNumberDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+    }
+
+    /**
+     * 获取商品列表
+     */
+    public void getAllItems(String token , String url){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        Log.i(TAG, "getAllItems: " + url);
+
+        postRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "getAllItems: " + response);
+                    GetAllItemsCode data = gson.fromJson(response , GetAllItemsCode.class);
+                    if(getAllItemsDataChangeListener != null){
+                        getAllItemsDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(getAllItemsDataChangeListener != null){
+                    getAllItemsDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+    }
+
+    /**
+     * 获取用户所有的订单
+     */
+    public void getAllOrdersByUid(String token , String url){
+        Map<String, String> headers = new HashMap<>();
+        headers.put("token", token);
+
+        Log.i(TAG, "getAllOrdersByUid: " + url);
+
+        postRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.equals("")) {
+                    Log.i(TAG, "getAllOrdersByUid: " + response);
+                    GetAllOrdersByUidCode data = gson.fromJson(response , GetAllOrdersByUidCode.class);
+                    if(getAllOrdersByUidDataChangeListener != null){
+                        getAllOrdersByUidDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(getAllOrdersByUidDataChangeListener != null){
+                    getAllOrdersByUidDataChangeListener.onError(error);
+                }
+            }
+        } , headers);
+    }
 
     public void setInitImageCodeListener(DataChangeListener<InitImageResultCode> initImageCodeListener) {
         this.initImageCodeListener = initImageCodeListener;
@@ -1144,6 +1233,34 @@ public class NetRequestManager {
 
     public void setAddVIPCodeDataChangeListener(DataChangeListener<AddVIPCode> addVIPCodeDataChangeListener){
         this.addVIPCodeDataChangeListener = addVIPCodeDataChangeListener;
+    }
+
+    public void setOptionItemsToCartDataChangeListener(DataChangeListener<OptionItemsToCartCode> optionItemsToCartDataChangeListener){
+        this.optionItemsToCartDataChangeListener = optionItemsToCartDataChangeListener;
+    }
+
+    public void setPaySuccessByNumberDataChangeListener(DataChangeListener<PaySuccessByNumberCode> paySuccessByNumberDataChangeListener){
+        this.paySuccessByNumberDataChangeListener = paySuccessByNumberDataChangeListener;
+    }
+
+    public void setOptionOrdersDataChangeListener(DataChangeListener<OptionOrdersCode> optionOrdersDataChangeListener){
+        this.optionOrdersDataChangeListener = optionOrdersDataChangeListener;
+    }
+
+    public void setDelOrdersByNumberDataChangeListener(DataChangeListener<DelOrdersByNumberCode> delOrdersByNumberDataChangeListener){
+        this.delOrdersByNumberDataChangeListener = delOrdersByNumberDataChangeListener;
+    }
+
+    public void setGetAllItemsDataChangeListener(DataChangeListener<GetAllItemsCode> getAllItemsDataChangeListener){
+        this.getAllItemsDataChangeListener = getAllItemsDataChangeListener;
+    }
+
+    public void setGetAllOrdersByUidDataChangeListener(DataChangeListener<GetAllOrdersByUidCode> getAllOrdersByUidDataChangeListener){
+        this.getAllOrdersByUidDataChangeListener = getAllOrdersByUidDataChangeListener;
+    }
+
+    public void setGetCartAllItemsDataChangeListener(DataChangeListener<GetCartAllItemsCode> getCartAllItemsDataChangeListener){
+        this.getCartAllItemsDataChangeListener = getCartAllItemsDataChangeListener;
     }
 
 }

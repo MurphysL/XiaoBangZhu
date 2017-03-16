@@ -124,7 +124,7 @@
             <Button
                 android:textColor="@color/base_color_text_black"
                 android:id="@+id/month_other_fake"
-                android:text="其他"
+                android:text="@string/member_select_month_other"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/month_unselect"
                 android:layout_width="0dp"

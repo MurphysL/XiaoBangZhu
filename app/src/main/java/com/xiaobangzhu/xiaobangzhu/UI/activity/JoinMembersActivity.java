@@ -24,6 +24,7 @@ import com.xiaobangzhu.xiaobangzhu.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**开通会员
+ *
  * Created by WQC on 2016/10/14.
  */
 public class JoinMembersActivity extends AppCompatActivity {

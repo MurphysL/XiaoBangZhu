@@ -20,17 +20,11 @@
     <color name="transparent_background">#90000000</color>
     <color name="publish_bg_color">#eeeeee</color>
     <color name="publish_text">#999999</color>
-
     <color name="acivity_change_info_btn_bg">#ff5e32</color>
-    <color name="line_color">#FFD2D2D2</color>
     <color name="txt_gray">#B9B9B9</color>
     <color name="orange">#FFFF9600</color>
     <color name="vip">#ffcc00</color>
-
     <color name="orange2">#e82e2e</color>
-
-    <color name="pay_for_goods_grey">#bbbbbb</color>
-    <color name="pay_for_goods_black">#585858</color>
 
 
 </resources>
