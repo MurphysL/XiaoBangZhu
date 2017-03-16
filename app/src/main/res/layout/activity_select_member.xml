@@ -85,7 +85,6 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/time_hint"
                 android:text="@string/member_select_month_hint"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/base_color_text_black"
@@ -140,7 +139,7 @@
                 android:textSize="14sp"
                 android:gravity="center"
                 android:textColor="@color/vip"
-                android:background="@drawable/month_unselect"
+                android:background="@drawable/month_select"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:layout_width="0dp"

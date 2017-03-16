@@ -1,5 +1,7 @@
 package com.xiaobangzhu.xiaobangzhu.NetworkService;
 
+import java.sql.Date;
+
 /**
  * Created by WQC on 2016/8/8.
  */
@@ -140,8 +142,9 @@ public class HtmlManager {
         return BaseUrlManager.getUrlForGetVipType();
     }
 
-    public String getUrlForAddVIP(int vip_id , int month){
-        return BaseUrlManager.getUrlForAddVIP(vip_id , month);
+    public String getUrlForAddVIP(int uid , int viptype , int expressnum , Date starttime , Date endtime){
+        //return BaseUrlManager.getUrlForAddVIP(vip_id , month);
+        return BaseUrlManager.getUrlForAddVIPUser(uid , viptype , expressnum , starttime , endtime);
     }
 
 

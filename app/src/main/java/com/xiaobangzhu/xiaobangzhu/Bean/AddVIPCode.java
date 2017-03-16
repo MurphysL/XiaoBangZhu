@@ -9,16 +9,16 @@ package com.xiaobangzhu.xiaobangzhu.Bean;
 
 
 public class AddVIPCode {
-    private String desc;
+    //private String desc;
     private int status;
 
-    public String getDesc() {
+   /* public String getDesc() {
         return desc;
     }
 
     public void setDesc(String desc) {
         this.desc = desc;
-    }
+    }*/
 
     public int getStatus() {
         return status;

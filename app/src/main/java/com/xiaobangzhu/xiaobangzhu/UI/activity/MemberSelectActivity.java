@@ -42,6 +42,7 @@ import java.util.List;
  * 暂不支持后端获取
  * 价格为整形
  * 会员种类不同
+ * 高级会员 开通年费会员
  *
  * @author: MurphySL
  * @time: 2017/1/26 16:21
@@ -58,7 +59,6 @@ public class MemberSelectActivity extends AppCompatActivity {
     private Button month_1,month_3,month_6,month_fake;
     private EditText month_other;
     private TextView selectYear;
-    private TextView timeType;
 
     private List<ImageView> indicatorImages = new ArrayList<>();
     private LinearLayout indicator;
@@ -120,7 +120,6 @@ public class MemberSelectActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         name = (TextView) findViewById(R.id.name);
         cancel = (ImageView) findViewById(R.id.cancel);
-        timeType = (TextView) findViewById(R.id.time_hint);
 
         month_1 = (Button) findViewById(R.id.month_1);
         month_3 = (Button) findViewById(R.id.month_3);
@@ -205,14 +204,16 @@ public class MemberSelectActivity extends AppCompatActivity {
             }
         });
         viewPager.setCurrentItem(currentPager);
+        money = calculatePrice();
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+                Log.i("123" , "onPageScrolled" + position);
             }
 
             @Override
             public void onPageSelected(int position) {
+                Log.i("123" , "onPageSelected2" + position);
                 if(position == fragments.size()-1){
                     currentPager = 1;
                 }else if(position == 0){
@@ -220,6 +221,7 @@ public class MemberSelectActivity extends AppCompatActivity {
                 }else{
                     currentPager = position;
                 }
+                Log.i("123" , "onPageSelected" + currentPager);
 
                 for(int i = 0 ;i < indicatorImages.size() ;i ++){
                     if(i == currentPager - 1){
@@ -229,15 +231,41 @@ public class MemberSelectActivity extends AppCompatActivity {
                         indicatorImages.get(i).setImageResource(R.drawable.indicator_unselect);
                     }
                 }
-                if(currentPager == 3)
-                    timeType.setText("年");
-                else
-                    timeType.setText("月");
+
+                if(currentPager == 3){
+                    m = 1;
+                    month_1.setBackgroundResource(R.drawable.month_unselect);
+                    month_3.setBackgroundResource(R.drawable.month_unselect);
+                    month_6.setBackgroundResource(R.drawable.month_unselect);
+                    month_1.setTextColor(csl2);
+                    month_3.setTextColor(csl2);
+                    month_6.setTextColor(csl2);
+                    month_1.setClickable(false);
+                    month_3.setClickable(false);
+                    month_6.setClickable(false);
+                    month_fake.setClickable(false);
+                }else{
+                    month_1.setClickable(true);
+                    month_3.setClickable(true);
+                    month_6.setClickable(true);
+                    month_fake.setClickable(true);
+                    month_1.setTextColor(csl);
+                    month_3.setTextColor(csl2);
+                    month_6.setTextColor(csl2);
+                    month_fake.setVisibility(View.VISIBLE);
+
+                    month_1.setBackgroundResource(R.drawable.month_select);
+                    month_3.setBackgroundResource(R.drawable.month_unselect);
+                    month_6.setBackgroundResource(R.drawable.month_unselect);
+                    m = 1;
+                }
+
                 money = calculatePrice();
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
+                Log.i("123" , "onPageScrollStateChanged" + currentPager);
                 viewPager.setCurrentItem(currentPager , false);
             }
         });
@@ -352,20 +380,19 @@ public class MemberSelectActivity extends AppCompatActivity {
         selectYear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentPager = 3;
-                viewPager.setCurrentItem(currentPager);
+                currentPager = fragments.size() - 2;
                 vip_type = 2;
-                m = 12;
-                month_other.setFocusable(true);
-                month_other.setFocusableInTouchMode(true);
-                month_other.requestFocus();
-                month_other.findFocus();
-                month_other.setText(12 + "");
+                m = 1;
                 month_1.setBackgroundResource(R.drawable.month_unselect);
                 month_3.setBackgroundResource(R.drawable.month_unselect);
                 month_6.setBackgroundResource(R.drawable.month_unselect);
-                month_other.setBackgroundResource(R.drawable.month_select);
+                month_1.setTextColor(csl2);
+                month_3.setTextColor(csl2);
+                month_6.setTextColor(csl2);
                 money = calculatePrice();
+                Log.i("123" , "currentPager" + currentPager);
+                viewPager.setCurrentItem(currentPager ,false);
+
             }
         });
 

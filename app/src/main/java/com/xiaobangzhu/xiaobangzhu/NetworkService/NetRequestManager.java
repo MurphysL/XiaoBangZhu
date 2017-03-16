@@ -33,6 +33,7 @@ import com.xiaobangzhu.xiaobangzhu.Utils.VerifyUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -955,11 +956,12 @@ public class NetRequestManager {
      * 添加会员
      * @param token
      */
-    public void addVIP(String token , int vip_id , int month){
+    public void addVIP(String token , int uid , int viptype , int expressnum , Date starttime , Date endtime){
         Map<String, String> headers = new HashMap<>();
         headers.put("token", token);
 
-        String url = HtmlManager.getmInstance().getUrlForAddVIP(vip_id , month);
+        //String url = HtmlManager.getmInstance().getUrlForAddVIP(vip_id , month);
+        String url = HtmlManager.getmInstance().getUrlForAddVIP(uid , viptype ,expressnum , starttime , endtime);
         Log.i(TAG, "addVIP: " + url);
 
         postRequest(url, new Response.Listener<String>() {

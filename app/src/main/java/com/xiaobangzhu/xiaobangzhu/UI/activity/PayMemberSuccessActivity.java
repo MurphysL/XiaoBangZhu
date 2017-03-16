@@ -3,6 +3,7 @@ package com.xiaobangzhu.xiaobangzhu.UI.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -17,6 +18,7 @@ import com.xiaobangzhu.xiaobangzhu.R;
 
 
 public class PayMemberSuccessActivity extends AppCompatActivity {
+    private static final String TAG =  "PayMemberSuccess";
 
     private ImageView cancel;
     private ImageView type_bg;
@@ -32,6 +34,7 @@ public class PayMemberSuccessActivity extends AppCompatActivity {
 
     private void initData() {
         type = getIntent().getIntExtra("type" , 0);
+        Log.i(TAG , "type" + type);
     }
 
     private void initView() {

@@ -94,7 +94,7 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
                             final int vip = Integer.parseInt(body);
                             vip_type = vip%10;
                             vip_month = vip/10;
-                            NetRequestManager.getInstance().addVIP(MyApplication.getInstance().getUserToken() , vip_type , vip_month);
+                           /* NetRequestManager.getInstance().addVIP(MyApplication.getInstance().getUserToken() , vip_type , vip_month);
                             NetRequestManager.getInstance().setAddVIPCodeDataChangeListener(new DataChangeListener<AddVIPCode>() {
                                 @Override
                                 public void onSuccessful(AddVIPCode data) {
@@ -103,7 +103,8 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
                                             MyApplication.showToastShort("申请会员成功");
                                             Intent intent = new Intent();
                                             intent.setClass(PayOrderActivity.this , PayMemberSuccessActivity.class);
-                                            intent.putExtra("type" ,vip_month);
+                                            intent.putExtra("type" ,vip_type);
+                                            Log.i("123" , vip_type+"");
                                             startActivity(intent);
                                             finish();
                                         }
@@ -121,7 +122,7 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
                                     MyApplication.dismissProgress();
                                     MyApplication.showToastShort("申请会员失败");
                                 }
-                            });
+                            });*/
                         }
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。

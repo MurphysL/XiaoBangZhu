@@ -26,6 +26,8 @@ import com.android.volley.VolleyError;
 import com.uzmap.pkg.uzsocket.api.Receiver;
 import com.uzmap.pkg.uzsocket.g.c;
 import com.wei.zxinglibrary.activity.CaptureActivity;
+import com.xiaobangzhu.xiaobangzhu.AliPay.PayOrderActivity;
+import com.xiaobangzhu.xiaobangzhu.Bean.AddVIPCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.LatestVersionCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.PaySignCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
@@ -46,7 +48,9 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cn.jpush.android.api.JPushInterface;
@@ -113,6 +117,40 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 Log.i(TAG, "onResponseNull: " );
             }
         });
+
+        java.sql.Date sq_now = new java.sql.Date(System.currentTimeMillis());
+        java.sql.Date sq_end = new java.sql.Date(System.currentTimeMillis());
+        Log.i(TAG, "onCreate: |||||||||||||||||" + Charset.defaultCharset());
+        /*NetRequestManager.getInstance().addVIP(MyApplication.getInstance().getUserToken() , 1 , 2 , 0 , sq_now , sq_end);
+        NetRequestManager.getInstance().setAddVIPCodeDataChangeListener(new DataChangeListener<AddVIPCode>() {
+            @Override
+            public void onSuccessful(AddVIPCode data) {
+                if (data != null) {
+                    if (data.getStatus() == 0) {
+                        MyApplication.showToastShort("申请会员成功");
+                       *//* Intent intent = new Intent();
+                        intent.setClass(PayOrderActivity.this , PayMemberSuccessActivity.class);
+                        intent.putExtra("type" ,vip_type);
+                        Log.i("123" , vip_type+"");
+                        startActivity(intent);
+                        finish();*//*
+                    }
+                }
+            }
+
+            @Override
+            public void onError(VolleyError volleyError) {
+                MyApplication.dismissProgress();
+                MyApplication.showToastShort("申请会员失败");
+            }
+
+            @Override
+            public void onResponseNull() {
+                MyApplication.dismissProgress();
+                MyApplication.showToastShort("申请会员失败");
+            }
+        });
+*/
 
     }
 
