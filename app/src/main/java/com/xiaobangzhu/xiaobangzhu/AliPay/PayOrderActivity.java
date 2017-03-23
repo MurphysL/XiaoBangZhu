@@ -17,12 +17,16 @@ import android.widget.Toast;
 import com.alipay.sdk.app.PayTask;
 import com.android.volley.VolleyError;
 import com.xiaobangzhu.xiaobangzhu.Bean.AddVIPCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.UserBaseInform;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.NetRequestManager;
 import com.xiaobangzhu.xiaobangzhu.R;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.PayMemberSuccessActivity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -94,35 +98,64 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
                             final int vip = Integer.parseInt(body);
                             vip_type = vip%10;
                             vip_month = vip/10;
-                           /* NetRequestManager.getInstance().addVIP(MyApplication.getInstance().getUserToken() , vip_type , vip_month);
-                            NetRequestManager.getInstance().setAddVIPCodeDataChangeListener(new DataChangeListener<AddVIPCode>() {
+                            final int expressnum = 0; //默认为0
+                            Date now = new Date(System.currentTimeMillis());
+                            Date end = new Date(System.currentTimeMillis()+(long)vip_month*1000*60*60*24*30);
+                            DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            final String starttime = format.format(now);
+                            final String endtime = format.format(end);
+                            NetRequestManager.getInstance().getUserInform(MyApplication.getInstance().getUserToken());
+                            NetRequestManager.getInstance().setUserBaseInformListener(new DataChangeListener<UserBaseInform>() {
                                 @Override
-                                public void onSuccessful(AddVIPCode data) {
-                                    if (data != null) {
-                                        if (data.getStatus() == 0) {
-                                            MyApplication.showToastShort("申请会员成功");
-                                            Intent intent = new Intent();
-                                            intent.setClass(PayOrderActivity.this , PayMemberSuccessActivity.class);
-                                            intent.putExtra("type" ,vip_type);
-                                            Log.i("123" , vip_type+"");
-                                            startActivity(intent);
-                                            finish();
-                                        }
+                                public void onSuccessful(UserBaseInform data) {
+                                    String tele = data.getData().getLogin_id();
+                                    if(tele != null && !tele.equals("")){
+                                        NetRequestManager.getInstance().addVIP(tele , 2 , 0 , starttime , endtime);
+                                        NetRequestManager.getInstance().setAddVIPCodeDataChangeListener(new DataChangeListener<AddVIPCode>() {
+                                            @Override
+                                            public void onSuccessful(AddVIPCode data) {
+                                                if (data != null) {
+                                                    if (data.getStatus() == 0) {
+                                                        MyApplication.showToastShort("申请会员成功");
+                                                        Intent intent = new Intent();
+                                                        intent.setClass(PayOrderActivity.this , PayMemberSuccessActivity.class);
+                                                        intent.putExtra("type" ,vip_type);
+                                                        Log.i("123" , vip_type+"");
+                                                        startActivity(intent);
+                                                        finish();
+                                                    }
+                                                }else{
+                                                    MyApplication.showToastShort("申请会员失败,请联系客服！");
+                                                    Log.i(TAG, "onError: "+"申请会员失败,请联系客服！" );
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onError(VolleyError volleyError) {
+                                                MyApplication.dismissProgress();
+                                                MyApplication.showToastShort("申请会员失败" + volleyError);
+                                                Log.i(TAG, "onError: " + volleyError);
+                                            }
+
+                                            @Override
+                                            public void onResponseNull() {
+                                                MyApplication.dismissProgress();
+                                                MyApplication.showToastShort("申请会员失败");
+                                            }
+                                        });
                                     }
                                 }
 
                                 @Override
                                 public void onError(VolleyError volleyError) {
-                                    MyApplication.dismissProgress();
-                                    MyApplication.showToastShort("申请会员失败");
+
                                 }
 
                                 @Override
                                 public void onResponseNull() {
-                                    MyApplication.dismissProgress();
-                                    MyApplication.showToastShort("申请会员失败");
+
                                 }
-                            });*/
+                            });
                         }
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。

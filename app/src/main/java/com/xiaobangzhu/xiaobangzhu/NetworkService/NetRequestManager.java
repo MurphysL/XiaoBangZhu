@@ -6,6 +6,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.xiaobangzhu.xiaobangzhu.Bean.ActivityListResultCode;
@@ -37,7 +38,11 @@ import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.Utils.VerifyUtils;
 
-import java.sql.Date;
+import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -122,7 +127,18 @@ public class NetRequestManager {
         }else{
             throw new IllegalArgumentException();
         }
+    }
 
+    /**
+     * post请求，JSON
+     */
+    private void postRequest(String url, Response.Listener<JSONObject> responseListener, Response.ErrorListener errorListener , final JSONObject param){
+        if(url != null && responseListener != null && errorListener != null){
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST , url , param , responseListener, errorListener);
+            Log.i(TAG, url);
+            request.setTag(url);
+            MyApplication.getRequestQueue().add(request);
+        }
     }
 
     /**
@@ -898,20 +914,24 @@ public class NetRequestManager {
     /**
      * 添加会员
      */
-    public void addVIP(String token , int uid , int viptype , int expressnum , Date starttime , Date endtime){
-        Map<String, String> headers = new HashMap<>();
-        headers.put("token", token);
+    public void addVIP(String uid , int viptype , int expressnum , String starttime , String endtime){
+        Map<String , Object> map = new HashMap<>();
+        map.put("uid", uid);
+        map.put("viptype", viptype);
+        map.put("expressnum" , expressnum);
+        map.put("starttime" , starttime);
+        map.put("endtime" , endtime);
+        JSONObject object = new JSONObject(map);
 
-        //String url = HtmlManager.getmInstance().getUrlForAddVIP(vip_id , month);
-        String url = HtmlManager.getmInstance().getUrlForAddVIP(uid , viptype ,expressnum , starttime , endtime);
-        Log.i(TAG, "addVIP: " + url);
+        String url = BaseUrlManager.getUrlForAddVIPUser();
+        Log.i(TAG, "addVIP: " + url + "\nbody:" + object.toString());
 
-        postRequest(url, new Response.Listener<String>() {
+        postRequest(url, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
-                if (!response.equals("")) {
-                    Log.i(TAG, "addVIP: " + response);
-                    AddVIPCode data = gson.fromJson(response , AddVIPCode.class);
+            public void onResponse(JSONObject response) {
+                Log.i(TAG, "onResponse: " + response.toString());
+                if(!response.toString().equals("")){
+                    AddVIPCode data = gson.fromJson(response.toString(), AddVIPCode.class);
                     if(addVIPCodeDataChangeListener != null){
                         addVIPCodeDataChangeListener.onSuccessful(data);
                     }
@@ -920,11 +940,12 @@ public class NetRequestManager {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.i(TAG, "onErrorResponse: " + error.toString());
                 if(addVIPCodeDataChangeListener != null){
                     addVIPCodeDataChangeListener.onError(error);
                 }
             }
-        } , headers);
+        },object);
     }
 
     /**
@@ -1082,21 +1103,24 @@ public class NetRequestManager {
     /**
      * 获取商品列表
      */
-    public void getAllItems(String token , String url){
-        Map<String, String> headers = new HashMap<>();
-        headers.put("token", token);
-
+    public void getAllItems(String url, int uid , int usertype){
         Log.i(TAG, "getAllItems: " + url);
 
-        postRequest(url, new Response.Listener<String>() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("uid" , uid);
+        map.put("usertype", usertype);
+        JSONObject object = new JSONObject(map);
+
+        postRequest(url, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(JSONObject response) {
                 if (!response.equals("")) {
-                    Log.i(TAG, "getAllItems: " + response);
-                    GetAllItemsCode data = gson.fromJson(response , GetAllItemsCode.class);
-                    if(getAllItemsDataChangeListener != null){
+                    Log.i(TAG, "getAllItems: " + response.toString());
+
+                    //GetAllItemsCode data = gson.fromJson(response , GetAllItemsCode.class);
+                    /*if(getAllItemsDataChangeListener != null){
                         getAllItemsDataChangeListener.onSuccessful(data);
-                    }
+                    }*/
                 }
             }
         }, new Response.ErrorListener() {
@@ -1106,7 +1130,7 @@ public class NetRequestManager {
                     getAllItemsDataChangeListener.onError(error);
                 }
             }
-        } , headers);
+        } , object);
     }
 
     /**

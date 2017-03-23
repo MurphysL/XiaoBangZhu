@@ -92,10 +92,7 @@
 
         <!--首页开屏-->
         <activity android:name=".UI.activity.AdActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <!--启动界面-->
@@ -103,11 +100,13 @@
             android:name=".UI.activity.LaunchActivity"
             android:noHistory="true"
             android:clearTaskOnLaunch="true">
-
         </activity>
         <!--主界面-->
-        <activity
-            android:name=".UI.activity.MainActivity">
+        <activity android:name=".UI.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!--web界面-->

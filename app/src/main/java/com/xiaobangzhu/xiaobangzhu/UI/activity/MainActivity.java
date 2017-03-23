@@ -1,15 +1,11 @@
 package com.xiaobangzhu.xiaobangzhu.UI.activity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
@@ -23,32 +19,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.uzmap.pkg.uzsocket.api.Receiver;
-import com.uzmap.pkg.uzsocket.g.c;
 import com.wei.zxinglibrary.activity.CaptureActivity;
-import com.xiaobangzhu.xiaobangzhu.AliPay.PayOrderActivity;
 import com.xiaobangzhu.xiaobangzhu.Bean.AddVIPCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.GetAllItemsCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.LatestVersionCode;
-import com.xiaobangzhu.xiaobangzhu.Bean.PaySignCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
-import com.xiaobangzhu.xiaobangzhu.NetworkService.HtmlManager;
+import com.xiaobangzhu.xiaobangzhu.NetworkService.BaseUrlManager;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.NetRequestManager;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.UpdateService;
 import com.xiaobangzhu.xiaobangzhu.R;
-import com.xiaobangzhu.xiaobangzhu.Receiver.MyReceiver;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.DebitFragment;
-import com.xiaobangzhu.xiaobangzhu.UI.fragment.HomeFragment;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.HomeFragment2;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.PersonFragment;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.RewardFragment;
 import com.xiaobangzhu.xiaobangzhu.View.HeaderLayout;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.charset.Charset;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -118,39 +107,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
         });
 
-        java.sql.Date sq_now = new java.sql.Date(System.currentTimeMillis());
-        java.sql.Date sq_end = new java.sql.Date(System.currentTimeMillis());
-        Log.i(TAG, "onCreate: |||||||||||||||||" + Charset.defaultCharset());
-        /*NetRequestManager.getInstance().addVIP(MyApplication.getInstance().getUserToken() , 1 , 2 , 0 , sq_now , sq_end);
-        NetRequestManager.getInstance().setAddVIPCodeDataChangeListener(new DataChangeListener<AddVIPCode>() {
+
+        NetRequestManager.getInstance().getAllItems(BaseUrlManager.getUrlForGetAllItems(), 1,2);
+        NetRequestManager.getInstance().setGetAllItemsDataChangeListener(new DataChangeListener<GetAllItemsCode>() {
             @Override
-            public void onSuccessful(AddVIPCode data) {
-                if (data != null) {
-                    if (data.getStatus() == 0) {
-                        MyApplication.showToastShort("申请会员成功");
-                       *//* Intent intent = new Intent();
-                        intent.setClass(PayOrderActivity.this , PayMemberSuccessActivity.class);
-                        intent.putExtra("type" ,vip_type);
-                        Log.i("123" , vip_type+"");
-                        startActivity(intent);
-                        finish();*//*
-                    }
-                }
+            public void onSuccessful(GetAllItemsCode data) {
+                Log.i(TAG, "onSuccessful: ");
             }
 
             @Override
             public void onError(VolleyError volleyError) {
-                MyApplication.dismissProgress();
-                MyApplication.showToastShort("申请会员失败");
+                Log.i(TAG, "111onError: " + volleyError);
             }
 
             @Override
             public void onResponseNull() {
-                MyApplication.dismissProgress();
-                MyApplication.showToastShort("申请会员失败");
+                Log.i(TAG, "111onError: ");
             }
         });
-*/
 
     }
 

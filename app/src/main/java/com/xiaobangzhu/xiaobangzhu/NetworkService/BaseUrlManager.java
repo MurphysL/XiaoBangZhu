@@ -3,6 +3,7 @@ package com.xiaobangzhu.xiaobangzhu.NetworkService;
 import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.sql.Date;
 
 /**
@@ -30,11 +31,11 @@ public class BaseUrlManager {
      * 服务器地址
      */
     private static final String serverAddress = "http://120.76.239.192/moblieInterface/";
+    //private static final String serverAddress = "http://120.76.239.192/xbzAdmin/moblieInterface/";
     /**
      * 服务器地址2
      */
-    private static final String serverAddress3 = "http://120.76.239.192:8080/XiaoBangZhu/moblieInterface/";
-
+    private static final String serverAddress3 = "http://120.76.239.192/xbzAdmin/moblieInterface/";
 
     /**
      * 支付签名
@@ -209,9 +210,8 @@ public class BaseUrlManager {
      * 添加会员
      */
     private static final String urlForAddVIPUser = serverAddress3+"addVIPUser.jhtml";
-    static String getUrlForAddVIPUser(int uid, int viptype, int expressnum, Date starttime, Date endtime){
-        return urlForAddVIPUser + "?param={\"uid\":" +uid +",\"viptype\":" + viptype +",\"expressnum\":" + expressnum+
-                ",\"starttime\":" + starttime+",\"endtime\":" + endtime +"}";
+    static String getUrlForAddVIPUser(){
+        return urlForAddVIPUser;
     }
 
     /**
@@ -235,8 +235,8 @@ public class BaseUrlManager {
      * 获取商品列表
      */
     private static final String urlForGetAllItems = serverAddress3+"getAllItems.jhtml";
-    static String getUrlForGetAllItems(int uid , int usertype){
-        return urlForGetAllItems+ "?param={\"uid\":" +uid+",\"usertype\":" + usertype +"}";
+    public static String getUrlForGetAllItems(){
+        return urlForGetAllItems;
     }
 
     /**

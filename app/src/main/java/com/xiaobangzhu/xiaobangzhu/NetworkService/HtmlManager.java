@@ -144,11 +144,6 @@ public class HtmlManager {
         return BaseUrlManager.getUrlForGetVipType();
     }
 
-    public String getUrlForAddVIP(int uid , int viptype , int expressnum , Date starttime , Date endtime){
-        //return BaseUrlManager.getUrlForAddVIP(vip_id , month);
-        return BaseUrlManager.getUrlForAddVIPUser(uid , viptype , expressnum , starttime , endtime);
-    }
-
 
 
 }
