@@ -20,12 +20,11 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.wei.zxinglibrary.activity.CaptureActivity;
-import com.xiaobangzhu.xiaobangzhu.Bean.AddVIPCode;
-import com.xiaobangzhu.xiaobangzhu.Bean.GetAllItemsCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.LatestVersionCode;
+import com.xiaobangzhu.xiaobangzhu.Bean.UserBaseInform;
+import com.xiaobangzhu.xiaobangzhu.Bean.UserVIPInfo;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
-import com.xiaobangzhu.xiaobangzhu.NetworkService.BaseUrlManager;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.NetRequestManager;
 import com.xiaobangzhu.xiaobangzhu.NetworkService.UpdateService;
 import com.xiaobangzhu.xiaobangzhu.R;
@@ -35,11 +34,7 @@ import com.xiaobangzhu.xiaobangzhu.UI.fragment.PersonFragment;
 import com.xiaobangzhu.xiaobangzhu.UI.fragment.RewardFragment;
 import com.xiaobangzhu.xiaobangzhu.View.HeaderLayout;
 
-import java.nio.charset.Charset;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import cn.jpush.android.api.JPushInterface;
@@ -104,25 +99,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 MyApplication.dismissProgress();
                 MyApplication.showToastShort("请检查网络状况");
                 Log.i(TAG, "onResponseNull: " );
-            }
-        });
-
-
-        NetRequestManager.getInstance().getAllItems(BaseUrlManager.getUrlForGetAllItems(), 1,2);
-        NetRequestManager.getInstance().setGetAllItemsDataChangeListener(new DataChangeListener<GetAllItemsCode>() {
-            @Override
-            public void onSuccessful(GetAllItemsCode data) {
-                Log.i(TAG, "onSuccessful: ");
-            }
-
-            @Override
-            public void onError(VolleyError volleyError) {
-                Log.i(TAG, "111onError: " + volleyError);
-            }
-
-            @Override
-            public void onResponseNull() {
-                Log.i(TAG, "111onError: ");
             }
         });
 

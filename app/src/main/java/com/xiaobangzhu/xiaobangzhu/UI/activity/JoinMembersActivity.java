@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.squareup.picasso.Picasso;
 import com.xiaobangzhu.xiaobangzhu.Bean.UserBaseInform;
+import com.xiaobangzhu.xiaobangzhu.Bean.UserVIPInfo;
 import com.xiaobangzhu.xiaobangzhu.Bean.VipTypeCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
@@ -39,15 +40,6 @@ public class JoinMembersActivity extends AppCompatActivity {
 
     private ImageView back;
 
-    private ImageView ivShop;
-    private ImageView ivKTV;
-    private ImageView ivHotel;
-    private ImageView ivSchool;
-    private ImageView ivPrivate;
-    private ImageView ivService;
-    private ImageView ivRecommend;
-    private ImageView ivCommonweal;
-
     private LinearLayout imService;
     private LinearLayout imPrivate;
     private LinearLayout imSchool;
@@ -63,13 +55,12 @@ public class JoinMembersActivity extends AppCompatActivity {
 
     private View line;
     private View line1;
-    private View line2;
 
     private View vSign1;
     private View vSign2;
     private View vSign3;
 
-    private int rank = 1;
+    private int rank = 0;
 
 
     /**
@@ -83,48 +74,110 @@ public class JoinMembersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_members);
 
+        initVIP();
+
         initView();
         initEvent();
         initRankView();
     }
 
+    private void initVIP() {
+        NetRequestManager.getInstance().getGetUserVIPInfo("18435186562");
+        NetRequestManager.getInstance().setGetUserVIPInfo(new DataChangeListener<UserVIPInfo>() {
+            @Override
+            public void onSuccessful(UserVIPInfo data) {
+                rank = data.getViptype();
+                initRankView();
+                Log.i(TAG, "onSuccessful: " + rank);
+            }
+
+            @Override
+            public void onError(VolleyError volleyError) {
+                Log.i(TAG, volleyError.toString() +"fdfdgrgrf");
+            }
+
+            @Override
+            public void onResponseNull() {
+                Log.i(TAG, "onSuccessful:2323 " );
+            }
+        });
+        /*NetRequestManager.getInstance().getUserInform(MyApplication.getInstance().getUserToken());
+        NetRequestManager.getInstance().setUserBaseInformListener(new DataChangeListener<UserBaseInform>() {
+            @Override
+            public void onSuccessful(UserBaseInform data) {
+                final String uid = data.getData().getLogin_id();
+                NetRequestManager.getInstance().getGetUserVIPInfo(uid);
+                NetRequestManager.getInstance().setGetUserVIPInfo(new DataChangeListener<UserVIPInfo>() {
+                    @Override
+                    public void onSuccessful(UserVIPInfo data) {
+                        rank = data.getViptype();
+                        Log.i(TAG, "onSuccessful: " +rank);
+                    }
+
+                    @Override
+                    public void onError(VolleyError volleyError) {
+                        MyApplication.dismissProgress();
+                        MyApplication.showToastShort("请检查网络状况");
+                        Log.i(TAG, "onError: " );
+                    }
+
+                    @Override
+                    public void onResponseNull() {
+                        MyApplication.dismissProgress();
+                        MyApplication.showToastShort("请检查网络状况");
+                        Log.i(TAG, "onResponseNull: " );
+                    }
+                });
+            }
+
+            @Override
+            public void onError(VolleyError volleyError) {
+                MyApplication.dismissProgress();
+                MyApplication.showToastShort("请检查网络状况");
+                Log.i(TAG, "onError: " );
+            }
+
+            @Override
+            public void onResponseNull() {
+                MyApplication.dismissProgress();
+                MyApplication.showToastShort("请检查网络状况");
+                Log.i(TAG, "onResponseNull: " );
+            }
+        });*/
+    }
+
     private void initRankView() {
-        rank = 1;
-        tvJoinMember.setVisibility(View.VISIBLE);
-        tvJoinMemberHint.setVisibility(View.VISIBLE);
-     /*   if(rank == 1){
+        if(rank == 0){
             tvJoinMember.setVisibility(View.VISIBLE);
             tvJoinMemberHint.setVisibility(View.VISIBLE);
-            imDoor.setVisibility(View.INVISIBLE);
-            imServer.setVisibility(View.INVISIBLE);
-            imFirst.setVisibility(View.INVISIBLE);
-            imFenqi.setVisibility(View.INVISIBLE);
-            imSchool.setVisibility(View.INVISIBLE);
-            imShop.setVisibility(View.INVISIBLE);
-            imJifen.setVisibility(View.INVISIBLE);
-            imTravel.setVisibility(View.INVISIBLE);
-        } else if(rank == 2){
-            vSign1.setVisibility(View.VISIBLE);
-            rank_header.setImageResource(R.mipmap.ic_vip_2);
-            tvRank.setText("普通会员特权");
-            fl1.setVisibility(View.INVISIBLE);
-            fl2.setVisibility(View.VISIBLE);
-            line.setVisibility(View.VISIBLE);
-        }else if(rank == 3){
-            vSign2.setVisibility(View.VISIBLE);
-            rank_header.setImageResource(R.mipmap.ic_vip_3);
-            tvRank.setText("高级会员特权");
-            fl1.setVisibility(View.INVISIBLE);
-            fl3.setVisibility(View.VISIBLE);
-            line1.setVisibility(View.VISIBLE);
-        } else{
-            vSign3.setVisibility(View.VISIBLE);
-            rank_header.setImageResource(R.mipmap.ic_vip_4);
-            tvRank.setText("尊贵会员特权");
-            fl1.setVisibility(View.GONE);
-            fl4.setVisibility(View.VISIBLE);
-            line2.setVisibility(View.VISIBLE);
-        }*/
+        } else {
+            tvJoinMember.setVisibility(View.INVISIBLE);
+            tvJoinMemberHint.setVisibility(View.INVISIBLE);
+            if(rank == 1){
+                vSign1.setVisibility(View.VISIBLE);
+                rank_header.setImageResource(R.mipmap.ic_vip_1);
+                tvRank.setText("普通会员特权");
+                fl1.setVisibility(View.VISIBLE);
+                fl2.setVisibility(View.INVISIBLE);
+                fl3.setVisibility(View.INVISIBLE);
+            }else if(rank == 2){
+                vSign2.setVisibility(View.VISIBLE);
+                rank_header.setImageResource(R.mipmap.ic_vip_2);
+                tvRank.setText("高级会员特权");
+                fl1.setVisibility(View.INVISIBLE);
+                fl2.setVisibility(View.VISIBLE);
+                fl3.setVisibility(View.INVISIBLE);
+                line.setVisibility(View.VISIBLE);
+            } else{
+                vSign3.setVisibility(View.VISIBLE);
+                rank_header.setImageResource(R.mipmap.ic_vip_3);
+                tvRank.setText("年卡会员特权");
+                fl1.setVisibility(View.INVISIBLE);
+                fl2.setVisibility(View.INVISIBLE);
+                fl3.setVisibility(View.VISIBLE);
+                line1.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     private void initEvent() {
@@ -261,21 +314,16 @@ public class JoinMembersActivity extends AppCompatActivity {
         tvRank = (TextView) findViewById(R.id.tv_rank);
 
         imShop = (LinearLayout) findViewById(R.id.members_shop);
-        ivShop = (ImageView) findViewById(R.id.iv_shop);
+
         imKTV = (LinearLayout) findViewById(R.id.im_ktv);
-        ivKTV = (ImageView) findViewById(R.id.iv_ktv);
+
         imHotel = (LinearLayout) findViewById(R.id.im_hotel);
-        ivHotel = (ImageView) findViewById(R.id.iv_hotel);
+
         imSchool = (LinearLayout) findViewById(R.id.im_school);
-        ivSchool = (ImageView) findViewById(R.id.iv_school);
         imPrivate = (LinearLayout) findViewById(R.id.im_private);
-        ivPrivate = (ImageView) findViewById(R.id.iv_private);
         imService = (LinearLayout) findViewById(R.id.im_service);
-        ivService = (ImageView) findViewById(R.id.iv_service);
         imRecommend = (LinearLayout) findViewById(R.id.im_recommend);
-        ivRecommend = (ImageView) findViewById(R.id.iv_recommend);
         imCommonweal = (LinearLayout) findViewById(R.id.im_commonweal);
-        ivCommonweal = (ImageView) findViewById(R.id.iv_commonweal);
 
         fl1 = (FrameLayout) findViewById(R.id.fr1);
         fl2 = (FrameLayout) findViewById(R.id.fr2);
@@ -283,7 +331,6 @@ public class JoinMembersActivity extends AppCompatActivity {
 
         line = findViewById(R.id.join_member_line);
         line1= findViewById(R.id.join_member_line2);
-        line2 = findViewById(R.id.join_member_line3);
 
         vSign1 = findViewById(R.id.view_vip_sign1);
         vSign2 = findViewById(R.id.view_vip_sign2);

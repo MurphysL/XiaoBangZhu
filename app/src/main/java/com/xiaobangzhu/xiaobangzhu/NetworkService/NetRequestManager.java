@@ -6,6 +6,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
@@ -32,17 +33,16 @@ import com.xiaobangzhu.xiaobangzhu.Bean.PublishResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.QiNiuResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.RegisteResultCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.UserBaseInform;
+import com.xiaobangzhu.xiaobangzhu.Bean.UserVIPInfo;
 import com.xiaobangzhu.xiaobangzhu.Bean.VerifyCode;
 import com.xiaobangzhu.xiaobangzhu.Bean.VipTypeCode;
 import com.xiaobangzhu.xiaobangzhu.Interface.DataChangeListener;
 import com.xiaobangzhu.xiaobangzhu.MyApplication;
 import com.xiaobangzhu.xiaobangzhu.Utils.VerifyUtils;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,6 +86,7 @@ public class NetRequestManager {
     private DataChangeListener<GetAllItemsCode> getAllItemsDataChangeListener;
     private DataChangeListener<GetAllOrdersByUidCode> getAllOrdersByUidDataChangeListener;
     private DataChangeListener<GetCartAllItemsCode> getCartAllItemsDataChangeListener;
+    private DataChangeListener<UserVIPInfo> getUserVIPInfoDataChangeListener;
 
 
     private NetRequestManager() {
@@ -140,6 +141,18 @@ public class NetRequestManager {
             MyApplication.getRequestQueue().add(request);
         }
     }
+
+    /**
+     * post请求，JSON
+     */
+   /* private void postRequest(String url, Response.Listener<JSONArray> responseListener, Response.ErrorListener errorListener , final JSONArray param){
+        if(url != null && responseListener != null && errorListener != null){
+            JsonArrayRequest request = new JsonArrayRequest(Request.Method.POST , url , param , responseListener, errorListener);
+            Log.i(TAG, url);
+            request.setTag(url);
+            MyApplication.getRequestQueue().add(request);
+        }
+    }*/
 
     /**
      * get请求
@@ -261,7 +274,6 @@ public class NetRequestManager {
         getRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
                 if (response != null) {
                     Log.i(TAG, "onResponse: " + response);
                     UserBaseInform userBaseInform = gson.fromJson(response, UserBaseInform.class);
@@ -1100,27 +1112,62 @@ public class NetRequestManager {
         } , headers);
     }
 
-    /**
-     * 获取商品列表
-     */
-    public void getAllItems(String url, int uid , int usertype){
-        Log.i(TAG, "getAllItems: " + url);
+    public void getGetUserVIPInfo(String uid){
+        String url = BaseUrlManager.getUrlForGetVipUser();
+
+        Long id = Long.parseLong(uid);
 
         Map<String, Object> map = new HashMap<>();
-        map.put("uid" , uid);
-        map.put("usertype", usertype);
+        map.put("uid", id);
         JSONObject object = new JSONObject(map);
+        Log.i(TAG, "getGetUserVIPInfo: "+ url+ "\nbody"+object.toString());
 
         postRequest(url, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                if (!response.equals("")) {
+                if (!response.toString().equals("")) {
+                    Log.i(TAG, "getGetUserVIPInfo: " + response.toString());
+
+                    UserVIPInfo data = gson.fromJson(response.toString() , UserVIPInfo.class);
+                    if(getUserVIPInfoDataChangeListener != null){
+                        getUserVIPInfoDataChangeListener.onSuccessful(data);
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i(TAG, "onErrorResponse: " + "getGetUserVIPInfo");
+                if(getUserVIPInfoDataChangeListener != null){
+                    getUserVIPInfoDataChangeListener.onError(error);
+                }
+            }
+        } , object);
+    }
+
+    /**
+     * 获取商品列表
+     */
+    public void getAllItems(String uid , int usertype){
+        String url = BaseUrlManager.getUrlForGetAllItems();
+
+        Map<String, Object> map = new HashMap<>();
+        long id = Long.parseLong(uid);
+        map.put("uid" , id);
+        map.put("usertype", usertype);
+        JSONObject object = new JSONObject(map);
+        Log.i(TAG, "getAllItems: " + url +"\nbody"+object.toString());
+
+        postRequest(url, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                if (!response.toString().equals("")) {
                     Log.i(TAG, "getAllItems: " + response.toString());
 
-                    //GetAllItemsCode data = gson.fromJson(response , GetAllItemsCode.class);
-                    /*if(getAllItemsDataChangeListener != null){
+                    GetAllItemsCode data = gson.fromJson(response.toString() , GetAllItemsCode.class);
+                    if(getAllItemsDataChangeListener != null){
                         getAllItemsDataChangeListener.onSuccessful(data);
-                    }*/
+                    }
                 }
             }
         }, new Response.ErrorListener() {
@@ -1162,6 +1209,9 @@ public class NetRequestManager {
             }
         } , headers);
     }
+
+
+
 
     public void setInitImageCodeListener(DataChangeListener<InitImageResultCode> initImageCodeListener) {
         this.initImageCodeListener = initImageCodeListener;
@@ -1287,4 +1337,7 @@ public class NetRequestManager {
         this.getCartAllItemsDataChangeListener = getCartAllItemsDataChangeListener;
     }
 
+    public void setGetUserVIPInfo(DataChangeListener<UserVIPInfo> getUserVIPInfoDataChangeListener){
+        this.getUserVIPInfoDataChangeListener = getUserVIPInfoDataChangeListener;
+    }
 }

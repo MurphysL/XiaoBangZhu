@@ -47,6 +47,8 @@ public class ShopActivity extends AppCompatActivity {
         initView();
 
         initEvent();
+
+
     }
 
     private void initEvent() {

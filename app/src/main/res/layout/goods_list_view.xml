@@ -38,6 +38,7 @@
         android:layout_height="50dp">
         <TextView
             android:layout_marginLeft="20dp"
+            android:id="@+id/goods_member"
             android:textColor="@color/base_color_text_black"
             android:paddingLeft="20dp"
             android:layout_marginTop="10dp"

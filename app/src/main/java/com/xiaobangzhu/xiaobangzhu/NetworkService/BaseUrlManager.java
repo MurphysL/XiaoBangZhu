@@ -3,8 +3,6 @@ package com.xiaobangzhu.xiaobangzhu.NetworkService;
 import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.sql.Date;
 
 /**
  * url管理类
@@ -31,11 +29,11 @@ public class BaseUrlManager {
      * 服务器地址
      */
     private static final String serverAddress = "http://120.76.239.192/moblieInterface/";
-    //private static final String serverAddress = "http://120.76.239.192/xbzAdmin/moblieInterface/";
+    
     /**
      * 服务器地址2
      */
-    private static final String serverAddress3 = "http://120.76.239.192/xbzAdmin/moblieInterface/";
+    private static final String serverAddress_store = "http://120.76.239.192/xbzAdmin/moblieInterface/";
 
     /**
      * 支付签名
@@ -132,7 +130,6 @@ public class BaseUrlManager {
         return urlForAddExpressage + "?param={\"college_id\":"+collegeId+",\"name\":\""+name+"\",\"express_id\":"+expressId+",\"address\":\""+address+"\",\"tip\":"+tip+",\"phone_tail\":\""+phoneTail+"\",\"type\":"+type+",\"limit_time\":\""+limitTime+"\"}";
     }
 
-
     private static final String urlForAddActivity = serverAddress + "addActivity.jhtml";
     static String geturlForAddActivity(int collegeId, String title, String address, String startTime, String endTime, String content, String picture, String poster, String tags, int num) {
         return urlForAddActivity + "?param={\"content\":\""+content+"\",\"title\":\""+title+"\",\"college_id\":"+collegeId+",\"begin_time\":\""+startTime+"\",\"end_time\":\""+endTime+"\",\"tags\":\""+tags+"\",\"poster\":\""+poster+"\",\"address\":\""+address+"\",\"person_num\":"+num+",\"apply_endtime\":\""+endTime+"\",\"picture\":\""+picture+"\"}";
@@ -151,7 +148,6 @@ public class BaseUrlManager {
         return urlForAuth + "?param={\"name\":\""+name+"\",\"college\":\""+college+"\",\"education\":\""+education+"\",\"picture\":\""+picture+"\",\"identity\":\""+identity+"\",\"eduStartDate\":"+eduStartDate+"}" ;
     }
 
-
     /**
      * 获取七牛云的token
      */
@@ -167,7 +163,6 @@ public class BaseUrlManager {
     static String getUrlForAddSuggest(String content, String contact) {
         return urlForAddSuggest + "?param={\"content\":\""+content+"\",\"contact\":\""+contact+"\"}";
     }
-
 
     /**
      * 更新用户信息
@@ -201,15 +196,18 @@ public class BaseUrlManager {
         return urlForGetVipType;
     }
 
-   /* private static final String urlForAddVIP = serverAddress+"addVIP.jhtml";
-    public static String getUrlForAddVIP(int vip_id , int month){
-        return urlForAddVIP + "?param={\"vip_id\":" +vip_id +",\"month\":" + month +"}";
-    }*/
+    /**
+     * 用户会员信息
+     */
+    private static final String urlForGetVipUser = serverAddress_store + "getVIPUser.jhtml";
+    static String getUrlForGetVipUser(){
+        return urlForGetVipUser;
+    }
 
     /**
      * 添加会员
      */
-    private static final String urlForAddVIPUser = serverAddress3+"addVIPUser.jhtml";
+    private static final String urlForAddVIPUser = serverAddress_store +"addVIPUser.jhtml";
     static String getUrlForAddVIPUser(){
         return urlForAddVIPUser;
     }
@@ -217,7 +215,7 @@ public class BaseUrlManager {
     /**
      * 操作购物车接口
      */
-    private static final String urlForOptionItemsToCart = serverAddress3+"optionItemsToCart.jhtml";
+    private static final String urlForOptionItemsToCart = serverAddress_store +"optionItemsToCart.jhtml";
     static String getUrlForOptionItemsToCart(int uid , int usertype , int itemsid , int itemsnum){
         return urlForOptionItemsToCart + "?param={\"uid\":" +uid +",\"usertype\":" + usertype +",\"itemsid\":" + itemsid+
                 ",\"itemsnum\":" + itemsnum +"}";
@@ -226,7 +224,7 @@ public class BaseUrlManager {
     /**
      * 订单支付成功接口
      */
-    private static final String urlForPaySuccessByNumber = serverAddress3+"paySuccessByNumber.jhtml";
+    private static final String urlForPaySuccessByNumber = serverAddress_store +"paySuccessByNumber.jhtml";
     static String getUrlForPaySuccessByNumber(int number){
         return urlForPaySuccessByNumber + "?param={\"number\":" +number+"}";
     }
@@ -234,7 +232,7 @@ public class BaseUrlManager {
     /**
      * 获取商品列表
      */
-    private static final String urlForGetAllItems = serverAddress3+"getAllItems.jhtml";
+    private static final String urlForGetAllItems = serverAddress_store +"getAllItems.jhtml";
     public static String getUrlForGetAllItems(){
         return urlForGetAllItems;
     }
@@ -242,7 +240,7 @@ public class BaseUrlManager {
     /**
      * 获取用户购物车所有商品
      */
-    private static final String urlForGetCartAllItems = serverAddress3+"getCartAllItems.jhtml";
+    private static final String urlForGetCartAllItems = serverAddress_store +"getCartAllItems.jhtml";
     public static String getUrlForGetCartAllItems(int uid){
         return urlForGetCartAllItems + "?param={\"uid\":" +uid+"}";
     }
@@ -250,7 +248,7 @@ public class BaseUrlManager {
     /**
      * 获取用户所有的订单
      */
-    private static final String urlForGetAllOrdersByUid = serverAddress3 +"getAllOrdersByUid.jhtml";
+    private static final String urlForGetAllOrdersByUid = serverAddress_store +"getAllOrdersByUid.jhtml";
     static String getUrlForGetAllOrdersByUid(int uid){
         return urlForGetAllOrdersByUid + "?param={\"uid\":" +uid+"}";
     }
@@ -258,7 +256,7 @@ public class BaseUrlManager {
     /**
      * 删除订单接口
      */
-    private static final String urlForDelOrdersByNumber = serverAddress3 +"delOrdersByNumber.jhtml";
+    private static final String urlForDelOrdersByNumber = serverAddress_store +"delOrdersByNumber.jhtml";
     static String getUrlForDelOrdersByNumber(int number){
         return urlForDelOrdersByNumber + "?param={\"number\":" +number+"}";
     }
@@ -266,7 +264,7 @@ public class BaseUrlManager {
     /**
      * 生成订单接口
      */
-    private static final String urlForOptionOrders = serverAddress3 + "optionOrders.jhtml";
+    private static final String urlForOptionOrders = serverAddress_store + "optionOrders.jhtml";
     static String getUrlForOptionOrders(int uid , String note){
         try {
             byte[] b = note.getBytes("UTF-8");
@@ -279,7 +277,5 @@ public class BaseUrlManager {
         }
 
     }
-
-
 
 }

@@ -66,7 +66,7 @@ public class MemberSelectActivity extends AppCompatActivity {
     private ViewPager viewPager;
     int currentPager = 1;
 
-    private float price_normal = 25 , price_high = 35 , price_year = 450;
+    private float price_normal = 0.1f , price_high = 35 , price_year = 450;
     /**
      * 0--normal
      * 1--high
@@ -390,22 +390,24 @@ public class MemberSelectActivity extends AppCompatActivity {
                 month_3.setTextColor(csl2);
                 month_6.setTextColor(csl2);
                 money = calculatePrice();
-                Log.i("123" , "currentPager" + currentPager);
                 viewPager.setCurrentItem(currentPager ,false);
 
             }
         });
 
         //判断0
+        /**
+         * 价格*100 保留小数
+         */
         pay_for_member.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MemberSelectActivity.this , PayOrderActivity.class);
                 Bundle b = new Bundle();
                 b.putString("subject" , "member");
-                Log.i("123" , "llala" + m + vip_type + "");
+                Log.i("123" , "llala" + m + vip_type + "" + money);
                 b.putString("body" , m * 10 + vip_type +"");
-                b.putInt("total_fee" , (int)money);
+                b.putInt("total_fee" , (int)(money*100));
                 intent.putExtras(b);
                 startActivity(intent);
 

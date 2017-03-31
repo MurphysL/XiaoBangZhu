@@ -128,7 +128,7 @@
                 android:layout_marginTop="7dp"
                 android:layout_below="@id/activity_join_member_header_img"
                 android:layout_toEndOf="@+id/activity_join_member_user_name"
-                android:background="@drawable/vip_sign"
+                android:background="@drawable/vip1_sign"
                 android:layout_width="25dp"
                 android:layout_height="12dp"/>
             <View
@@ -138,7 +138,7 @@
                 android:layout_marginTop="7dp"
                 android:layout_below="@id/activity_join_member_header_img"
                 android:layout_toEndOf="@+id/activity_join_member_user_name"
-                android:background="@drawable/vip1_sign"
+                android:background="@drawable/vip_sign"
                 android:layout_width="18dp"
                 android:layout_height="10dp"/>
             <View
@@ -174,7 +174,6 @@
                     android:textColor="@color/acivity_change_info_btn_bg"
                     android:layout_marginTop="5dp"
                     android:textSize="10sp"
-
                     android:layout_below="@id/activity_join_member_user_name"
                     android:layout_toRightOf="@id/activity_join_member_not_vip_text"
                     android:text="立即开通"
@@ -189,7 +188,7 @@
                 android:layout_marginLeft="50dp"
                 android:background="@drawable/line"
                 android:layout_marginTop="30dp"
-                android:layout_width="85dp"
+                android:layout_width="120dp"
                 android:layout_height="2dp"/>
             <View
                 android:visibility="gone"
@@ -198,17 +197,7 @@
                 android:layout_marginLeft="50dp"
                 android:background="@drawable/line"
                 android:layout_marginTop="30dp"
-                android:layout_width="170dp"
-                android:layout_height="2dp"/>
-            <View
-                android:visibility="gone"
-                android:id="@+id/join_member_line3"
-                android:layout_below="@+id/activity_join_member_text_line"
-                android:layout_marginLeft="50dp"
-                android:background="@drawable/line"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="32dp"
-                android:layout_width="match_parent"
+                android:layout_width="235dp"
                 android:layout_height="2dp"/>
 
             <LinearLayout

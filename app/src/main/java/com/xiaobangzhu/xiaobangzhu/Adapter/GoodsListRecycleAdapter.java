@@ -3,15 +3,19 @@ package com.xiaobangzhu.xiaobangzhu.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+import com.xiaobangzhu.xiaobangzhu.Bean.NewItemsListBean;
 import com.xiaobangzhu.xiaobangzhu.R;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.PayForGoodsActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,13 +27,17 @@ import java.util.List;
 
 
 public class GoodsListRecycleAdapter extends RecyclerView.Adapter<GoodsListRecycleAdapter.GoodsViewHolder>{
+    private static final String TAG = "GoodsListRecycleAdapter";
 
     private Context context ;
-    private List data;
+    private List<NewItemsListBean> data = new ArrayList<>();
 
-    public GoodsListRecycleAdapter(Context context , List data){
+    public GoodsListRecycleAdapter(Context context , List<NewItemsListBean> data){
         this.context = context;
         this.data = data;
+        if(data != null){
+            Log.i(TAG, "GoodsListRecycleAdapter: " + data.size());
+        }
     }
 
     @Override
@@ -39,9 +47,17 @@ public class GoodsListRecycleAdapter extends RecyclerView.Adapter<GoodsListRecyc
 
     @Override
     public void onBindViewHolder(final GoodsViewHolder holder, int position) {
-        holder.iv_goods.setImageResource(R.mipmap.emperor_member);
-        holder.tx_goods.setText("珍珠奶茶");
-        holder.tx_price.setText("15");
+        NewItemsListBean bean = data.get(position);
+        Picasso.with(context)
+                .load(bean.getPic())
+                .into(holder.iv_goods);
+        holder.tx_goods.setText(bean.getName());
+
+        Log.i(TAG, "onBindViewHolder: " + bean.getPriceh());
+        //价格更改
+        holder.tx_price.setText(bean.getPriceh()+"");
+        holder.tx_member.setText("普通会员");
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,8 +69,8 @@ public class GoodsListRecycleAdapter extends RecyclerView.Adapter<GoodsListRecyc
 
     @Override
     public int getItemCount() {
-        //return data.size();
-        return 1;
+        Log.i(TAG, "getItemCount: " + data.size());
+        return data.size();
     }
 
     public class GoodsViewHolder extends RecyclerView.ViewHolder{
@@ -62,6 +78,7 @@ public class GoodsListRecycleAdapter extends RecyclerView.Adapter<GoodsListRecyc
         private TextView tx_goods;
         private TextView tx_price;
         private View itemView;
+        private TextView tx_member;
 
         public GoodsViewHolder(View itemView) {
             super(itemView);
@@ -69,6 +86,7 @@ public class GoodsListRecycleAdapter extends RecyclerView.Adapter<GoodsListRecyc
             iv_goods = (ImageView) itemView.findViewById(R.id.goods_image);
             tx_goods = (TextView) itemView.findViewById(R.id.goods_name);
             tx_price = (TextView) itemView.findViewById(R.id.goods_price);
+            tx_member = (TextView) itemView.findViewById(R.id.goods_member);
         }
 
     }

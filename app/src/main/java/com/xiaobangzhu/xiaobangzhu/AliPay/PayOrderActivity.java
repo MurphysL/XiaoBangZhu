@@ -25,6 +25,7 @@ import com.xiaobangzhu.xiaobangzhu.R;
 import com.xiaobangzhu.xiaobangzhu.UI.activity.PayMemberSuccessActivity;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
@@ -70,7 +71,7 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
 
     private String subject ;
     private String body ;
-    private int total_fee;
+    private float total_fee;
 
     private int vip_type;
     private int vip_month;
@@ -110,7 +111,8 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
                                 public void onSuccessful(UserBaseInform data) {
                                     String tele = data.getData().getLogin_id();
                                     if(tele != null && !tele.equals("")){
-                                        NetRequestManager.getInstance().addVIP(tele , 2 , 0 , starttime , endtime);
+
+                                        NetRequestManager.getInstance().addVIP(tele ,vip_type , 0 , starttime , endtime);
                                         NetRequestManager.getInstance().setAddVIPCodeDataChangeListener(new DataChangeListener<AddVIPCode>() {
                                             @Override
                                             public void onSuccessful(AddVIPCode data) {
@@ -120,8 +122,9 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
                                                         Intent intent = new Intent();
                                                         intent.setClass(PayOrderActivity.this , PayMemberSuccessActivity.class);
                                                         intent.putExtra("type" ,vip_type);
-                                                        Log.i("123" , vip_type+"");
                                                         startActivity(intent);
+                                                        Log.i(TAG, "onSuccessful: " + "起始时间：" + starttime + "结束时间：" + endtime
+                                                        +"会员种类" + vip_type);
                                                         finish();
                                                     }
                                                 }else{
@@ -238,13 +241,12 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = getIntent();
 
         Bundle bundle = intent.getExtras();
-        Log.i("123" , "000000");
         if(bundle != null){
             subject = bundle.getString("subject");
             body = bundle.getString("body");
-            total_fee = bundle.getInt("total_fee");
+            total_fee = bundle.getInt("total_fee")/100f;
 
-            Log.i(TAG, "initData: " + subject + " " + body + " " + total_fee ) ;
+            Log.i(TAG, "initData: " + subject + " " + body + " " + total_fee) ;
 
         }
 
@@ -297,8 +299,10 @@ public class PayOrderActivity extends AppCompatActivity implements View.OnClickL
 
 
         publishBtn.setVisibility(View.GONE);
-        tvFee.setText(total_fee + ".00");
-        tvFeeS.setText(total_fee + ".00");
+        DecimalFormat format = new DecimalFormat("####0.00");
+        String fee = format.format(total_fee);
+        tvFee.setText(fee);
+        tvFeeS.setText(fee);
     }
 
     @Override
